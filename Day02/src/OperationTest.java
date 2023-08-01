@@ -105,10 +105,79 @@ public class OperationTest {
         int num2 = 3;
         int num3 = ++num1;//num1=3 num3=3
         System.out.println(++num1 + num2++ + num3);
-                            //4 +   3(4) +  3=10
+        //4 +   3(4) +  3=10
         System.out.println(--num1 + num2-- + --num3);
-                            //3   +  4(3)  + 2 =9
+        //3   +  4(3)  + 2 =9
         System.out.println(num1-- + num2-- + --num3);
-                            //3(2) + 3(2)  +  1 = 7
+        //3(2) + 3(2)  +  1 = 7
     }
+
+    @Test
+    public void test7() {
+        //赋值运算符
+        // 目标：掌握扩展赋值运算符的使用。
+        // +=
+        double a = 9.5;
+        int b = 520;
+        a += b;//自动类型提升
+        System.out.println(a);//529.5
+
+        double c = 9.5;
+        int d = 520;
+        d += c;//强制转换 d=(int)(c+d) 去除小数
+        System.out.println(d);//529
+
+        // -= 需求：发红包
+        double i = 600;
+        double j = 520;
+        i -= j;
+        System.out.println(i);//80.0
+
+
+        int m = 10;
+        int n = 5;
+        //m *= n;//50
+        //m/=n;//m = m/n   m=2
+        m %= n;//m=m%n;   m=0
+        System.out.println(m);
+    }
+
+    @Test
+    public void test8() {
+        //问题1：下面的代码否有问题
+        byte x = 10;
+        byte y = 30;
+        //x = x + y;
+        // 报错 byte char short 转换成int类型进行计算
+        System.out.println(x);
+    }
+
+    @Test
+    public void test9() {
+        //问题2：下面的代码是否有问题？
+        byte x = 10;
+        byte y = 30;
+        // x += 3;
+        x += y; // x = (byte) (x + y); 相当于强制类型转换
+        System.out.println(x); // 40
+
+    }
+
+    @Test
+    public void test10() {
+        int a = 10;
+        int b = 5;
+        System.out.println(a = b);
+
+    }
+
+
+    @Test
+    public void test11() {
+        //负数位运算
+        System.out.println(-12 | 3);//-9
+
+
+    }
+
 }
