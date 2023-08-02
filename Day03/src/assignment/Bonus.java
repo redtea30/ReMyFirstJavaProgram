@@ -23,19 +23,20 @@ public class Bonus {
         int salary = scanner.nextInt();
         System.out.println("请输入员工的工作年龄");
         int bounus = scanner.nextInt();
-        double yearEndBouns;
+        double yearEndBouns = 0;
 
-        if (bounus > 0 && bounus <= 5) {
-            yearEndBouns = salary * 0.05 * 12;
-        } else if (bounus > 5 && bounus <= 10) {
-            yearEndBouns = salary * 0.1 * 12;
-        } else if (bounus > 10) {
-            yearEndBouns = salary * 0.15 * 12;
+        if (salary > 0 && bounus > 0) {
+            if (bounus > 0 && bounus <= 5) {
+                yearEndBouns = salary * 0.05 * 12;
+            } else if (bounus > 5 && bounus <= 10) {
+                yearEndBouns = salary * 0.1 * 12;
+            } else if (bounus > 10) {
+                yearEndBouns = salary * 0.15 * 12;
+            }
+
+            System.out.println("该员工的年终奖为" + yearEndBouns);
         } else {
             System.out.println("你的输入有误");
-            return;
         }
-
-        System.out.println("该员工的年终奖为"+ yearEndBouns);
     }
 }
