@@ -20,9 +20,26 @@ public class GreateCommonDivisorAndLowestCommonMultiple {
         System.out.println("请输入数字2");
         int num2 = scanner.nextInt();
 
+        int num3 = num1 * num2;
+        int num4 = 0;
+        if (num1 < num2) {
+            int t = num1;
+            num1 = num2;
+            num2 = t;
+        }
+        while (true) {
+            num4 = num1 % num2;
+            if (num4 == 0) break;
+            else {
+                num1 = num2;
+                num2 = num4;
+            }
 
 
-
+        }
+        System.out.println("最小公倍数" + num3/num2);
+        System.out.println("最大公因数" + num2);
 
     }
 }
+
