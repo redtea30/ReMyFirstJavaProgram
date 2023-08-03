@@ -1,7 +1,5 @@
 package experimentalTest;
 
-import org.junit.validator.PublicClassValidator;
-
 /**
  * ClassName:ObjectTestPerson
  * Package: experimentalTest
@@ -15,6 +13,11 @@ public class ObjectTestPerson {
     private String name;
     private int age;
 
+    public ObjectTestPerson(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -24,7 +27,7 @@ public class ObjectTestPerson {
             return false;
         }
         ObjectTestPerson otherPerson = (ObjectTestPerson) obj;
-        return this.name.equals(otherPerson.name)&&this.age == otherPerson.age;
+        return this.name.equals(otherPerson.name) && this.age == otherPerson.age;
     }
 
     @Override
@@ -33,12 +36,13 @@ public class ObjectTestPerson {
         result = 31 * result + age;
         return result;
     }
+
+
     @Override
-    Public String
-
-
-
-
-
-
+    public String toString() {
+        return "ObjectTestPerson{" +
+                "name='" + name + '\'' +//   \'  大概是转义字符
+                ", age=" + age +
+                '}';
+    }
 }
