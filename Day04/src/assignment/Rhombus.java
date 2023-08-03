@@ -1,5 +1,7 @@
+package assignment;
+
 /**
- * ClassName:Rhombus
+ * ClassName:assignment.Rhombus
  * Package: PACKAGE_NAME
  * Description:
  *
