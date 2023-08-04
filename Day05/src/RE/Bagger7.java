@@ -1,12 +1,12 @@
-package extension;
+package RE;
 
 /**
  * ClassName:Bagger7
- * Package: extension
+ * Package: RE
  * Description:
  *
  * @Author Neko
- * @Create 3/8/20239:34 pm
+ * @Create 4/8/20235:14 pm
  * @Version 1.0
  */
 public class Bagger7 {
@@ -18,16 +18,14 @@ public class Bagger7 {
         //第三天要了4块钱
         //第四天要了8块钱
         //以此类推
-        int total = 0;
-        int days = 1;
+        int totalDays = 10;//1023
         int income = 1;
-        do {
-            total += income;////////////////////////////////////////////////
+        int totalIncomes = 0;
+        for (int i = 0; i < totalDays; i++) {
+            totalIncomes += income;
             income += income;
-            days++;
-        } while (days <= 10);
-        System.out.println(total);
-        System.out.println(days);
+        }
+        System.out.println(totalIncomes);
+
     }
 }
-

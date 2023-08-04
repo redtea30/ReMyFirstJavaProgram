@@ -1,7 +1,9 @@
 package extension;
 
+import org.junit.jupiter.api.Test;
+
 /**
- * ClassName:Test
+ * ClassName:GCMuttipleAndLCDivision
  * Package: extension
  * Description:
  *
@@ -9,9 +11,9 @@ package extension;
  * @Create 4/8/20237:45 am
  * @Version 1.0
  */
-public class Test {
-    @org.junit.jupiter.api.Test
-    public void GreastCommonMultiple() {
+public class LCMuttipleAndGCDivision {
+    @Test
+    public void LowestCommonMultiple() {
         //
         int a = 30;
         int b = 38;
@@ -35,8 +37,8 @@ public class Test {
         }
     }
 
-    @org.junit.jupiter.api.Test
-    public void LowestCommonDivison() {
+    @Test
+    public void GreatestCommonDivison() {
 /*        System.out.print("请输入a和b");
         Scanner scan = new Scanner(System.in);//以空格作为分隔符
         int a = scan.nextInt();
