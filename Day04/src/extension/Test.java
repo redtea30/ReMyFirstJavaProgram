@@ -11,7 +11,7 @@ package extension;
  */
 public class Test {
     @org.junit.jupiter.api.Test
-    public void GreastCommonDivision() {
+    public void GreastCommonMultiple() {
         //
         int a = 30;
         int b = 38;
@@ -36,7 +36,7 @@ public class Test {
     }
 
     @org.junit.jupiter.api.Test
-    public void LowestCommonMultiple() {
+    public void LowestCommonDivison() {
 /*        System.out.print("请输入a和b");
         Scanner scan = new Scanner(System.in);//以空格作为分隔符
         int a = scan.nextInt();
