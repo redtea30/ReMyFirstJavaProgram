@@ -15,12 +15,23 @@ public class SixPlayerAndJudege {
         //最后得分为：去掉最高分、最低分后的4个评委的平均分，请完成上述过程并计算
         //出选手的得分。
 
-        int[] score = {87,12,56,84,45,99};
-        for (int i=0;i<6;i++){
-
-
-
-
+        int[] score = {87, 12, 56, 84, 45, 99};
+        int min = score[1];
+        int max = score[2];
+        int sum = 0;
+        for (int i = 0; i < 6; i++) {
+            if (score[i] < min) min = score[i];
+            else if (score[i] > max) max = score[i];
         }
+        System.out.println(max + "max" + min + "min");
+
+
+        for (int i : score) {
+            if (i == max) continue;
+            else if (i == min) continue;
+            else sum += i;
+        }
+        int avg = sum / 4;
+        System.out.println(avg + "avg");
     }
 }

@@ -21,7 +21,20 @@ public class MakeANumber {
             if (i == 4) {
                 num += arr[i];
             } else {
-                num += arr[i] * Math.pow(10, (4 - i));//太过于容易，有空改成别的样式
+                //num += arr[i] * Math.pow(10, (4 - i));//太过于容易，有空改成别的样式
+                if (i == 4) {
+                    num += arr[i];
+                } else if (i == 3) {
+                    num += arr[i] * 10;
+                } else if (i == 2) {
+                    num += arr[i] * 10 * 10;
+                } else if (i == 1) {
+                    num += arr[i] * 10 * 10 * 10;
+                } else {
+                    num += arr[i] * 10 * 10 * 10 * 10;
+                }
+
+
             }
         }
 
