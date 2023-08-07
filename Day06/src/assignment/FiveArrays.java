@@ -19,7 +19,7 @@ public class FiveArrays {
         //c. 遍历数组arr,筛选出数组中不是num倍数的元素并输出
         //PS：输入的数组元素范围包括1和60，不需要代码判断
         Scanner scanner = new Scanner(System.in);
-        int arr[] = new int[5];
+        int[] arr = new int[5];
         for (int i = 0; i < 5; i++) {//a. 定义一个长度为5的int型数组arr，提示用户输入5个1-60之间的数字作为数组元素
             while (true) {
                 if (i == 4 && (arr[4] != 0)) break;
@@ -31,7 +31,7 @@ public class FiveArrays {
                 } else System.out.println("请再输入一次");
             }
         }
-        int randomNum = (int) (Math.random() * 8 + 2);//b. 生成2-10（范围包含2和10）之间的随机数num
+        int randomNum = (int) (Math.random() * 9 + 2);//b. 生成2-10（范围包含2和10）之间的随机数num
         System.out.println(randomNum);
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] % randomNum != 0)
