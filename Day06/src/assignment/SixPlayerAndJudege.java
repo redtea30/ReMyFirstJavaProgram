@@ -27,8 +27,7 @@ public class SixPlayerAndJudege {
 
 
         for (int i : score) {
-            if (i == max) continue;
-            else if (i == min) continue;
+            if (i == max||i==min) continue;
             else sum += i;
         }
         int avg = sum / 4;
