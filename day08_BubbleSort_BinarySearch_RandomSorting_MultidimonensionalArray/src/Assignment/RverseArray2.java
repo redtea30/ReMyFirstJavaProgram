@@ -19,9 +19,9 @@ public class RverseArray2 {
         };
 
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < chunxiao[i].length; i++) {
             for (int j = 0; j < chunxiao.length; j++) {
-                System.out.print(chunxiao[chunxiao.length  -1-j][i]);
+                System.out.print(chunxiao[chunxiao.length - 1 - j][i]);
             }
             System.out.println();
         }

@@ -1,7 +1,5 @@
 package Assignment;
 
-import java.util.Arrays;
-
 /**
  * ClassName:ArraysOrder
  * Package: Assignment
@@ -11,7 +9,7 @@ import java.util.Arrays;
  * @Create 9/8/20237:47 pm
  * @Version 1.0
  */
-public class ArrayOrder2 {
+/*public class ArrayOrder2 {
     public static void main(String[] args) {
         // 设 names 数组中存放学生姓名
         String[] names = {"安琪拉", "王昭君", "蔡文姬", "妲己", "张良"};
@@ -26,6 +24,12 @@ public class ArrayOrder2 {
                 {60, 100, 99},
         };
         int[] scoreOrder = new int[scores.length];
+        //新建数组对课程表进行修改，增加总成绩
+        String[] courses1 = Arrays.copyOf(courses, courses.length + 1);
+        courses1[courses.length] = "总成绩";
+        System.out.println(Arrays.toString(courses1));
+        //2. 设计程序，根据学生总成绩进行排序(降序排列)，并输出学生姓名、每门课程的名称和该学生的成绩、该学生的总成绩
+
         //重新生成一个数组，带总成绩
         int[][] withTotalScore = new int[scores.length][scores[1].length + 1];
         for (int i = 0; i < scores.length; i++) {
@@ -44,10 +48,7 @@ public class ArrayOrder2 {
                 System.out.print(c + " ");
             }
             System.out.println();
-        }
 
-
-        for (int i = 0; i < scores.length; i++) {
 
             int innerScoers = scoreOrder[scores.length - 1 - i];
             int order = 0;//这个数对应总成绩倒排序列
@@ -64,14 +65,15 @@ public class ArrayOrder2 {
             for (int j = 0; j < scores[i].length; j++) {
                 System.out.print(courses[j] + ":");// 输出课程名称
                 System.out.print(scores[i][j]); // 输出课程成绩
+                System.out.println(withTotalScore[j][3]);
                 if (j < scores[i].length - 1) {
                     System.out.print(" , ");
                 }
             }
             System.out.println();
         }
-        //2. 设计程序，根据学生总成绩进行排序(降序排列)，并输出学生姓名、每门课程的名称和该学生的成绩、该学生的总成绩
-
-
     }
-}
+
+
+}*/
+
