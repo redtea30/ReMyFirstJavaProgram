@@ -12,6 +12,7 @@ import java.util.Random;
 public class Tree {
     static long grow = 11; // 树初始成长值，当成长值 归零或小于0时，树死亡
     static long warms = 0;
+    static long count = 0;
 
     public static void main(String[] args) throws InterruptedException {
         // 获取操作次数
@@ -19,10 +20,14 @@ public class Tree {
         Random rand = new Random();
         //int type = rand.nextInt(4) + 1; //【1，4】
         // 分支 按照type执行不同的方法
-        long count = 0;
+
+        int[] arr = new int[(int) Math.pow(10, 9)];
+
+
         while (grow >= 0) {
             count++;
             int type = rand.nextInt(4) + 1; //【1，4】
+            arr[(int) (count - 1)] = type;
             switch (type) {
                 case 1 -> {
                     water();
@@ -37,11 +42,11 @@ public class Tree {
                     break;
                 }
                 case 4 -> {
-                    worms();
+                    worms(arr);
                     break;
                 }
             }
-            System.out.println("第" + count + "轮 "+(grow>=0?"存活":"死亡"));
+            System.out.println("第" + count + "轮 " + (grow >= 0 ? "存活" : "死亡"));
 
         }
 
@@ -76,9 +81,9 @@ public class Tree {
      * 生虫，每生虫一次成长值 -10
      * 连续生虫三次，生长值额外 - 20
      */
-    public static void worms() {
+    public static void worms(int[] arr) {
         warms++;
-        if (warms % 3 == 0) {
+        if (arr[(int) count - 2] == 4 && arr[(int) count - 1] == 4 && count > 3) {
             grow -= 30;
             System.out.println("生虫三次 余额" + grow);
         } else {
