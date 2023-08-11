@@ -17,14 +17,14 @@ public class PerfectNum {
         int count = 0;
         for (long i = 2; i < (long) (Math.pow(10, 60)); i += 2) {//完美数都是偶数
             long sum = 0;
-            for (long j = 1; Math.pow(j, 2) < i; j++) {
-                if (i % j == 0) {
-                    sum += j;
-                    if (j * j != i) {
+            if (i % 10 == 6 || i % 10 == 8) {//完美数结尾都是6/8
+                for (long j = 1; j < Math.sqrt(i); j++) {//大哥说这么写更快
+                    if (i % j == 0) {
+                        sum += j;
                         sum += i / j;
                     }
                 }
-            }
+            } else continue;
             sum -= i;//第一个因数是1的时候，对应的另一个因数是本身，需要减掉
             if (sum == i) {
                 System.out.println(i);
