@@ -4,35 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "53ef429240ec7e2a",
+        "id": "07e3ae7a3d6292f7",
         "type": "tabs",
         "children": [
           {
-            "id": "4e3c83fe680558bd",
+            "id": "6d9b8185b49460e6",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "src/数组.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "5bfcb6093a35d381",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Week04/Java Week2 卷子改错.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "graph",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,8 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "963b14290b713043",
@@ -99,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Week04/Java Week2 卷子改错.md",
                 "collapseAll": true,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -116,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Week04/Java Week2 卷子改错.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "Week04/Java Week2 卷子改错.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -161,8 +139,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "5bfcb6093a35d381",
+  "active": "e7a4155aa9a2c3db",
   "lastOpenFiles": [
+    "src/数组.md",
+    "Untitled.md",
+    "Untitled",
     "out/production/Week04/PascalTriangle.class",
     "Week04/PascalTriangle.java~",
     "Week04/PascalTriangle.java",
@@ -170,12 +151,9 @@
     "out/production/Week04/InsertValue.class",
     "out/production/Week04/TwentyFour.class",
     "Week04/InsertValue.java",
-    "src/数组.md",
     "Week04/TwentyFour.java~",
-    "Week04/Java Week2 卷子改错.md",
+    "Week04/Java Week04 卷子改错.md",
     "Week04/TwentyFour.java",
-    "out/production/Week04/TwentyThree.class",
-    "out/production/Week04/Week04.iml",
     "out/production/Week04/Pasted image 20230812164414.png",
     "out/production/Week04/Java Week2 卷子改错.md",
     "Week04/Pasted image 20230812164414.png"
