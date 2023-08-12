@@ -112,6 +112,10 @@ public class Assignment {
         System.arraycopy(arr, k, arr1, 0, arr.length - k);//旧数组的右边塞到新数组的左边
         System.arraycopy(arr, 0, arr1, arr.length - k, k);
         System.out.println(Arrays.toString(arr1));
+    }
+    public static void isPalindromicNum1(Long i){
+
+
 
     }
 
