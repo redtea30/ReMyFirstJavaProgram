@@ -3,7 +3,7 @@ package practical;
 import java.util.Arrays;
 
 /**
- * ClassName:MethodsTets
+ * ClassName:MethodsTest
  * Package: practical
  * Description:
  *
@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @Create 11/8/202312:25 pm
  * @Version 1.0
  */
-public class MethodsTets {
+public class MethodsTest {
     public static void main(String[] args) {
         int[] arr = new int[]{6, 7, 3, 2, 1};
         int target = 3;

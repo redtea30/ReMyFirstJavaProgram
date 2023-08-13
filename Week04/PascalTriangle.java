@@ -15,7 +15,6 @@ public class PascalTriangle {
         int size = 10;
         makeTriangle(10);
     }
-
     public static void makeTriangle(int size) {
 
         int[][] arr = new int[size][size];
