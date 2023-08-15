@@ -1,7 +1,7 @@
 package Teacher;
 
 /**
- * ClassName:PrimeFactor
+ * ClassName:Exer01
  * Package: Teacher
  * Description:
  *
@@ -27,13 +27,13 @@ public class PrimeFactor {
             return;
         }
         for (int i = 2; i <= num; i++) {
-            while (num % i == 0) {
-                if (num / i == 1) {
+            while (num % i == 0) {//检查是否是因数
+                if (num / i == 1) {//检查是否是最后一位
                     System.out.print(i);
-                } else {
+                } else {//除最后一位之外的其他位
                     System.out.print(i + " * ");
                 }
-                num = num / i;
+                num = num / i;//更新num的值
             }
         }
     }
