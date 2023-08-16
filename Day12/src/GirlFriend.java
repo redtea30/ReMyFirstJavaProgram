@@ -16,6 +16,11 @@ public class GirlFriend {
     float height;
     float weight;
 
+    public GirlFriend(){
+        name = "chen";
+        height = 55.0f;
+        weight = 170.0f;
+    }
     public void wash() {
         System.out.println("女朋友帮我洗衣服");
     }
@@ -32,9 +37,6 @@ public class GirlFriend {
 class Test {
     public static void main(String[] args) {
         GirlFriend chen = new GirlFriend();
-        chen.name = "chen";
-        chen.height = 55.0f;
-        chen.weight = 170.0f;
         chen.wash();
         chen.cook();
         chen.show();
