@@ -14,7 +14,8 @@ import java.util.Arrays;
 public class Library {
     //：表示图书馆，包含属性：书库（使用数组保存图书）、添加图书
     //的方法、查找图书的方法、显示所有图书的方法
-    static String[][] bookList = new String[0][4];
+
+    static String[][] bookList = new String[0][4];//书库初始值，后面会扩容
 
     public static void main(String[] args) {
         Book book1 = new Book();
@@ -51,22 +52,8 @@ public class Library {
     public static void addBook(String title, String author, int year, double price) {
         int count = bookList.length;
         bookList = Arrays.copyOf(bookList, ++count);
-
-        String[] arr = new String[4];
-        for (int i = 0; i < 4; i++) {
-            if (i == 0) {
-                arr[0] = title;
-            } else if (i == 1) {
-                arr[1] = author;
-            } else if (i == 2) {
-                arr[2] = String.valueOf(year);
-            } else {
-                arr[3] = String.valueOf(price);
-            }
-            bookList[count - 1] = arr;
-        }
-
-
+        String[] arr = {title, author, String.valueOf(year), String.valueOf(price)};
+        bookList[count - 1] = arr;
     }
 
     public static void findBook(String target) {

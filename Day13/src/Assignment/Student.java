@@ -18,6 +18,29 @@ public class Student {
     public Student() {
     }
 
+    public Student(String name, byte age, int studentId, short score) {
+        this.setAge(age);
+        this.setName(name);
+        this.setScore(score);
+        this.setStudentID(studentId);
+    }
+
+    public Student(String name) {
+        this.setName(name);
+    }
+
+    public Student(short score) {
+        this.setScore(score);
+    }
+
+    public Student(int studentId) {
+        this.setStudentID(studentId);
+    }
+
+    public Student(byte age) {
+        this.setAge(age);
+    }
+
     public String getName() {
         return this.name;
     }
