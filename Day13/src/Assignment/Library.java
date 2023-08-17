@@ -17,7 +17,6 @@ public class Library {
     static String[][] bookList = new String[0][4];//书库初始值，后面会扩容
     //图书类型 BOOK类型
 
-
     public static void main(String[] args) {
         //图书馆对象，用于调展示，搜索，添加
         Library ly = new Library();
