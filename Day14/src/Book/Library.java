@@ -25,6 +25,7 @@ public class Library {
         if(book == null)return false;
 
         int theLast = this.book.length - 1;
+
         //扩容+10
         if (this.book[theLast] != null) {
             Book[] temp = new Book[theLast + 1 + 1];
@@ -33,6 +34,8 @@ public class Library {
             }
             this.book = temp;
         }
+
+
         //存书
         this.book[count++] = book;
         return true;
