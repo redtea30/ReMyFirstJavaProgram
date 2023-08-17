@@ -1,7 +1,6 @@
 package Assignment;
 
 import java.util.Arrays;
-
 /**
  * ClassName:Library
  * Package: Assignment
@@ -18,25 +17,27 @@ public class Library {
     static String[][] bookList = new String[0][4];//书库初始值，后面会扩容
 
     public static void main(String[] args) {
-        Book book1 = new Book();
-        book1.setPrice(100);
-        book1.setAuthor("俺");
-        book1.setTitle("俺的奋斗");
-        book1.setYear(2013);
-        addBook(book1.getTitle(), book1.getAuthor(), book1.getYear(), book1.getPrice());
-        findBook("俺");
+        //图书馆对象，用于调展示，搜索，添加
+        Library ly = new Library();
+        Book book1 = new Book("俺的奋斗","俺",2013,100);
+        ly.addBook(book1);
 
-        Book book2 = new Book();
-        book2.setPrice(120);
-        book2.setAuthor("大王");
-        book2.setTitle("大王的奋斗");
-        book2.setYear(2020);
-        addBook(book2.getTitle(), book2.getAuthor(), book2.getYear(), book2.getPrice());
-        findBook("大王的奋斗");
+
+        ly.findBook("俺");
+        Book book2 = new Book("大王的奋斗","大王",2020,120);
+        ly.addBook(book2);
+
+        Book book3 = new Book("一阳指","乌龟大师",1999,999);
+        ly.addBook(book3);
+
+        Book book4 = new Book("小哥白尼","谁",1989,34);
+        ly.addBook(book4);
+
+        ly.findBook("大王的奋斗");
 
 
         System.out.println("展示图书馆");
-        showLibrary();
+        ly.showLibrary();
 
         //测试图书馆代码
 //        for (int i = 0; i < bookList.length; i++) {
@@ -49,14 +50,19 @@ public class Library {
     }
 
 
-    public static void addBook(String title, String author, int year, double price) {
+    public void addBook(Book book) {
+        String title = book.getTitle();
+        String author = book.getAuthor();
+        int year = book.getYear();
+        double price = book.getPrice();
+
         int count = bookList.length;
         bookList = Arrays.copyOf(bookList, ++count);
         String[] arr = {title, author, String.valueOf(year), String.valueOf(price)};
         bookList[count - 1] = arr;
     }
 
-    public static void findBook(String target) {
+    public void findBook(String target) {
         for (int i = 0; i < bookList.length; i++) {
             for (int j = 0; j < bookList[i].length; j++) {
                 if (target.equals(bookList[i][j])) {
@@ -67,7 +73,7 @@ public class Library {
         System.out.println("not found");
     }
 
-    public static void showLibrary() {
+    public void showLibrary() {
         System.out.println("title\tauthor\tyear\tprice");
 
         for (int i = 0; i < bookList.length; i++) {
