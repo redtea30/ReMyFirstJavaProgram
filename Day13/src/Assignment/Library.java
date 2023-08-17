@@ -15,6 +15,8 @@ public class Library {
     //的方法、查找图书的方法、显示所有图书的方法
 
     static String[][] bookList = new String[0][4];//书库初始值，后面会扩容
+    //图书类型 BOOK类型
+
 
     public static void main(String[] args) {
         //图书馆对象，用于调展示，搜索，添加

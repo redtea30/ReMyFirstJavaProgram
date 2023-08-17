@@ -17,17 +17,23 @@ public class Sixth {
         Scanner scanner = new Scanner(System.in);
         System.out.println("请输入数字m");
         //int m = scanner.nextInt();
-        int m =360;
+        int m = 360;
         System.out.println("请输入数字n");
         //int n = scanner.nextInt();
-        int n =270;
+        int n = 270;
         scanner.close();
 
-        int temp;
+        int bigger;
+        bigger = m > n ? n : m;
+        int smaller;
+        smaller = (bigger == m) ? n : m;
 
-        while (int temp>0)
+        while (smaller > 0) {
+/*            int temp
+            bigger%smaller*/
 
 
+        }
 
 
     }
