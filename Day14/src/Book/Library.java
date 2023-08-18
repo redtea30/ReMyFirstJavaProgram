@@ -1,5 +1,7 @@
 package Book;
 
+import java.util.Arrays;
+
 /**
  * ClassName:Library
  * Package: Book
@@ -22,19 +24,9 @@ public class Library {
     }
 
     public boolean addBook(Book book) {
-        if(book == null)return false;
+        if (book == null) return false;
 
-        int theLast = this.book.length - 1;
-
-        //扩容+10
-        if (this.book[theLast] != null) {
-            Book[] temp = new Book[theLast + 1 + 1];
-            for (int i = 0; i < theLast + 1; i++) {
-                temp[i] = this.book[i];
-            }
-            this.book = temp;
-        }
-
+        this.book = Arrays.copyOf(this.book, this.book.length + 1);
 
         //存书
         this.book[count++] = book;
