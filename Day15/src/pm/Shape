@@ -1,0 +1,31 @@
+package pm;
+
+/**
+ * ClassName:Shape
+ * Package: pm
+ * Description:
+ *
+ * @Author Neko
+ * @Create 18/8/20232:17 pm
+ * @Version 1.0
+ */
+//练习题2:创建一个名为Shape的基类，具有一个抽象方法calculateArea()用于计算形状的面积。然后创建两个子类Rectangle和Circle，分别继承自Shape类。在子类中实现calculateArea()方法以计算矩形和圆的面积。编写一个程序，实例化这些类并计算并显示它们的面积。
+public class Shape {
+    double radius;
+
+    double width;
+    double height;
+
+    public static void calculateArea(double radius) {
+        int area = 2*
+
+    }
+
+
+}
+
+class Rectangle extends Shape {
+}
+
+class Circle extends Shape {
+}

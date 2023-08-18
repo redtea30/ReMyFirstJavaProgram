@@ -36,8 +36,15 @@ public class ObjectOverride extends Object {
             return true;
         }
         if (obj instanceof ObjectOverride) {
-            ObjectOverride oo1 = (ObjectOverride) obj;//进行强转
+            ObjectOverride oo = (ObjectOverride) obj;//进行强转
+
+            if (oo.intTest == this.intTest || (oo.intTest == 0) && (this.intTest == 0)) {
+                return true;
+
+            }
         }
+
+        return false;//上面的for循环完之后还是没有true
     }
 
 

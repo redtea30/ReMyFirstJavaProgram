@@ -15,6 +15,7 @@ public class ObjectOverrideTest {
 
         System.out.println(oo1.toString());
 
+        System.out.println(oo1.equals(oo2));
 
 
 
