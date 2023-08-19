@@ -1,4 +1,4 @@
-package assignment;
+package assignment.bankaccount;
 
 /**
  * ClassName:SavingsAccount
@@ -23,7 +23,7 @@ public class SavingsAccount extends BankAccount {
     public boolean withdraw(double cash) {
         if (cash > (this.getBalance() - interestRate)) {
             System.out.println("取款超过限额");
-            System.out.println("最多只能取" + (this.getBalance() - interestRate));
+            System.out.println("最多只能取" + maxWithdraw());
             return false;
         } else {
             return super.withdraw(cash);
@@ -31,7 +31,13 @@ public class SavingsAccount extends BankAccount {
 
     }
 
+    public double getInterestRate() {
+        return interestRate;
+    }
+
     public double maxWithdraw() {
-        return (getBalance() - preserveMoney);
+        if (this.getBalance() >= preserveMoney) {
+            return this.getBalance() - preserveMoney;
+        } else return 0;
     }
 }

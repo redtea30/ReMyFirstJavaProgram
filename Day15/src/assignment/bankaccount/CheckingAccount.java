@@ -1,4 +1,4 @@
-package assignment;
+package assignment.bankaccount;
 
 /**
  * ClassName:CheckingAccount
@@ -27,7 +27,11 @@ public class CheckingAccount extends BankAccount {
             return true;
         } else if (cash <= (getBalance() + overdraft)) {
             setBalance(0);
-            overdraft = (cash - getBalance());
+            System.out.println("总共取款" + cash + "透支账户使用" + (compareUse - overdraft));
+            System.out.println("当前账户余额" + getBalance() + "透支账户余额" + overdraft);
+            return true;
+        } else if (getBalance() == 0) {
+            overdraft -= cash;
             System.out.println("总共取款" + cash + "透支账户使用" + (compareUse - overdraft));
             System.out.println("当前账户余额" + getBalance() + "透支账户余额" + overdraft);
             return true;
@@ -35,5 +39,6 @@ public class CheckingAccount extends BankAccount {
             System.out.println("不行，真的取不了");
             return false;
         }
+
     }
 }

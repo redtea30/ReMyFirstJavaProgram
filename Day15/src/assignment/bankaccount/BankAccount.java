@@ -1,4 +1,4 @@
-package assignment;
+package assignment.bankaccount;
 
 import java.util.Scanner;
 
@@ -55,7 +55,7 @@ public class BankAccount {
 
     public void deposit(double cash) {
         balance += cash;
-        System.out.println("取款" + cash);
+        System.out.println("存款" + cash);
         System.out.println("余额" + balance);
 
     }
