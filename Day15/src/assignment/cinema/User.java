@@ -28,9 +28,7 @@ public class User {
     }
 
     public void setRole(int role) {
-        if (role == 1 || role == 2) {
             this.role = role;
-        }
     }
 
     public String getUsername() {
@@ -59,4 +57,23 @@ public class User {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return this.username + "\t" + this.phone + "\t" + this.password + "\t" + this.role;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof User)) {//先判断是不是一个类的
+            return false;
+        } else if (this == obj) {//再判断地址值
+            return true;
+        }
+        User temp = (User) obj;//先转换类型再做判断
+        return this.username.equals(temp.username) && this.phone == temp.phone && this.password == temp.password && this.role == temp.role;//这里全是判断，逻辑不通过为false
+    }
+
+
 }
+
+
