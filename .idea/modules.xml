@@ -8,6 +8,7 @@
       <module fileurl="file://$PROJECT_DIR$/Day04/Day04.iml" filepath="$PROJECT_DIR$/Day04/Day04.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day05/Day05.iml" filepath="$PROJECT_DIR$/Day05/Day05.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day06/Day06.iml" filepath="$PROJECT_DIR$/Day06/Day06.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day07/Day07.iml" filepath="$PROJECT_DIR$/Day07/Day07.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day09/Day09.iml" filepath="$PROJECT_DIR$/Day09/Day09.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day10/Day10.iml" filepath="$PROJECT_DIR$/Day10/Day10.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day11/Day11.iml" filepath="$PROJECT_DIR$/Day11/Day11.iml" />
@@ -15,13 +16,13 @@
       <module fileurl="file://$PROJECT_DIR$/Day13/Day13.iml" filepath="$PROJECT_DIR$/Day13/Day13.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day14/Day14.iml" filepath="$PROJECT_DIR$/Day14/Day14.iml" />
       <module fileurl="file://$PROJECT_DIR$/Day15/Day15.iml" filepath="$PROJECT_DIR$/Day15/Day15.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day16/Day16.iml" filepath="$PROJECT_DIR$/Day16/Day16.iml" />
       <module fileurl="file://$PROJECT_DIR$/Extension/Extension.iml" filepath="$PROJECT_DIR$/Extension/Extension.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReMyFirstJavaProgram.iml" filepath="$PROJECT_DIR$/ReMyFirstJavaProgram.iml" />
       <module fileurl="file://$PROJECT_DIR$/Sixty/Sixty.iml" filepath="$PROJECT_DIR$/Sixty/Sixty.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week01/Week01.iml" filepath="$PROJECT_DIR$/Week01/Week01.iml" />
       <module fileurl="file://$PROJECT_DIR$/Week04/Week04.iml" filepath="$PROJECT_DIR$/Week04/Week04.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day07_ArraysIntro_InsertSort_SelectionSort/day07_ArraysIntro_InsertSort_SelectionSort.iml" filepath="$PROJECT_DIR$/day07_ArraysIntro_InsertSort_SelectionSort/day07_ArraysIntro_InsertSort_SelectionSort.iml" />
-      <module fileurl="file://$PROJECT_DIR$/day08_BubbleSort_BinarySearch_RandomSorting_MultidimonensionalArray/day08.iml" filepath="$PROJECT_DIR$/day08_BubbleSort_BinarySearch_RandomSorting_MultidimonensionalArray/day08.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Day08/day08.iml" filepath="$PROJECT_DIR$/Day08/day08.iml" />
     </modules>
   </component>
 </project>

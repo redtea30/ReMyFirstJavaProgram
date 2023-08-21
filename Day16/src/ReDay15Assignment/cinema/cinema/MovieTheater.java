@@ -1,4 +1,4 @@
-package assignment.cinema;
+package ReDay15Assignment.cinema.cinema;
 
 import java.util.Arrays;
 import java.util.Scanner;
