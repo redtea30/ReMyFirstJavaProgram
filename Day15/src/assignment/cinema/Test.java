@@ -13,8 +13,7 @@ import java.util.Scanner;
  * @Version 1.0
  */
 public class Test {
-    static Scanner sc = new Scanner(Syst
-            em.in);
+    static Scanner sc = new Scanner(System.in);
     static MovieTheater mt = new MovieTheater();
 
     public static void main(String[] args) {
