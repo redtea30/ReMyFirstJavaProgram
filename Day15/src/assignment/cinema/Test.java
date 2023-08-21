@@ -1,5 +1,6 @@
 package assignment.cinema;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -12,7 +13,8 @@ import java.util.Scanner;
  * @Version 1.0
  */
 public class Test {
-    static Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(Syst
+            em.in);
     static MovieTheater mt = new MovieTheater();
 
     public static void main(String[] args) {
@@ -84,12 +86,52 @@ public class Test {
                 }
                 case 4 ->//用户登录
                 {
+                    User logged = mt.login();
+                    boolean hasLogin = false;
+                    if (logged != null) hasLogin = true;
+                    System.out.println(hasLogin ? "登陆成功" : "登陆失败");
+                    while (hasLogin) {
+                        menuUserInfoManagement();
+                        int userMenu = sc.nextInt();
+                        switch (userMenu) {
+                            case 1 ->//修改用户信息
+                            {
+                                System.out.print("请输入新用户名称:");
+                                String username1 = sc.next();
+                                System.out.print("请输入手机号:");
+                                long phone1 = sc.nextLong();
+                                System.out.print("请输入密码:");
+                                String password1 = sc.next();
+                                logged.setPassword(password1);
+                                logged.setPhone(phone1);
+                                logged.setUsername(username1);
+
+                                if (logged.getPhone() == phone1 && Objects.equals(logged.getPassword(), password1) && logged.getUsername().equals(username1)) {
+                                    System.out.println("修改成功");
+                                } else {
+                                    System.out.println("修改失败");
+                                }
+                            }
+                            case 2 ->//查询用户信息
+                            {
+
+                            }
+                            case 3 ->//返回上级菜单
+                            {
+                            }
+                            default -> //输入错误
+                                    System.out.println();
+                        }
+
+
+                    }
+
                 }
                 case 5 ->//用户注册
                 {
-                    if(mt.addUser()){
+                    if (mt.addUser()) {
                         System.out.println("创建成功");
-                    }else {
+                    } else {
                         System.out.println("创建失败");
                     }
 
