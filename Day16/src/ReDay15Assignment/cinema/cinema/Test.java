@@ -18,7 +18,8 @@ public class Test {
 
     public static void main(String[] args) {
 
-        outer: while (true) {
+        outer:
+        while (true) {
             menu1();
             int input = sc.nextInt();
             switch (input) {
@@ -32,7 +33,10 @@ public class Test {
                     mt.showAllMovie();
                 }
                 case 3 -> {//管理员登陆
-                    if (mt.isAdmin()) {
+                    User admin = mt.login(1);
+                    boolean isTrue1 = (admin.getRole() == 1);
+                    //上边这俩式子是个补丁，针对前面修改的login()方法进行补充
+                    if (isTrue1) {
                         boolean menuSecond = true;
                         while (menuSecond) {
                             menuAdmin();
@@ -84,7 +88,7 @@ public class Test {
                 }
                 case 4 ->//用户登录
                 {
-                    User logged = mt.login();
+                    User logged = mt.login(2);
                     boolean hasLogin = false;
                     if (logged != null) hasLogin = true;
                     System.out.println(hasLogin ? "登陆成功" : "登陆失败");

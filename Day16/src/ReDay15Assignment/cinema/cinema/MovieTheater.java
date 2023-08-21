@@ -95,13 +95,13 @@ public class MovieTheater {
      *
      * @return
      */
-    public User login() {
+    public User login(int role) {
         Scanner sc1 = new Scanner(System.in);
         while (true) {
             System.out.println("请输入用户名");
             String name = sc1.next();
             User user = searchUser(name);
-            if (user.getRole() == 2) {
+            if (user.getRole() == role) {
                 System.out.println("请输入密码");
                 String password = sc1.next();
                 return user;
@@ -112,28 +112,7 @@ public class MovieTheater {
         }
     }
 
-    /**
-     * 管理员登录前检查
-     *
-     * @return
-     */
-    public boolean isAdmin() {
-        Scanner sc1 = new Scanner(System.in);
-        while (true) {
-            System.out.println("请输入用户名");
-            String name = sc1.next();
-            User user = searchUser(name);
-            if (user.getRole() == 1) {
-                System.out.println("请输入密码");
-                String password = sc1.next();
-                return user.getPassword().equals(password);
-            } else {
-                System.out.println("输入错误");
-                break;
-            }
-        }
-        return false;
-    }
+
 
 
     /**
