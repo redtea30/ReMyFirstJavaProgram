@@ -72,6 +72,10 @@ public class MovieTheater {
         return !(movies[key].getName().equals(deleteMovieName));
     }
 
+    public void showCurrentUserInfo(User user) {
+        System.out.println(user.toString());
+    }
+
     /**
      * 查找用户
      *
@@ -104,10 +108,9 @@ public class MovieTheater {
                 return user;
             } else {
                 System.out.println("输入错误");
-                break;
+                return null;
             }
         }
-        return null;
     }
 
     /**
@@ -183,7 +186,6 @@ public class MovieTheater {
      * 展示所有用户信息
      */
     public void showAllUser() {
-        System.out.println("Username: \t\t Phone: \t\t Password: \t\t role: \t\t");
         for (int i = 0; i < countUsers; i++) {
             System.out.println(users[i].toString());
         }
@@ -193,7 +195,6 @@ public class MovieTheater {
      * 展示所有电影
      */
     public void showAllMovie() {
-        System.out.println("name: \t\t Price: \t\t Director: \t\t Date: \t\t");
         insertSortMovies();
         for (int i = 0; i < countMovies; i++) {
             System.out.println(movies[i].toString());
@@ -226,7 +227,7 @@ public class MovieTheater {
 
     static {
         movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 2022);
-        movies[1] = new Movie("盗梦空间", 42.5, "克里斯托弗·诺兰", 2010);
+        movies[1] = new Movie("石村号", 42.5, "查克·派顿", 2008);
         movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 1997);
         movies[3] = new Movie("教父", 39.9, "弗朗西斯·福特·科波拉", 1972);
         movies[4] = new Movie("指环王3:王者无敌", 56.0, "彼得·杰克逊", 2003);

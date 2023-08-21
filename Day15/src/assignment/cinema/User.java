@@ -28,7 +28,7 @@ public class User {
     }
 
     public void setRole(int role) {
-            this.role = role;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -59,7 +59,7 @@ public class User {
 
     @Override
     public String toString() {
-        return this.username + "\t" + this.phone + "\t" + this.password + "\t" + this.role;
+        return "User: { Username: " + this.username + " Phone: " + this.phone + " Password: " + this.password + " Role: " + this.role + " }";
     }
 
     @Override

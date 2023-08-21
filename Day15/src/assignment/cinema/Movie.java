@@ -61,7 +61,8 @@ public class Movie {
 
     @Override
     public String toString() {
-        return this.name + "\t\t" + this.price + "\t\t" + this.director + "\t\t" + this.date;
+        return "Movie: { Name: " + this.name + " , Price: " + this.price + " Director: " + this.director + " Date: " + this.date + " }";
+
     }
 
     @Override

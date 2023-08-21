@@ -18,8 +18,7 @@ public class Test {
 
     public static void main(String[] args) {
 
-        while (true) {
-            System.out.println("开发喵影院");
+        outer: while (true) {
             menu1();
             int input = sc.nextInt();
             switch (input) {
@@ -111,20 +110,18 @@ public class Test {
                                     System.out.println("修改失败");
                                 }
                             }
-                            case 2 ->//查询用户信息
+                            case 2 ->//查看当前用户信息
                             {
-
+                                mt.showCurrentUserInfo(logged);
                             }
                             case 3 ->//返回上级菜单
                             {
+                                continue outer;
                             }
                             default -> //输入错误
                                     System.out.println();
                         }
-
-
                     }
-
                 }
                 case 5 ->//用户注册
                 {
@@ -143,7 +140,6 @@ public class Test {
                 default -> System.out.println("输入错误");
             }
         }
-
     }
 
 
@@ -151,7 +147,8 @@ public class Test {
      * 主菜单
      */
     public static void menu1() {
-        System.out.println("========= 电影信息系统 =========");
+        System.out.println("===========开发喵影院===========");
+        System.out.println("********* 电影信息系统 *********");
         System.out.println("1. 查询电影信息");
         System.out.println("2. 显示所有电影信息(按上映日期降序)");
         System.out.println("3. 管理员登录");
