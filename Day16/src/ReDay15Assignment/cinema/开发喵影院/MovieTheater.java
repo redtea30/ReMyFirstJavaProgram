@@ -1,9 +1,9 @@
-package ReDay15Assignment.cinema.cinema;
+package ReDay15Assignment.cinema.开发喵影院;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static ReDay15Assignment.cinema.cinema.Test.menuAdmin;
+import static ReDay15Assignment.cinema.开发喵影院.Test.menuAdmin;
 
 /**
  * ClassName:MovieTheather

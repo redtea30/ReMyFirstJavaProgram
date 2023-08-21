@@ -1,4 +1,4 @@
-package ReDay15Assignment.cinema.cinema;
+package ReDay15Assignment.cinema.开发喵影院;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
  * @Version 1.0
  */
 public class Test {
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);//全局调用
     static MovieTheater mt = new MovieTheater();
 
 

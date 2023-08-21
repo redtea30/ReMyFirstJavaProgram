@@ -1,4 +1,4 @@
-package ReDay15Assignment.cinema.cinema;
+package ReDay15Assignment.cinema.开发喵影院;
 
 /**
  * ClassName:User
