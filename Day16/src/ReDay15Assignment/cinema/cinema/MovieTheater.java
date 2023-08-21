@@ -3,6 +3,8 @@ package ReDay15Assignment.cinema.cinema;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static ReDay15Assignment.cinema.cinema.Test.menuAdmin;
+
 /**
  * ClassName:MovieTheather
  * Package: assignment.cinema
@@ -20,10 +22,42 @@ public class MovieTheater {
     private static Scanner sc = new Scanner(System.in);//这样的静态方法就只能本类里使用
 
 
+    /**
+     * 通过电影名称进行搜索，并返回该电影的所有数据
+     */
     public void searchMovie() {
         System.out.println("请输入你要查找的电影名称");
         String inputStr = sc.next();
         System.out.println(searchMovie(inputStr).toString());
+    }
+
+    /**
+     * 补丁，phone值类型为long，拿到long的长度
+     *
+     * @param phone
+     * @return
+     */
+    public int getPhoneLength(long phone) {
+        int phoneLength = 0;
+        while (true) {
+            phoneLength++;
+            phone /= 10;
+            if (phone == 0) break;
+        }
+        return phoneLength;
+    }
+
+    /**
+     * 检查电话号有没有被注册过
+     *
+     * @param phone 传入的电话号码
+     * @return true 表示被注册过了，false表示没有被注册过
+     */
+    public boolean searchUserByPhone(Long phone) {
+        for (int i = 0; i < countUsers; i++) {
+            if (users[i].getPhone() == phone) return true;
+        }
+        return false;
     }
 
     /**
@@ -37,10 +71,39 @@ public class MovieTheater {
 
         System.out.print("请输入新用户名称:");
         String username1 = sc.next();
+
         System.out.print("请输入手机号:");
         long phone1 = sc.nextLong();
+        //电话号码长度和历史注册号码判断
+        while (true) {
+            if (getPhoneLength(phone1) != 11) {
+                System.out.println("电话号码输入错误");
+                System.out.print("请重新输入手机号:");
+                phone1 = sc.nextLong();
+            } else if (searchUserByPhone(phone1)) {
+                System.out.println("电话号码已经被备注册过了");
+                System.out.print("请重新输入手机号:");
+                phone1 = sc.nextLong();
+            } else {
+                break;
+            }
+        }
         System.out.print("请输入密码:");
         String password1 = sc.next();
+        System.out.println("请再次输入密码");
+        String rePassword1 = sc.next();
+        while (true) {
+            if (rePassword1.equals(password1)) {
+                break;
+            } else {
+                System.out.println("两次密码不一致请重新设置密码");
+                System.out.print("请输入密码:");
+                password1 = sc.next();
+                System.out.println("请再次输入密码");
+                rePassword1 = sc.next();
+            }
+        }
+        //用户的权限值是2
         int role1 = 2;
         // 创建新的电影对象
         User newUser = new User(username1, phone1, password1, role1);
@@ -49,20 +112,33 @@ public class MovieTheater {
         return users[countUsers - 1] == newUser;
     }
 
+
     /**
-     * 更改电影信息
+     * 属性编辑器，可以对user和movie两个类的属性进行编辑
      *
-     * @param changeMovieIndex
-     * @param name1
-     * @param price1
-     * @param director1
-     * @param date1
+     * @param index    属性的下标
+     * @param selector 对应不同的修改模式，1-4是movie的属性5-7是user的属性
+     * @param value    传入的值，即将修改到原对象上
      */
-    public void changeMovie(int changeMovieIndex, String name1, double price1, String director1, int date1) {
-        movies[changeMovieIndex].setDate(date1);
-        movies[changeMovieIndex].setName(name1);
-        movies[changeMovieIndex].setPrice(price1);
-        movies[changeMovieIndex].setDirector(director1);
+    public void propertyEditor(int index, int selector, String value) {
+        if (selector == 1) {
+            int temp = Integer.parseInt(value);
+            movies[index].setDate(temp);
+        } else if (selector == 2) {
+            movies[index].setName(value);
+        } else if (selector == 3) {
+            double temp = Double.parseDouble(value);
+            movies[index].setPrice(temp);
+        } else if (selector == 4) {
+            movies[index].setDirector(value);
+        } else if (selector == 5) {
+            users[index].setUsername(value);
+        } else if (selector == 6) {
+            long temp = Long.parseLong(value);
+            users[index].setPhone(temp);
+        } else if (selector == 7) {
+            users[index].setPassword(value);
+        }
     }
 
     /**
@@ -70,15 +146,23 @@ public class MovieTheater {
      *
      * @return
      */
-    public boolean deleteMovie() {
+    public void deleteMovie() {
         System.out.println("请输入你想要删除的电影名称");
         Scanner sc2 = new Scanner(System.in);
         String deleteMovieName = sc2.next();
         int key = intSearchMovie(deleteMovieName);
         System.arraycopy(movies, key + 1, movies, key, ((countMovies--) - 1 - key));
-        return !(movies[key].getName().equals(deleteMovieName));
+        if (!(movies[key].getName().equals(deleteMovieName))) {
+
+        }
+
     }
 
+    /**
+     * 展示当前的用户信息，并打印
+     *
+     * @param user 需要打印的用户对象
+     */
     public void showCurrentUserInfo(User user) {
         System.out.println(user.toString());
     }
@@ -141,6 +225,12 @@ public class MovieTheater {
      * @param name
      * @return
      */
+    /**
+     * 搜索需要的movie对象，并返回下标
+     *
+     * @param name
+     * @return
+     */
     public int intSearchMovie(String name) {
         for (int i = 0; i < countMovies; i++) {
             if (name.equals(movies[i].getName())) {
@@ -151,7 +241,22 @@ public class MovieTheater {
     }
 
     /**
-     * 插排 降序
+     * 搜索需要的user对象，并返回下标
+     *
+     * @param name
+     * @return
+     */
+    public int intSearchUser(String name) {
+        for (int i = 0; i < countUsers; i++) {
+            if (name.equals(users[i].getUsername())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 电影年份插排 降序
      */
     public void insertSortMovies() {
         for (int i = 1; i < countMovies; i++) {
@@ -165,6 +270,7 @@ public class MovieTheater {
             movies[++prev] = now;
         }
     }
+
 
     /**
      * 展示所有用户信息
@@ -188,7 +294,7 @@ public class MovieTheater {
     /**
      * 为列表加电影
      */
-    public boolean addMovie() {
+    public void addMovie() {
         dilatation(movies);//检查最后一位有没有满
         Scanner sc = new Scanner(System.in);
 
@@ -205,21 +311,22 @@ public class MovieTheater {
         Movie newMovie = new Movie(name, price, director, date);
 
         movies[countMovies++] = newMovie;
-        return movies[countMovies - 1] == newMovie;
+        if (movies[countMovies - 1] == newMovie) System.out.println("添加成功");
+        else System.out.println("添加失败");
     }
 
 
     static {
-        movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 2022);
-        movies[1] = new Movie("石村号", 42.5, "查克·派顿", 2008);
-        movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 1997);
-        movies[3] = new Movie("教父", 39.9, "弗朗西斯·福特·科波拉", 1972);
-        movies[4] = new Movie("指环王3:王者无敌", 56.0, "彼得·杰克逊", 2003);
-        movies[5] = new Movie("阿甘正传", 44.9, "罗伯特·泽米吉斯", 1994);
-        movies[6] = new Movie("卧虎藏龙", 38.5, "李安", 2000);
-        movies[7] = new Movie("辛德勒的名单", 49.9, "史蒂文·斯皮尔伯格", 1993);
-        movies[8] = new Movie("盗梦空间", 42.5, "克里斯托弗·诺兰", 2010);
-        movies[9] = new Movie("星际穿越", 55.0, "克里斯托弗·诺兰", 2014);
+        movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 20221212);
+        movies[1] = new Movie("石村号", 42.5, "查克·派顿", 20081231);
+        movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 19971111);
+        movies[3] = new Movie("教父", 39.9, "弗朗西斯·福特·科波拉", 19721212);
+        movies[4] = new Movie("指环王3:王者无敌", 56.0, "彼得·杰克逊", 20030903);
+        movies[5] = new Movie("阿甘正传", 44.9, "罗伯特·泽米吉斯", 19940506);
+        movies[6] = new Movie("卧虎藏龙", 38.5, "李安", 20000101);
+        movies[7] = new Movie("辛德勒的名单", 49.9, "史蒂文·斯皮尔伯格", 19931115);
+        movies[8] = new Movie("盗梦空间", 42.5, "克里斯托弗·诺兰", 20101218);
+        movies[9] = new Movie("星际穿越", 55.0, "克里斯托弗·诺兰", 20141029);
 
         users[0] = new User("admin", 13811111111L, "123456", 1);
         users[1] = new User("李四", 13822221111L, "123456", 2);
@@ -302,5 +409,95 @@ public class MovieTheater {
 
     public void setUsers(User[] users) {
         this.users = users;
+    }
+
+
+    /**
+     * 为了少打几个字建的方法，实现更改某电影信息的效果
+     */
+    public void modifyMovieInfo() {
+        System.out.println("请输入想要修改的电影名");
+        String changeMovie = sc.next();
+        int changeMovieIndex = intSearchMovie(changeMovie);
+        if (changeMovieIndex == -1) {
+            System.out.println("未找到");
+        } else {
+
+            System.out.println("1.修改名称");
+            System.out.println("2.修改价格");
+            System.out.println("3.修改导演");
+            System.out.println("4.修改上映年份");
+            System.out.println("0.返回上级菜单");
+            int input = sc.nextInt();
+
+            switch (input) {
+                case 0 -> menuAdmin();
+                case 1 -> {
+                    System.out.print("请输入新的电影名称:");
+                    String name1 = sc.next();
+                    propertyEditor(changeMovieIndex, 2, name1);
+                }
+                case 2 -> {
+                    System.out.print("请输入新的电影价格:");
+                    double price1 = sc.nextDouble();
+                    propertyEditor(changeMovieIndex, 3, String.valueOf(price1));
+                }
+                case 3 -> {
+                    System.out.print("请输入新的导演名:");
+                    String director1 = sc.next();
+                    propertyEditor(changeMovieIndex, 4, String.valueOf(director1));
+                }
+                case 4 -> {
+                    System.out.print("请输入新的上映年份:");
+                    int date1 = sc.nextInt();
+                    propertyEditor(changeMovieIndex, 4, String.valueOf(date1));
+                }
+                default -> System.out.println("输入错误");
+            }
+
+        }
+
+
+    }
+
+    /**
+     * 用户信息编辑器，同电影编辑器
+     */
+    public void modifyUserInfo(User user1) {
+        String modifyUser = user1.getUsername();
+        int changeUserIndex = intSearchUser(modifyUser);
+        if (changeUserIndex == -1) {
+            System.out.println("未找到");
+        } else {
+
+            System.out.println("1.修改用户名");
+            System.out.println("2.修改手机号");
+            System.out.println("3.修改密码");
+            System.out.println("0.返回上级菜单");
+            int input = sc.nextInt();
+
+            switch (input) {
+                case 0 -> menuAdmin();
+                case 1 -> {
+                    System.out.print("请输入新的用户名:");
+                    String username1 = sc.next();
+                    propertyEditor(changeUserIndex, 5, username1);
+                }
+                case 2 -> {
+                    System.out.print("请输入新的手机号:");
+                    long phone1 = sc.nextLong();
+                    propertyEditor(changeUserIndex, 6, String.valueOf(phone1));
+                }
+                case 3 -> {
+                    System.out.print("请输入新的密码:");
+                    String password1 = sc.next();
+                    propertyEditor(changeUserIndex, 7, String.valueOf(password1));
+                }
+                default -> System.out.println("输入错误");
+            }
+
+        }
+
+
     }
 }
