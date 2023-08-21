@@ -17,6 +17,14 @@ public class MovieTheater {
     private static User[] users = new User[10];
     private static int countMovies = 10;
     private static int countUsers = 10;
+    private static Scanner sc = new Scanner(System.in);//这样的静态方法就只能本类里使用
+
+
+    public void searchMovie() {
+        System.out.println("请输入你要查找的电影名称");
+        String inputStr = sc.next();
+        System.out.println(searchMovie(inputStr).toString());
+    }
 
     /**
      * 创建新用户并检查是否创建成功
@@ -111,8 +119,6 @@ public class MovieTheater {
             }
         }
     }
-
-
 
 
     /**

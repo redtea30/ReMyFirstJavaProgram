@@ -1,6 +1,5 @@
 package ReDay15Assignment.cinema.cinema;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -13,144 +12,35 @@ import java.util.Scanner;
  * @Version 1.0
  */
 public class Test {
-    static Scanner sc = new Scanner(System.in);
+    private static Scanner sc = new Scanner(System.in);
     static MovieTheater mt = new MovieTheater();
 
-    public static void main(String[] args) {
-
-        outer:
+    /**
+     * 补丁，phone值类型为long，拿到long的长度
+     *
+     * @param phone
+     * @return
+     */
+    public int getPhoneLength(long phone) {
+        int phoneLength = 0;
         while (true) {
-            menu1();
-            int input = sc.nextInt();
-            switch (input) {
-                case 1 -> {//搜索电影
-                    System.out.println("请输入你要查找的电影名称");
-                    String inputStr = sc.next();
-                    System.out.println(mt.searchMovie(inputStr).toString());
-                }
-                case 2 -> //展示所有电影
-                {
-                    mt.showAllMovie();
-                }
-                case 3 -> {//管理员登陆
-                    User admin = mt.login(1);
-                    boolean isTrue1 = (admin.getRole() == 1);
-                    //上边这俩式子是个补丁，针对前面修改的login()方法进行补充
-                    if (isTrue1) {
-                        boolean menuSecond = true;
-                        while (menuSecond) {
-                            menuAdmin();
-                            int adminStr = sc.nextInt();
-                            switch (adminStr) {
-                                case 1 -> {//增加电影
-                                    boolean isTrue = mt.addMovie();
-                                    System.out.println(isTrue ? "创建成功" : "创建失败");
-                                }
-                                case 2 ->//删除电影
-                                {
-                                    System.out.println(mt.deleteMovie() ? "删除成功" : "删除失败");
-                                }
-                                case 3 ->//修改电影（输入电影名称，展示电影信息，选择要修改的内容（价格/上映时间），输入内容，修改已存储的电影信息）
-                                {
-                                    System.out.println("请输入想要修改的电影名");
-                                    String changeMovie = sc.next();
-                                    int changeMovieIndex = mt.intSearchMovie(changeMovie);
-                                    if (changeMovieIndex == -1) {
-                                        System.out.println("未找到");
-                                    } else {
-                                        //修改电影列表
-                                        System.out.print("请输入新的电影名称:");
-                                        String name1 = sc.next();
-                                        System.out.print("请输入新的电影价格:");
-                                        double price1 = sc.nextDouble();
-                                        System.out.print("请输入新的导演名:");
-                                        String director1 = sc.next();
-                                        System.out.print("请输入新的上映年份:");
-                                        int date1 = sc.nextInt();
-                                        mt.changeMovie(changeMovieIndex, name1, price1, director1, date1);
-                                    }
-
-
-                                }
-                                case 4 ->//查看所有用户信息
-                                {
-                                    mt.showAllUser();
-                                }
-
-                                case 5 -> {//退出
-                                    menuSecond = false;
-                                }
-                                default -> System.out.println("输入错误");
-                            }
-
-                        }
-                    }
-                }
-                case 4 ->//用户登录
-                {
-                    User logged = mt.login(2);
-                    boolean hasLogin = false;
-                    if (logged != null) hasLogin = true;
-                    System.out.println(hasLogin ? "登陆成功" : "登陆失败");
-                    while (hasLogin) {
-                        menuUserInfoManagement();
-                        int userMenu = sc.nextInt();
-                        switch (userMenu) {
-                            case 1 ->//修改用户信息
-                            {
-                                System.out.print("请输入新用户名称:");
-                                String username1 = sc.next();
-                                System.out.print("请输入手机号:");
-                                long phone1 = sc.nextLong();
-                                System.out.print("请输入密码:");
-                                String password1 = sc.next();
-                                logged.setPassword(password1);
-                                logged.setPhone(phone1);
-                                logged.setUsername(username1);
-
-                                if (logged.getPhone() == phone1 && Objects.equals(logged.getPassword(), password1) && logged.getUsername().equals(username1)) {
-                                    System.out.println("修改成功");
-                                } else {
-                                    System.out.println("修改失败");
-                                }
-                            }
-                            case 2 ->//查看当前用户信息
-                            {
-                                mt.showCurrentUserInfo(logged);
-                            }
-                            case 3 ->//返回上级菜单
-                            {
-                                continue outer;
-                            }
-                            default -> //输入错误
-                                    System.out.println();
-                        }
-                    }
-                }
-                case 5 ->//用户注册
-                {
-                    if (mt.addUser()) {
-                        System.out.println("创建成功");
-                    } else {
-                        System.out.println("创建失败");
-                    }
-
-                }
-                case 6 ->//退出
-                {
-                    System.out.println("退出系统中");
-                    return;
-                }
-                default -> System.out.println("输入错误");
-            }
+            phoneLength++;
+            phone /= 10;
+            if (phone == 0) break;
         }
+        return phoneLength;
+    }
+
+    public static void main(String[] args) {
+        //现在main方法就是一个启动器了 LOL
+        mainMenu();
     }
 
 
     /**
      * 主菜单
      */
-    public static void menu1() {
+    public static void mainMenu() {
         System.out.println("===========开发喵影院===========");
         System.out.println("********* 电影信息系统 *********");
         System.out.println("1. 查询电影信息");
@@ -161,7 +51,15 @@ public class Test {
         System.out.println("6. 退出系统");
         System.out.println("请选择:");
         separateLine();
+        int userInput = sc.nextInt();
+        switch (userInput) {
+            case 1 -> mt.searchMovie();
+            case 2 -> mt.showAllMovie();
+        }
+
+
     }
+
 
     public static void menuUserInfoManagement() {
         System.out.println("======== 用户管理菜单 ========");
