@@ -1,4 +1,4 @@
-package ReDay15Assignment.cinema.开发喵影院;
+package ReDay15Assignment.cinema.kaifamiao_cinema;
 
 import java.util.Scanner;
 
@@ -74,6 +74,7 @@ public class Test {
             System.out.println("======== 用户管理菜单 ========");
             System.out.println("1. 修改用户信息");
             System.out.println("2. 查询用户信息");
+            System.out.println("3. 购买电影");
             System.out.println("0. 返回上级菜单");
             separateLine();
 
@@ -91,10 +92,22 @@ public class Test {
                 {
                     mt.showCurrentUserInfo(logged);
                 }
+                case 3 -> {
+
+                }
+
                 default -> //输入错误
                         System.out.println();
             }
         }
+    }
+
+    /**
+     * 购买电影票
+      */
+    public void purchaseTicket() {
+        mt.showAllMovie();
+
     }
 
     /**
@@ -107,11 +120,12 @@ public class Test {
             System.out.println("2. 删除电影");
             System.out.println("3. 修改电影信息");
             System.out.println("4. 查看所有用户信息");
-            System.out.println("5. 退出");
+            System.out.println("0. 退出");
             separateLine();
             int userInput = sc.nextInt();
 
             switch (userInput) {
+                case 0 -> mainMenu();
                 case 1 -> mt.addMovie();
                 case 2 -> {
                     mt.deleteMovie();
@@ -120,7 +134,6 @@ public class Test {
                 case 4 -> {
                     mt.showAllUser();
                 }
-                case 5 -> mainMenu();
                 default -> System.out.println("输入错误");
             }
         }

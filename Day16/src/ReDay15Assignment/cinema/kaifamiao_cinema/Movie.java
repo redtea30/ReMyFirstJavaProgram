@@ -1,4 +1,4 @@
-package ReDay15Assignment.cinema.开发喵影院;
+package ReDay15Assignment.cinema.kaifamiao_cinema;
 
 /**
  * ClassName:Movie
@@ -14,6 +14,7 @@ public class Movie {
     private double price;
     private String director;
     private int date;
+    private int leftTicket;
 
 
     public void setName(String name) {
@@ -48,20 +49,27 @@ public class Movie {
         return this.date;
     }
 
-    public Movie() {
-
+    public int getLeftTicket() {
+        return leftTicket;
     }
 
-    public Movie(String name, double price, String director, int date) {
+    public void setLeftTicket(int leftTicket) {
+        this.leftTicket = leftTicket;
+    }
+
+
+
+    public Movie(String name, double price, String director, int date, int leftTicket) {
         this.date = date;
         this.name = name;
         this.director = director;
         this.price = price;
+        this.leftTicket = leftTicket;
     }
 
     @Override
     public String toString() {
-        return "Movie: { Name: " + this.name + " , Price: " + this.price + " Director: " + this.director + " Date: " + this.date + " }";
+        return "Movie: { Name: " + this.name + " , Price: " + this.price + " Director: " + this.director + " Date: " + this.date + " LeftTicket: " + leftTicket + " }";
 
     }
 

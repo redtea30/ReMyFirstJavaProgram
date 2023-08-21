@@ -1,4 +1,4 @@
-package ReDay15Assignment.cinema.开发喵影院;
+package ReDay15Assignment.cinema.kaifamiao_cinema;
 
 /**
  * ClassName:User
@@ -14,6 +14,25 @@ public class User {
     private Long phone;
     private String password;
     private int role;//1是管理员，2是普通用户
+    private static Ticket[] tickets;//已购买的电影票
+    private static int ticketCount;
+
+    {
+        tickets = new Ticket[10];
+    }
+
+    public static Ticket[] getTickets() {
+        return tickets;
+    }
+
+    public static void setTickets(Ticket[] tickets) {
+        User.tickets = tickets;
+    }
+
+
+    public void addTicket(Ticket ticket) {
+        this.tickets[ticketCount++]=ticket;
+    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -47,6 +66,7 @@ public class User {
         return this.role;
     }
 
+
     public User() {
     }
 
@@ -56,6 +76,7 @@ public class User {
         this.password = password;
         this.role = role;
     }
+
 
     @Override
     public String toString() {

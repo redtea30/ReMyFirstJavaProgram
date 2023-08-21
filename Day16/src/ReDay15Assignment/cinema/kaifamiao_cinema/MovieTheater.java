@@ -1,9 +1,9 @@
-package ReDay15Assignment.cinema.开发喵影院;
+package ReDay15Assignment.cinema.kaifamiao_cinema;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static ReDay15Assignment.cinema.开发喵影院.Test.menuAdmin;
+import static ReDay15Assignment.cinema.kaifamiao_cinema.Test.menuAdmin;
 
 /**
  * ClassName:MovieTheather
@@ -62,6 +62,7 @@ public class MovieTheater {
 
     /**
      * 在users数组中新增一名用户
+     *
      * @return 返回user是否创建成功
      */
     public boolean addUser() {
@@ -305,9 +306,10 @@ public class MovieTheater {
         String director = sc.next();
         System.out.print("请输入上映年份:");
         int date = sc.nextInt();
-
+        System.out.println("请输入电影票数量");
+        int ticketNum = sc.nextInt();
         // 创建新的电影对象
-        Movie newMovie = new Movie(name, price, director, date);
+        Movie newMovie = new Movie(name, price, director, date, ticketNum);
 
         movies[countMovies++] = newMovie;
         if (movies[countMovies - 1] == newMovie) System.out.println("添加成功");
@@ -316,16 +318,16 @@ public class MovieTheater {
 
 
     static {
-        movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 20221212);
-        movies[1] = new Movie("石村号", 42.5, "查克·派顿", 20081231);
-        movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 19971111);
-        movies[3] = new Movie("教父", 39.9, "弗朗西斯·福特·科波拉", 19721212);
-        movies[4] = new Movie("指环王3:王者无敌", 56.0, "彼得·杰克逊", 20030903);
-        movies[5] = new Movie("阿甘正传", 44.9, "罗伯特·泽米吉斯", 19940506);
-        movies[6] = new Movie("卧虎藏龙", 38.5, "李安", 20000101);
-        movies[7] = new Movie("辛德勒的名单", 49.9, "史蒂文·斯皮尔伯格", 19931115);
-        movies[8] = new Movie("盗梦空间", 42.5, "克里斯托弗·诺兰", 20101218);
-        movies[9] = new Movie("星际穿越", 55.0, "克里斯托弗·诺兰", 20141029);
+        movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 20221212, 2);
+        movies[1] = new Movie("石村号", 42.5, "查克·派顿", 20081231, 2);
+        movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 19971111, 2);
+        movies[3] = new Movie("教父", 39.9, "弗朗西斯·福特·科波拉", 19721212, 2);
+        movies[4] = new Movie("指环王3:王者无敌", 56.0, "彼得·杰克逊", 20030903, 2);
+        movies[5] = new Movie("阿甘正传", 44.9, "罗伯特·泽米吉斯", 19940506, 2);
+        movies[6] = new Movie("卧虎藏龙", 38.5, "李安", 20000101, 2);
+        movies[7] = new Movie("辛德勒的名单", 49.9, "史蒂文·斯皮尔伯格", 19931115, 2);
+        movies[8] = new Movie("盗梦空间", 42.5, "克里斯托弗·诺兰", 20101218, 2);
+        movies[9] = new Movie("星际穿越", 55.0, "克里斯托弗·诺兰", 20141029, 2);
 
         users[0] = new User("admin", 13811111111L, "123456", 1);
         users[1] = new User("李四", 13822221111L, "123456", 2);
@@ -344,8 +346,8 @@ public class MovieTheater {
 
     }
 
-    public MovieTheater(String name, double price, String director, int date) {
-        Movie movie = new Movie(name, price, director, date);
+    public MovieTheater(String name, double price, String director, int date, int leftTicket) {
+        Movie movie = new Movie(name, price, director, date, leftTicket);
     }
 
     /**
@@ -472,6 +474,8 @@ public class MovieTheater {
             System.out.println("1.修改用户名");
             System.out.println("2.修改手机号");
             System.out.println("3.修改密码");
+            System.out.println("4.购买电影票");
+            System.out.println("5.已购票查询");
             System.out.println("0.返回上级菜单");
             int input = sc.nextInt();
 
@@ -492,11 +496,42 @@ public class MovieTheater {
                     String password1 = sc.next();
                     propertyEditor(changeUserIndex, 7, String.valueOf(password1));
                 }
+                case 4 -> buyTicket();
+                case 5 -> showPurchasedTicket();
                 default -> System.out.println("输入错误");
             }
 
         }
 
 
+    }
+
+    public void buyTicket() {
+        showAllMovie();
+        Movie movie = null;
+
+        do {
+            if (movie != null) {
+                System.out.println("请重新选择");
+            }
+            System.out.println("想要购买的电影票");
+            int input = sc.nextInt();
+
+
+            movie = movies[input - 1];
+        } while (movie.getLeftTicket() < 1);
+
+        Integer count = null;
+
+        do {
+            if (count != null) {
+                System.out.println("输入错误");
+            }
+            System.out.println("请输入购买数量");
+            count = sc.nextInt();
+        } while (!(count > 0 && count <= movie.getLeftTicket()));
+    }
+
+    public void showPurchasedTicket() {
     }
 }
