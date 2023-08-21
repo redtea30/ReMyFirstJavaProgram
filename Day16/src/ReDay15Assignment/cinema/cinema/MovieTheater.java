@@ -33,8 +33,7 @@ public class MovieTheater {
         long phone1 = sc.nextLong();
         System.out.print("请输入密码:");
         String password1 = sc.next();
-        System.out.print("是否有管理员权限: 1/2");
-        int role1 = sc.nextInt();
+        int role1 = 2;
         // 创建新的电影对象
         User newUser = new User(username1, phone1, password1, role1);
 
