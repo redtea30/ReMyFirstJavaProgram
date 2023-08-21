@@ -61,9 +61,8 @@ public class MovieTheater {
     }
 
     /**
-     * 创建新用户并检查是否创建成功
-     *
-     * @return
+     * 在users数组中新增一名用户
+     * @return 返回user是否创建成功
      */
     public boolean addUser() {
         dilatationU(users);//检查最后一位有没有满
