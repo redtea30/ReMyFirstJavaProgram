@@ -21,7 +21,6 @@ public class MovieTheater {
     private static int countUsers = 10;
     private static Scanner sc = new Scanner(System.in);//这样的静态方法就只能本类里使用
 
-
     /**
      * 通过电影名称进行搜索，并返回该电影的所有数据
      */
@@ -474,8 +473,6 @@ public class MovieTheater {
             System.out.println("1.修改用户名");
             System.out.println("2.修改手机号");
             System.out.println("3.修改密码");
-            System.out.println("4.购买电影票");
-            System.out.println("5.已购票查询");
             System.out.println("0.返回上级菜单");
             int input = sc.nextInt();
 
@@ -496,8 +493,6 @@ public class MovieTheater {
                     String password1 = sc.next();
                     propertyEditor(changeUserIndex, 7, String.valueOf(password1));
                 }
-                case 4 -> buyTicket();
-                case 5 -> showPurchasedTicket();
                 default -> System.out.println("输入错误");
             }
 
@@ -510,19 +505,21 @@ public class MovieTheater {
         showAllMovie();
         Movie movie = null;
 
+        //先检查要购买的电影票对象
         do {
             if (movie != null) {
                 System.out.println("请重新选择");
             }
-            System.out.println("想要购买的电影票");
+            System.out.println("请输入想要购买的电影票-（序号）:");
             int input = sc.nextInt();
 
 
             movie = movies[input - 1];
-        } while (movie.getLeftTicket() < 1);
+        } while (movie.getLeftTicket() < 1);//检查余票
 
         Integer count = null;
 
+        //再检查购买的电影拍对象是否数量充足
         do {
             if (count != null) {
                 System.out.println("输入错误");
@@ -530,8 +527,22 @@ public class MovieTheater {
             System.out.println("请输入购买数量");
             count = sc.nextInt();
         } while (!(count > 0 && count <= movie.getLeftTicket()));
+
+        Ticket ticket = new Ticket(movie, count);
+        double shouldPay = movie.getPrice() * count;
+        System.out.println(count + " 张" + movie.getName() + " 电影票， 总共需要支付 " + shouldPay + " 元。");
+        Test.logged.addTicket(ticket);
+
+        movie.setLeftTicket(movie.getLeftTicket() - count);
+        System.out.println("购买成功");
+
     }
 
+
     public void showPurchasedTicket() {
+        for (int i = 0; i < User.getTicketCount();i++) {
+            System.out.println(User.getTickets()[i].toString());
+        }
+
     }
 }

@@ -13,6 +13,7 @@ import java.util.Scanner;
  */
 public class Test {
     private static final Scanner sc = new Scanner(System.in);//全局调用
+    public static User logged;
     static MovieTheater mt = new MovieTheater();
 
 
@@ -66,7 +67,7 @@ public class Test {
      * 权限属于用户
      */
     public static void menuUserInfoManagement() {
-        User logged = mt.login(2);
+        logged = mt.login(2);
         boolean hasLogin = false;
         if (logged != null) hasLogin = true;
         System.out.println(hasLogin ? "登陆成功" : "登陆失败");
@@ -74,7 +75,8 @@ public class Test {
             System.out.println("======== 用户管理菜单 ========");
             System.out.println("1. 修改用户信息");
             System.out.println("2. 查询用户信息");
-            System.out.println("3. 购买电影");
+            System.out.println("3. 购买电影票");
+            System.out.println("4. 已购票查询");
             System.out.println("0. 返回上级菜单");
             separateLine();
 
@@ -92,9 +94,8 @@ public class Test {
                 {
                     mt.showCurrentUserInfo(logged);
                 }
-                case 3 -> {
-
-                }
+                case 3 -> mt.buyTicket();
+                case 4 -> mt.showPurchasedTicket();
 
                 default -> //输入错误
                         System.out.println();
@@ -105,10 +106,7 @@ public class Test {
     /**
      * 购买电影票
       */
-    public void purchaseTicket() {
-        mt.showAllMovie();
 
-    }
 
     /**
      * 管理员菜单

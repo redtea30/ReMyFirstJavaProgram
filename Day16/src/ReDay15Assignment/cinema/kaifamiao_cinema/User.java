@@ -1,5 +1,7 @@
 package ReDay15Assignment.cinema.kaifamiao_cinema;
 
+import java.util.Arrays;
+
 /**
  * ClassName:User
  * Package: assignment.cinema
@@ -21,6 +23,14 @@ public class User {
         tickets = new Ticket[10];
     }
 
+    public static int getTicketCount() {
+        return ticketCount;
+    }
+
+    public static void setTicketCount(int ticketCount) {
+        User.ticketCount = ticketCount;
+    }
+
     public static Ticket[] getTickets() {
         return tickets;
     }
@@ -30,8 +40,18 @@ public class User {
     }
 
 
+    /**
+     * 这是自动向tickets进行存储
+     *
+     * @param ticket
+     */
     public void addTicket(Ticket ticket) {
-        this.tickets[ticketCount++]=ticket;
+        //还能扩容
+        this.tickets[ticketCount++] = ticket;
+        //懒狗扩容方法
+        if (this.tickets[this.tickets.length - 3] != null) {
+            this.tickets = Arrays.copyOf(this.tickets, this.tickets.length * 2);
+        }
     }
 
     public void setUsername(String username) {
