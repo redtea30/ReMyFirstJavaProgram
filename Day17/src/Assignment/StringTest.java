@@ -174,9 +174,49 @@ public class StringTest {
         //妈的，有时间再瞅下
 
 
+        System.out.println("repeat(int count)");
+        String str13 = "qqwwee";
+        System.out.println(str13.repeat(10));//qqwweeqqwweeqqwweeqqwweeqqwweeqqwweeqqwweeqqwweeqqwweeqqwwee
+        //按照设定长度进行返回
+        String str14 = str13.repeat(10);
+        String str15 = "iiii";
+        String str16 = str14.replace("qqww", str15);
+        System.out.println(str16);//iiiieeiiiieeiiiieeiiiieeiiiieeiiiieeiiiieeiiiieeiiiieeiiiiee
+        //对当前数组内的值进行替换，可以长度不一致
 
 
+        System.out.println("repalceAll");
+        System.out.println("replaceFirst");
+        System.out.println("split");
+        //先跳过
+        System.out.println(str16.length());
+        System.out.println("startWith");
+        System.out.println(str16.startsWith("i", 6));
+        System.out.println(str16.startsWith("i", 60));
+        //从给定toffset开始，检查开头是否和给定prefix相同
+        //返回true false
 
+        System.out.println("strip");
+        String str17 = "                 qqw  wee               ";
+        System.out.println(str17.strip());//qqw  wee
+        //返回一个字符串去掉前面的换行和后面的空格
+
+
+        System.out.println("stripIndent");
+        String html = """
+                              <html>
+                                  <body>
+                                      <p>Hello, world</p>
+                                  </body>
+                              </html>
+                              """;
+        html = html.strip();
+        System.out.println(html.strip());
+//<html>
+//    <body>
+//        <p>Hello, world</p>
+//    </body>
+//</html>
 
 
 
