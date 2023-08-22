@@ -150,9 +150,9 @@ public class StringTest {
         System.out.println(str8.indexOf("a", 20));//-1
         //formIndex 表示从第几位开始找，跳过的或者不存在返回-1
 
-        String str9= "1     0";
-        String str10= "";
-        String str11= " ";
+        String str9 = "1     0";
+        String str10 = "";
+        String str11 = " ";
         System.out.println(str9.isBlank());//fasle
         System.out.println(str10.isBlank());//true
         System.out.println(str11.isBlank());//true
@@ -167,6 +167,18 @@ public class StringTest {
         //从给定序号往前搜索，找不到返回-1
 
 
+        System.out.println("matches");
+        System.out.println("regular expression");
         System.out.println(str12.matches(""));
+        //正则表达式先跳过
+        //妈的，有时间再瞅下
+
+
+
+
+
+
+
+
     }
 }
