@@ -82,21 +82,11 @@ public class Test {
 
             int userMenu = sc.nextInt();
             switch (userMenu) {
-                case 0 ->//返回上级菜单
-                {
-                    mainMenu();
-                }
-                case 1 ->//修改用户信息
-                {
-                    mt.modifyUserInfo(logged);
-                }
-                case 2 ->//查看当前用户信息
-                {
-                    mt.showCurrentUserInfo(logged);
-                }
+                case 0 -> mainMenu();
+                case 1 -> mt.modifyUserInfo(logged);
+                case 2 -> mt.showCurrentUserInfo(logged);
                 case 3 -> mt.buyTicket();
                 case 4 -> mt.showPurchasedTicket();
-
                 default -> //输入错误
                         System.out.println();
             }
@@ -105,7 +95,7 @@ public class Test {
 
     /**
      * 购买电影票
-      */
+     */
 
 
     /**
@@ -125,13 +115,9 @@ public class Test {
             switch (userInput) {
                 case 0 -> mainMenu();
                 case 1 -> mt.addMovie();
-                case 2 -> {
-                    mt.deleteMovie();
-                }
+                case 2 -> mt.deleteMovie();
                 case 3 -> mt.modifyMovieInfo();
-                case 4 -> {
-                    mt.showAllUser();
-                }
+                case 4 -> mt.showAllUser();
                 default -> System.out.println("输入错误");
             }
         }

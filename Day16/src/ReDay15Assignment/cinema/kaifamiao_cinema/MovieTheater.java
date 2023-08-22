@@ -286,7 +286,7 @@ public class MovieTheater {
     public void showAllMovie() {
         insertSortMovies();
         for (int i = 0; i < countMovies; i++) {
-            System.out.println(movies[i].toString());
+            System.out.println((i + 1) + ". " + movies[i].toString());
         }
     }
 
@@ -501,6 +501,10 @@ public class MovieTheater {
 
     }
 
+    /**
+     * 买票模块
+     * reference 马浩kfm8
+     */
     public void buyTicket() {
         showAllMovie();
         Movie movie = null;
@@ -539,10 +543,13 @@ public class MovieTheater {
     }
 
 
+    /**
+     * 展示已购买的票
+     * 我直接一个循环
+     */
     public void showPurchasedTicket() {
-        for (int i = 0; i < User.getTicketCount();i++) {
+        for (int i = 0; i < User.getTicketCount(); i++) {
             System.out.println(User.getTickets()[i].toString());
         }
-
     }
 }
