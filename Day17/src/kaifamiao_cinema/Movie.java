@@ -14,8 +14,7 @@ public class Movie {
     private double price;
     private String director;
     private int date;
-    private int leftTicket;
-
+    private int ticketsNum;
 
     public void setName(String name) {
         this.name = name;
@@ -49,27 +48,40 @@ public class Movie {
         return this.date;
     }
 
-    public int getLeftTicket() {
-        return leftTicket;
+    public int getTicketsNum() {
+        return ticketsNum;
     }
 
-    public void setLeftTicket(int leftTicket) {
-        this.leftTicket = leftTicket;
+    public void setTicketsNum(int ticketsNum) {
+        this.ticketsNum = ticketsNum;
     }
 
-
-
-    public Movie(String name, double price, String director, int date, int leftTicket) {
+public Movie(){}
+    public Movie(String name, double price, String director, int date, int ticketsNum) {
         this.date = date;
         this.name = name;
         this.director = director;
         this.price = price;
-        this.leftTicket = leftTicket;
+        this.ticketsNum = ticketsNum;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public Movie(Movie movie, int ticketsNum) {
+        this(movie.getName(), movie.getPrice(), movie.getDirector(), movie.getDate(), movie.getTicketsNum());
+        this.ticketsNum = ticketsNum;
     }
 
     @Override
     public String toString() {
-        return "Movie: { Name: " + this.name + " , Price: " + this.price + " Director: " + this.director + " Date: " + this.date + " LeftTicket: " + leftTicket + " }";
+        return "Movie: { Name: " + this.name
+                + " , Price: " + this.price
+                + " Director: " + this.director
+                + " Date: " + this.date
+                + " TicketsNum: "
+                + ticketsNum + " }";
 
     }
 

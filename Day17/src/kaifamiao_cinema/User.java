@@ -16,43 +16,51 @@ public class User {
     private Long phone;
     private String password;
     private int role;//1是管理员，2是普通用户
-    private static Ticket[] tickets;//已购买的电影票
     private static int ticketCount;
-
-    {
-        tickets = new Ticket[10];
-    }
-
-    public static int getTicketCount() {
-        return ticketCount;
-    }
-
-    public static void setTicketCount(int ticketCount) {
-        User.ticketCount = ticketCount;
-    }
-
-    public static Ticket[] getTickets() {
-        return tickets;
-    }
-
-    public static void setTickets(Ticket[] tickets) {
-        User.tickets = tickets;
-    }
-
+    private int countPurchased = 0;
+    private Movie[] purchased = new Movie[10];
 
     /**
-     * 这是自动向tickets进行存储
+     * 写入User类purchased数组
      *
-     * @param ticket
+     * @param movie
+     * @param num
      */
-    public void addTicket(Ticket ticket) {
-        //还能扩容
-        this.tickets[ticketCount++] = ticket;
-        //懒狗扩容方法
-        if (this.tickets[this.tickets.length - 3] != null) {
-            this.tickets = Arrays.copyOf(this.tickets, this.tickets.length * 2);
-        }
+    public void purchasedRecord(Movie movie, int num) {
+        purchasedExpanded(getPurchased());
+        getPurchased()[countPurchased++] = new Movie(movie, num);
+
+
     }
+
+    /**
+     * purchased数组扩容·
+     *
+     * @param movie
+     */
+    public void purchasedExpanded(Movie[] movie) {
+        if (getCountPurchased() == getPurchased().length)
+            Arrays.copyOf(movie, movie.length * 2);
+    }
+
+    public int getCountPurchased() {
+        return countPurchased;
+    }
+
+    public void setCountPurchased(int countPurchased) {
+        this.countPurchased = countPurchased;
+    }
+
+    public Movie[] getPurchased() {
+        return purchased;
+    }
+
+    public void setPurchased(Movie[] purchased) {
+        this.purchased = purchased;
+    }
+
+
+
 
     public void setUsername(String username) {
         this.username = username;
@@ -97,6 +105,9 @@ public class User {
         this.role = role;
     }
 
+    public String ticketToString(Movie movie) {
+        return movie.toString();
+    }
 
     @Override
     public String toString() {

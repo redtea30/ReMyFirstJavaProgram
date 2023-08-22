@@ -67,10 +67,13 @@ public class Test {
      * 权限属于用户
      */
     public static void menuUserInfoManagement() {
-        logged = mt.login(2);
+        if (logged == null) {
+            logged = mt.login(2);
+        }
         boolean hasLogin = false;
         if (logged != null) hasLogin = true;
         System.out.println(hasLogin ? "登陆成功" : "登陆失败");
+
         while (hasLogin) {
             System.out.println("======== 用户管理菜单 ========");
             System.out.println("1. 修改用户信息");
@@ -82,11 +85,15 @@ public class Test {
 
             int userMenu = sc.nextInt();
             switch (userMenu) {
-                case 0 -> mainMenu();
+                case 0 -> {
+                    logged = null;
+                    mainMenu();
+                }
                 case 1 -> mt.modifyUserInfo(logged);
                 case 2 -> mt.showCurrentUserInfo(logged);
                 case 3 -> mt.buyTicket();
                 case 4 -> mt.showPurchasedTicket();
+
                 default -> //输入错误
                         System.out.println();
             }

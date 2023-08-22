@@ -3,7 +3,9 @@ package kaifamiao_cinema;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import static ReDay15Assignment.cinema.kaifamiao_cinema.Test.menuAdmin;
+import static kaifamiao_cinema.Test.logged;
+import static kaifamiao_cinema.Test.menuAdmin;
+
 
 /**
  * ClassName:MovieTheather
@@ -218,12 +220,7 @@ public class MovieTheater {
         return null;
     }
 
-    /**
-     * 查找电影所在的下标
-     *
-     * @param name
-     * @return
-     */
+
     /**
      * 搜索需要的movie对象，并返回下标
      *
@@ -507,39 +504,32 @@ public class MovieTheater {
      */
     public void buyTicket() {
         showAllMovie();
-        Movie movie = null;
+        System.out.println("请输入想要购买的电影名");
+        String input = sc.next();
+        int index = intSearchMovie(input);
+        int num = movies[index].getTicketsNum();
+        while (index == -1 || num ==0) {
+            showAllMovie();
+            System.out.println("该电影不可购买,请重新输入");
+            if(num ==0) System.out.println("当前余票0张");
+            input = sc.next();
+            index = intSearchMovie(input);
+            num = movies[index].getTicketsNum();
+        }
 
-        //先检查要购买的电影票对象
-        do {
-            if (movie != null) {
-                System.out.println("请重新选择");
-            }
-            System.out.println("请输入想要购买的电影票-（序号）:");
-            int input = sc.nextInt();
-
-
-            movie = movies[input - 1];
-        } while (movie.getLeftTicket() < 1);//检查余票
-
-        Integer count = null;
-
-        //再检查购买的电影拍对象是否数量充足
-        do {
-            if (count != null) {
-                System.out.println("输入错误");
-            }
-            System.out.println("请输入购买数量");
-            count = sc.nextInt();
-        } while (!(count > 0 && count <= movie.getLeftTicket()));
-
-        Ticket ticket = new Ticket(movie, count);
-        double shouldPay = movie.getPrice() * count;
-        System.out.println(count + " 张" + movie.getName() + " 电影票， 总共需要支付 " + shouldPay + " 元。");
-        Test.logged.addTicket(ticket);
-
-        movie.setLeftTicket(movie.getLeftTicket() - count);
-        System.out.println("购买成功");
-
+        //判断剩余票数
+        System.out.println("请输入想要购买的票数");
+        num = sc.nextInt();
+        while (movies[index].getTicketsNum() - num < 0) {
+            showAllMovie();
+            System.out.println("电影票库存不足,请重新输入");
+            System.out.println("当前电影" + movies[index].getName() + "剩余票数" + movies[index].getTicketsNum() + "张");
+            num = sc.nextInt();
+        }
+        movies[index].setTicketsNum(movies[index].getTicketsNum() - num);
+        Movie movie = new Movie(movies[index], num);
+        logged.purchasedRecord(movie, num);
+        System.out.println("买票成功");
     }
 
 
@@ -548,8 +538,9 @@ public class MovieTheater {
      * 我直接一个循环
      */
     public void showPurchasedTicket() {
-        for (int i = 0; i < User.getTicketCount(); i++) {
-            System.out.println(User.getTickets()[i].toString());
+        System.out.println("======  当前已购买：  ======");
+        for (int i = 0; i <= logged.getCountPurchased() - 1; i++) {
+            System.out.println(logged.ticketToString(logged.getPurchased()[i]));
         }
     }
 }
