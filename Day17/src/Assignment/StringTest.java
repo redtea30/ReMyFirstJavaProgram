@@ -204,19 +204,30 @@ public class StringTest {
 
         System.out.println("stripIndent");
         String html = """
-                              <html>
-                                  <body>
-                                      <p>Hello, world</p>
-                                  </body>
-                              </html>
-                              """;
-        html = html.strip();
-        System.out.println(html.strip());
-//<html>
-//    <body>
-//        <p>Hello, world</p>
-//    </body>
-//</html>
+                    <html>
+                        <body>
+                            <p>Hello, world</p>
+                        </body>
+                    </html>
+                """;
+        //
+        //html的每个字符都加了4个空格
+        System.out.println(html);
+        //    <html>
+        //        <body>
+        //            <p>Hello, world</p>
+        //        </body>
+        //    </html>
+        html = html.stripIndent();
+        System.out.println(html);
+        //    <html>
+        //        <body>
+        //            <p>Hello, world</p>
+        //        </body>
+        //    </html>
+        //没太搞懂
+
+
 
 
 
