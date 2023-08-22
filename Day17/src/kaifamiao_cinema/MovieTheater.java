@@ -313,7 +313,8 @@ public class MovieTheater {
     }
 
 
-    static {
+
+     {
         movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 20221212, 2);
         movies[1] = new Movie("石村号", 42.5, "查克·派顿", 20081231, 2);
         movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 19971111, 2);

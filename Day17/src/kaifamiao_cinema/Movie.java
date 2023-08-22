@@ -56,7 +56,9 @@ public class Movie {
         this.ticketsNum = ticketsNum;
     }
 
-public Movie(){}
+    public Movie() {
+    }
+
     public Movie(String name, double price, String director, int date, int ticketsNum) {
         this.date = date;
         this.name = name;

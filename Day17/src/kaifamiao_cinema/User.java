@@ -12,6 +12,7 @@ import java.util.Arrays;
  * @Version 1.0
  */
 public class User {
+
     private String username;
     private Long phone;
     private String password;
@@ -58,8 +59,6 @@ public class User {
     public void setPurchased(Movie[] purchased) {
         this.purchased = purchased;
     }
-
-
 
 
     public void setUsername(String username) {
