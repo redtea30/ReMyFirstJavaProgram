@@ -225,10 +225,63 @@ public class StringTest {
         //            <p>Hello, world</p>
         //        </body>
         //    </html>
-        //没太搞懂
+        //没太搞懂，结果一样的
+
+        System.out.println("stripLeading");
+        System.out.println(html.stripLeading());
+        //<html>
+        //        <body>
+        //            <p>Hello, world</p>
+        //        </body>
+        //    </html>
+        //三个点的字符串就只能删掉第一行的4个空格了
+        String str18 = "    123";
+        System.out.println(str18.stripLeading());//123
+        //单行的倒是正常工作了
+
+        System.out.println("stripTrailing");
+        //先跳过了，感觉和stripLeading一样，只是从尾部开始去空格
+
+        System.out.println("toCharArray");
+        char[] char6 = randomStr1.toCharArray();
+        System.out.println(Arrays.toString(char6));//[A, b, C, D, e, f, g]
+
+        System.out.println("toLowerCase");
+        String str19 = "AAAAAAAAAAAA";
+        System.out.println(str19.toLowerCase());//aaaaaaaaaaaa
+        String str20 = str19.toLowerCase();
+        str20 = str20.replace('a', 'c');//替换str20字符串位全部为c
+        System.out.println(str20.toUpperCase());//CCCCCCCCCCCC
+        //
 
 
+        int intValue = 10;
+        char charValue = 'a';
+        boolean booleanValue = true;
+        byte byteValue = 10;
+        short shortValue = 100;
+        long longValue = 1000L;
+        float floatValue = 1.1f;
+        double doubleValue = 1.1;
+        System.out.println("valueOf");
 
+        System.out.println("value of");
+        String str21 = String.valueOf(intValue);
+        System.out.println(str21);//10
+        String str22 = String.valueOf(charValue);
+        System.out.println(str22);//a
+        String str23 = String.valueOf(booleanValue);
+        System.out.println(str23);//true
+        String str24 = String.valueOf(floatValue);
+        System.out.println(str24);//1.1
+        //挑了几个做了下
+        //数值类型全转为数值类型，字符类型全转为字符类型，Boolean转成true/false
+
+
+        System.out.println("trim");
+        String str25 ="     wwww    wwww    ";
+        System.out.println(str25.trim());//wwww    wwww
+        //直接删除字符串前面和后面的空格
 
 
     }
