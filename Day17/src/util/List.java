@@ -36,7 +36,7 @@ public class List {
         }
     }
 
-    private void deleteValue(Object obj,int index) {
+    private void deleteValue(Object obj, int index) {
 
     }
 
@@ -62,5 +62,26 @@ public class List {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public Object searchEle(int index) {
+        if (index < 0 || index >= arr.length) {
+            return null;
+        }
+        return arr[index];
+    }
+
+
+    public String toString() {
+        String str = "共有" + count + "个元素，\nList[ ";
+        for (int i = 0; i < count; i++) {
+            if (i == count - 1) {
+                str += arr[i];
+            } else {
+                str += arr[i] + ", \n";
+            }
+        }
+        str += " ]";
+        return str;
     }
 }

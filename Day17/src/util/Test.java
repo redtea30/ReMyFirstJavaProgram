@@ -29,10 +29,21 @@ public class Test {
         movie[1] = new Movie("石村号", 42.5, "查克·派顿", 20081231, 2);
 
         User student = new User("ji", 123l, "password", 1);
+        list.add(movie[0]);
         list.add(movie[1]);
         list.add(student);
 
+        System.out.println("list.toStirng");
         System.out.println(list.toString());
+
+        System.out.println("toString");
+        Object testEle1 = list.searchEle(1);
+        System.out.println(testEle1.toString());
+
+        System.out.println("getCount");
+        System.out.println(list.getCount());
+
+
     }
 
 
