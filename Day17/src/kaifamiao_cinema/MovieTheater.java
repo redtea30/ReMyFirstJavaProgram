@@ -202,6 +202,7 @@ public class MovieTheater {
      *
      * @return
      */
+    //原
     public User login(int role) {
         Scanner sc1 = new Scanner(System.in);
         while (true) {
@@ -217,6 +218,26 @@ public class MovieTheater {
                 return null;
             }
         }
+    }
+
+    public boolean UserLogin(int role) {
+
+        //还需要继续改写
+        Scanner sc1 = new Scanner(System.in);
+        while (true) {
+            System.out.println("请输入用户名");
+            String name = sc1.next();
+            User user = searchUser(name);
+            if (user.getRole() == role) {
+                System.out.println("请输入密码");
+                String password = sc1.next();
+                return true;
+            } else {
+                System.out.println("输入错误");
+                return false;
+            }
+        }
+
     }
 
 

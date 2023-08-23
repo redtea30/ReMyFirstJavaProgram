@@ -46,10 +46,10 @@ public class Test {
                 case 1 -> {
                     mt.showAllListMovie();
                     mt.searchListMovie();
-                    mt.searchMovie();
+                    //mt.searchMovie();//原
                 }
-                case 2 -> {
-                    mt.showAllMovie();
+                case 2 -> {  
+                    //mt.showAllMovie();//原
                     mt.showAllListMovie();//这个是list类的方法，测试成功，打印两次
                 }
                 case 3 -> {

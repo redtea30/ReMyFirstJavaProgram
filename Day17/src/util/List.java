@@ -79,8 +79,10 @@ public class List {
 
     /**
      * list工具类的打印功能
+     * v1.0 纯打印一遍
+     * v1.1 增加序号
      *
-     * @return
+     * @return 直接返回打印好的字符串
      */
     public String toString() {
         String str = "共有" + count + "个元素，List[ ";
