@@ -28,6 +28,7 @@ public class emailCharacter {
 
     /**
      * 不完全规则，检查是否包含@
+     * 缺少检测"."的判断
       * @param str
      */
     private static void checkEmailCharacter(String str) {

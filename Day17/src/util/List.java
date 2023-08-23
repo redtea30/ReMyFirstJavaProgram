@@ -26,18 +26,18 @@ public class List {
 
     public void add(Object obj) {
         // 判断能否存下
-        if (this.count + 1 > arr.length){
+        if (this.count + 1 > arr.length) {
             // 存不下
             expandArr();
         }
 //        arr[size] = obj;
 //        size ++;
-        arr[count ++] = obj;
+        arr[count++] = obj;
     }
 
 
     private void expandArr() {
-        arr = Arrays.copyOf(arr, arr.length  * 2);
+        arr = Arrays.copyOf(arr, arr.length * 2);
 
     }
 
@@ -77,14 +77,19 @@ public class List {
     }
 
 
-
+    /**
+     * list工具类的打印功能
+     *
+     * @return
+     */
     public String toString() {
-        String str = "共有" + count + "个元素，\nList[ ";
+        String str = "共有" + count + "个元素，List[ ";
         for (int i = 0; i < count; i++) {
+            str += "\n" + (i + 1) + ".";
             if (i == count - 1) {
                 str += arr[i];
             } else {
-                str += arr[i] + ", \n";
+                str += arr[i] + ",";
             }
         }
         str += " ]";

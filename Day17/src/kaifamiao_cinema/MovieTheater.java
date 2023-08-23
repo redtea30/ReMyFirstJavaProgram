@@ -37,8 +37,10 @@ public class MovieTheater {
     }
 
     public void searchListMovie() {
-        System.out.println("请输入你要查找的电影名称");
-        String inputStr = sc.next();
+        System.out.println("请输入你要查找的电影的序号");
+        int search = sc.nextInt();
+        Movie movie = (Movie) listMovie.searchEle(search - 1);
+        System.out.println(movie.toString());
 
 
     }

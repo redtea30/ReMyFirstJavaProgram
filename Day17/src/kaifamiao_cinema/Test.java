@@ -43,7 +43,11 @@ public class Test {
                 case 0 -> {
                     return;//OK的
                 }
-                case 1 -> mt.searchMovie();
+                case 1 -> {
+                    mt.showAllListMovie();
+                    mt.searchListMovie();
+                    mt.searchMovie();
+                }
                 case 2 -> {
                     mt.showAllMovie();
                     mt.showAllListMovie();//这个是list类的方法，测试成功，打印两次
