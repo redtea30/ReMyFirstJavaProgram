@@ -43,6 +43,14 @@ public class Test {
         System.out.println("getCount");
         System.out.println(list.getCount());
 
+        list.deleteValue(list, 2);
+        System.out.println(list.toString());
+        System.out.println(list.getCount());
+
+
+
+
+
 
     }
 

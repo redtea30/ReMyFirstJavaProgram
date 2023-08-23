@@ -1,5 +1,7 @@
 package kaifamiao_cinema;
 
+import util.List;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -22,6 +24,8 @@ public class MovieTheater {
     private static int countMovies = 10;
     private static int countUsers = 10;
     private static Scanner sc = new Scanner(System.in);//这样的静态方法就只能本类里使用
+    List listMovie = new List();
+    List listUser = new List();
 
     /**
      * 通过电影名称进行搜索，并返回该电影的所有数据
@@ -31,6 +35,14 @@ public class MovieTheater {
         String inputStr = sc.next();
         System.out.println(searchMovie(inputStr).toString());
     }
+
+    public void searchListMovie() {
+        System.out.println("请输入你要查找的电影名称");
+        String inputStr = sc.next();
+
+
+    }
+
 
     /**
      * 补丁，phone值类型为long，拿到long的长度
@@ -288,6 +300,13 @@ public class MovieTheater {
     }
 
     /**
+     * 用来替换原先ShowAllMovie的list类方法
+     */
+    public void showAllListMovie() {
+        System.out.println(listMovie.toString());
+    }
+
+    /**
      * 为列表加电影
      */
     public void addMovie() {
@@ -313,8 +332,7 @@ public class MovieTheater {
     }
 
 
-
-     {
+    {
         movies[0] = new Movie("阿凡达", 55.5, "詹姆斯·卡梅隆", 20221212, 2);
         movies[1] = new Movie("石村号", 42.5, "查克·派顿", 20081231, 2);
         movies[2] = new Movie("泰坦尼克号", 35.0, "詹姆斯·卡梅隆", 19971111, 2);
@@ -336,6 +354,12 @@ public class MovieTheater {
         users[7] = new User("吴十", 13888881111L, "123456", 2);
         users[8] = new User("郑十一", 13899991111L, "123456", 2);
         users[9] = new User("王十二", 13810101111L, "123456", 2);
+
+        for (int i = 0; i < countMovies; i++) {
+            listMovie.add(movies[i]);
+            listUser.add(users[i]);
+        }
+
 
     }
 
@@ -509,10 +533,10 @@ public class MovieTheater {
         String input = sc.next();
         int index = intSearchMovie(input);
         int num = movies[index].getTicketsNum();
-        while (index == -1 || num ==0) {
+        while (index == -1 || num == 0) {
             showAllMovie();
             System.out.println("该电影不可购买,请重新输入");
-            if(num ==0) System.out.println("当前余票0张");
+            if (num == 0) System.out.println("当前余票0张");
             input = sc.next();
             index = intSearchMovie(input);
             num = movies[index].getTicketsNum();

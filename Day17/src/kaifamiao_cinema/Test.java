@@ -44,7 +44,10 @@ public class Test {
                     return;//OK的
                 }
                 case 1 -> mt.searchMovie();
-                case 2 -> mt.showAllMovie();
+                case 2 -> {
+                    mt.showAllMovie();
+                    mt.showAllListMovie();//这个是list类的方法，测试成功，打印两次
+                }
                 case 3 -> {
                     User admin = mt.login(1);
                     //这又是个补丁

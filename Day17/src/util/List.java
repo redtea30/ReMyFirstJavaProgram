@@ -12,8 +12,8 @@ import java.util.Arrays;
  * @Version 1.0
  */
 public class List {
-    private Object[] arr;
-    private int count;
+    private Object[] arr = new Object[2];
+    private int count = 0;
     private int capacity;
 
     public List() {
@@ -25,19 +25,24 @@ public class List {
     }
 
     public void add(Object obj) {
-        expandArr();
-        arr[count++] = obj;
+        // 判断能否存下
+        if (this.count + 1 > arr.length){
+            // 存不下
+            expandArr();
+        }
+//        arr[size] = obj;
+//        size ++;
+        arr[count ++] = obj;
     }
 
 
     private void expandArr() {
-        if (count == arr.length) {
-            Arrays.copyOf(arr, arr.length * 2);
-        }
+        arr = Arrays.copyOf(arr, arr.length  * 2);
+
     }
 
-    private void deleteValue(Object obj, int index) {
-
+    public void deleteValue(Object obj, int index) {
+        System.arraycopy(arr, index, arr, index - 1, (count--) - index);
     }
 
     public Object[] getArr() {
@@ -70,6 +75,7 @@ public class List {
         }
         return arr[index];
     }
+
 
 
     public String toString() {
