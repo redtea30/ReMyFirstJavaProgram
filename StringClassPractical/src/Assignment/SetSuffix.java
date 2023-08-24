@@ -23,7 +23,7 @@ public class SetSuffix {
     static String suffix(String str) {
 
         int getIndex = str.lastIndexOf(".");
-        String suffix = str.substring(getIndex);
+        String suffix = str.substring(0, getIndex);
         return suffix;
 
     }

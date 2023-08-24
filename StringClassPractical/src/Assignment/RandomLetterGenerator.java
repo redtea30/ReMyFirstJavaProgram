@@ -41,7 +41,7 @@ public class RandomLetterGenerator {
             }
             count++;
         }
-        while (count < 999);
+        while (count < 99999);
         return autocode;
     }
 
