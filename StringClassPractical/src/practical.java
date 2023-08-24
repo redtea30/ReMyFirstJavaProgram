@@ -26,6 +26,12 @@ public class practical {
         String str4 = "another test";
         int bigOrSmall = str3.compareTo(str4);
         System.out.println(bigOrSmall);
+        //返回比较到不同的时候的两个char类型的差值，两个Unicode值相减
+        //基本等于前面的Unicode值减去后面的Unicode值
+        //this.charAt(k)-anotherString.charAt(k)
+        //如果参数字符串等于该字符串，则返回0；如果该字符串按字典顺序小于字符串参数，则小于0的数；如果该字符串按字典顺序大于字符串参数，则返回一个大于0的值。
+
+
 
 
 
