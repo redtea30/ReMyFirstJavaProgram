@@ -22,6 +22,11 @@ public class LuckNum {
 
     }
 
+    /**
+     * 先生成40位的数组，然后洗牌，就酱
+     *
+     * @return
+     */
     public static int[] getLucky() {
         for (int i = 0; i < 40; i++) {
             arr[i] = i + 1;
