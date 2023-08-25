@@ -20,55 +20,96 @@ public class CalculatorVersion1 {
     }
 
     public static double calculate(String str) {
-        StringBuffer buffer = new StringBuffer(str);
+        //想法：从左向右找，先找乘除，再找加减，
+        //找运算符左边的边界和右边的边界
+        //进行运算，然后塞回去
+        //接着循环
+
+        boolean computeSign = true;
         String regexPlus = "\\d* \\+ \\d*";
         String regexMinus = "\\d* \\- \\d*";
         String regexMultiply = "\\d* \\* \\d*";
         String regexDivide = "\\d* \\/ \\d*";
-        Pattern checkMultiply = Pattern.compile(regexMultiply);
-        Pattern checkDivide = Pattern.compile(regexDivide);
-        Pattern checkPlus = Pattern.compile(regexPlus);
-        Pattern checkMinus = Pattern.compile(regexMinus);
-        int start1, start2, start3, start4;
-        int end1, end2, end3, end4;
-        boolean computeSign = false;
         while (computeSign) {
-            computeSign = false;
-
-            Matcher matcher1 = checkMultiply.matcher(str);
-            Matcher matcher2 = checkDivide.matcher(str);
-            Matcher matcher3 = checkPlus.matcher(str);
-            Matcher matcher4 = checkMinus.matcher(str);
-            while (matcher1.matches()) {
-                start1 = matcher1.start();
-                end1 = matcher1.end();
-                String temp = str.substring(start1, end1);
-                String[] temp1 = temp.split("\\*");
-                Double temp2 = Double.valueOf(temp1[0]) * Double.valueOf(temp1[1]);
-                String temp3 = temp2.toString();
-                buffer = buffer.replace(start1, end1, temp3);
-                computeSign = true;
-                int findLeft = findLeft(str, start1);
-                int findRight = findRight(str, start1);
-            }
-
-
+            Pattern checkMultiply = Pattern.compile(regexMultiply);
+            Matcher matcher = checkMultiply.matcher(str);
+            int index = str.indexOf("*");//运算符下标
+            char operator = str.charAt(index);
+            int left = findLeft(str, index - 1);
+            int right = findRight(str, index + 1);
+            String leftNumber = str.substring(left, index);
+            String RightNumber = str.substring(index + 1, right + 1);
+            String result = numToString(calculate(leftNumber, RightNumber, operator));
+            //替回去
+            String temp = str.substring(left, right + 1);//切下来的待替换块
+            str = str.replace(temp, result);//
+            computeSign = operatorExists(str, index);//先判断下个循环能不能进行
         }
-        double calculateFinal = Double.parseDouble(buffer.toString());
-        return calculateFinal;
+        computeSign = true;
+        while (computeSign) {
+            Pattern checkDivide = Pattern.compile(regexDivide);
+            Matcher matcher = checkDivide.matcher(str);
+            int index = str.indexOf("/");//运算符下标
+            char operator = str.charAt(index);
+            int left = findLeft(str, index - 1);
+            int right = findRight(str, index + 1);
+            String leftNumber = str.substring(left, index);
+            String RightNumber = str.substring(index + 1, right + 1);
+            String result = numToString(calculate(leftNumber, RightNumber, operator));
+            //替回去
+            String temp = str.substring(left, right + 1);//切下来的待替换块
+            str = str.replace(temp, result);//
+            computeSign = operatorExists(str, index);//先判断下个循环能不能进行
+        }
+        computeSign = true;
+        while (computeSign) {
+            Pattern checkPlus = Pattern.compile(regexPlus);
+            Matcher matcher = checkPlus.matcher(str);
+            int index = str.indexOf("+");//运算符下标
+            char operator = str.charAt(index);
+            int left = findLeft(str, index - 1);
+            int right = findRight(str, index + 1);
+            String leftNumber = str.substring(left, index);
+            String RightNumber = str.substring(index + 1, right + 1);
+            String result = numToString(calculate(leftNumber, RightNumber, operator));
+            //替回去
+            String temp = str.substring(left, right + 1);//切下来的待替换块
+            str = str.replace(temp, result);//
+            computeSign = operatorExists(str, index);//先判断下个循环能不能进行
+        }
+        computeSign = true;
+        while (computeSign) {
+            Pattern checkMinus = Pattern.compile(regexMinus);
+            Matcher matcher = checkMinus.matcher(str);
+            int index = str.indexOf("-");//运算符下标
+            char operator = str.charAt(index);
+            int left = findLeft(str, index - 1);
+            int right = findRight(str, index + 1);
+            String leftNumber = str.substring(left, index);
+            String RightNumber = str.substring(index + 1, right + 1);
+            String result = numToString(calculate(leftNumber, RightNumber, operator));
+            //替回去
+            String temp = str.substring(left, right + 1);//切下来的待替换块
+            str = str.replace(temp, result);//
+            computeSign = operatorExists(str, index);//先判断下个循环能不能进行
+        }
+
+
+        Double resultFinal = Double.parseDouble(str);
+        return resultFinal;
     }
 
 
     public static int findLeft(String str, int index) {
         int leftIndex;
-        for (int i = index; i >= 0; i--) {
+        for (int i = index - 1; i >= 0; i--) {
             char char1 = str.charAt(i);
-            boolean isMultiply = (char1 == 42);
-            boolean isPlus = (char1 == 43);
-            boolean isMinus = (char1 == 45);
-            boolean isDivide = (char1 == 47);
+            boolean isMultiply = (char1 == '*');
+            boolean isPlus = (char1 == '+');
+            boolean isMinus = (char1 == '-');
+            boolean isDivide = (char1 == '/');
             if (isMultiply || isPlus || isMinus || isDivide) {
-                return i - 1;
+                return i + 1;
             }
         }
         return 0;
@@ -76,12 +117,12 @@ public class CalculatorVersion1 {
 
     public static int findRight(String str, int index) {
         int rightIndex;
-        for (int i = index; i < str.length(); i++) {
+        for (int i = index + 1; i < str.length(); i++) {
             char char1 = str.charAt(i);
-            boolean isMultiply = (char1 == 42);
-            boolean isPlus = (char1 == 43);
-            boolean isMinus = (char1 == 45);
-            boolean isDivide = (char1 == 47);
+            boolean isMultiply = (char1 == '*');
+            boolean isPlus = (char1 == '+');
+            boolean isMinus = (char1 == '-');
+            boolean isDivide = (char1 == '/');
             if (isMultiply || isPlus || isMinus || isDivide) {
                 return i - 1;
             }
@@ -89,5 +130,30 @@ public class CalculatorVersion1 {
         return str.length() - 1;
     }
 
+    public static double calculate(String str1, String str2, char operator) {
+        double finalValue = 0;
+        if (operator == '*') {
+            finalValue = Double.parseDouble(str1) * Double.parseDouble(str2);
+        } else if (operator == '/') {
+            finalValue = Double.parseDouble(str1) / Double.parseDouble(str2);
+        } else if (operator == '+') {
+            finalValue = Double.parseDouble(str1) + Double.parseDouble(str2);
+        } else if (operator == '-') {
+            finalValue = Double.parseDouble(str1) - Double.parseDouble(str2);
+        }
+        return finalValue;
+
+    }
+
+    public static String numToString(double value) {
+        String result = String.valueOf(value);
+        return result;
+    }
+
+    public static boolean operatorExists(String str, int operatorIndex) {
+        int finalValue = str.indexOf(operatorIndex);
+        if (finalValue > 0) return true;
+        else return false;
+    }
 
 }
