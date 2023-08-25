@@ -87,6 +87,14 @@ public class DateTest {
         System.out.println(dateSdf);//3901-03-01 07:29:00
         System.out.println(dateSdf1);//07:29:00
         System.out.println(dateSdf2);//3901-03-01
+        //SimpleDateFormat是一个具体的类，用于以语言环境敏感的方式格式化和解析日期。它允许格式化(日期→文本)、解析(文本→日期)和规范化
+
+        String pattern = sdf.toPattern();
+        System.out.println(pattern);//yyyy-MM-dd HH:mm:ss
+        //String = simpleDateFormat.toPattern(); 获取当前simpleDateFormat对象的格式化模式
+
+        Date date2 = new Date(0);
+        System.out.println(date2);
 
 
     }
