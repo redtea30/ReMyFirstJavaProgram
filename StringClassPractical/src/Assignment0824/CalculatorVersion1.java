@@ -48,45 +48,45 @@ public class CalculatorVersion1 {
                 String temp3 = temp2.toString();
                 buffer = buffer.replace(start1, end1, temp3);
                 computeSign = true;
-            }
-            while (matcher2.matches()) {
-                start2 = matcher2.start();
-                end2 = matcher2.end();
-                String temp = str.substring(start2, end2);
-                String[] temp1 = temp.split("\\/");
-                Double temp2 = Double.valueOf(temp1[0]) * Double.valueOf(temp1[1]);
-                String temp3 = temp2.toString();
-                buffer = buffer.replace(start2, end2, temp3);
-                computeSign = true;
-
-            }
-            while (matcher3.matches()) {
-                start3 = matcher3.start();
-                end3 = matcher3.end();
-                String temp = str.substring(start3, end3);
-                String[] temp1 = temp.split("\\+");
-                Double temp2 = Double.valueOf(temp1[0]) * Double.valueOf(temp1[1]);
-                String temp3 = temp2.toString();
-                buffer = buffer.replace(start3, end3, temp3);
-                computeSign = true;
-
-            }
-            while (matcher4.matches()) {
-                start4 = matcher4.start();
-                end4 = matcher4.end();
-                String temp = str.substring(start4, end4);
-                String[] temp1 = temp.split("\\-");
-                Double temp2 = Double.valueOf(temp1[0]) * Double.valueOf(temp1[1]);
-                String temp3 = temp2.toString();
-                buffer = buffer.replace(start4, end4, temp3);
-                computeSign = true;
-
+                int findLeft = findLeft(str, start1);
+                int findRight = findRight(str, start1);
             }
 
 
         }
         double calculateFinal = Double.parseDouble(buffer.toString());
         return calculateFinal;
+    }
+
+
+    public static int findLeft(String str, int index) {
+        int leftIndex;
+        for (int i = index; i >= 0; i--) {
+            char char1 = str.charAt(i);
+            boolean isMultiply = (char1 == 42);
+            boolean isPlus = (char1 == 43);
+            boolean isMinus = (char1 == 45);
+            boolean isDivide = (char1 == 47);
+            if (isMultiply || isPlus || isMinus || isDivide) {
+                return i - 1;
+            }
+        }
+        return 0;
+    }
+
+    public static int findRight(String str, int index) {
+        int rightIndex;
+        for (int i = index; i < str.length(); i++) {
+            char char1 = str.charAt(i);
+            boolean isMultiply = (char1 == 42);
+            boolean isPlus = (char1 == 43);
+            boolean isMinus = (char1 == 45);
+            boolean isDivide = (char1 == 47);
+            if (isMultiply || isPlus || isMinus || isDivide) {
+                return i - 1;
+            }
+        }
+        return str.length() - 1;
     }
 
 
