@@ -1,5 +1,6 @@
 package DataClassPractical;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -51,10 +52,9 @@ public class DateTest {
         System.out.println(date1);//Thu Jan 01 07:31:00 SGT 1970
         date1.setTime(-60000);
         System.out.println(date1);//Thu Jan 01 07:29:00 SGT 1970
-        // Date.setTime(); 可以给date对象增加或减少时间
+        // Date.setTime(int/long); 可以给date对象增加或减少时间
         // 参考calendar类，貌似有bug，未使用get等获取类方法时，date对象的毫秒数不会更新
         //因此增一分减一分不是原时间
-
         date1.setTime(60000);
         date1.getTime();
         date1.setTime(-60000);
@@ -62,7 +62,31 @@ public class DateTest {
         System.out.println(date1);//Thu Jan 01 07:29:00 SGT 1970
         //这样就能避免卡BUG情况
 
+        date1.setYear(2000);
+        System.out.println(date1);//Mon Jan 01 07:29:00 SGT 3900
+        //Date.setYear(int); 直接对date1进行加年份运算
+        //但是很混乱，没有从1970年开始加，而是从1900年开始计的
 
+        date1.setMonth(3);
+        System.out.println(date1);//Sun Apr 01 07:29:00 SGT 3900
+        //Date.setMonth(int); range: 0-11
+        date1.setMonth(14);
+        System.out.println(date1);//Fri Mar 01 07:29:00 SGT 3901
+        //加的值超过11时自动年份加一
+
+        System.out.println(date.compareTo(date1));//-1
+        //date.compareTo(date1); 返回值int类型，大小比较结果，
+        // 前大后小 1 前小后大 -1
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("HH:mm:ss");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+        String dateSdf = sdf.format(date1);
+        String dateSdf1 = sdf1.format(date1);
+        String dateSdf2 = sdf2.format(date1);
+        System.out.println(dateSdf);//3901-03-01 07:29:00
+        System.out.println(dateSdf1);//07:29:00
+        System.out.println(dateSdf2);//3901-03-01
 
 
     }
