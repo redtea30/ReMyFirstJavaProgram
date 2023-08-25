@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * @Create 24/8/20239:11 pm
  * @Version 1.0
  */
-public class Calculator {
+public class CalculatorVersion1 {
     public static void main(String[] args) {
         String str = "1+2*3-4/2";
         System.out.println(calculate(str));
