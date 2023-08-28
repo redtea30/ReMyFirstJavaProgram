@@ -24,7 +24,7 @@
 ## 常用的数据结构
 * 数组（Array）
 * 队列（Queue）
-* 链表（Linked List）
+* 链表（Linked Temp.List）
 * 栈（Stack）
 * 树（Tree）
 * 散列表（Hash）
@@ -45,7 +45,7 @@
 
 ![img_2.png](Introimage/img_2.png)
 
-### 链表（Linked List）
+### 链表（Linked Temp.List）
 链表是一种物理存储单元上非连续，非顺序的存储结构。链表有一系列节点组成，所谓节点就是指链表中的每一个元素，每个节点包含两个数据，一个是存储元素的数据域（值），另一个是存储下一个节点地址的指针域。
 
 ![img_3.png](Introimage/img_3.png)
