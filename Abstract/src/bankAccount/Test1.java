@@ -34,7 +34,32 @@ public class Test1 {
 
     }
 
-    public void mainMenu() {
+
+    public static void deposit() {
+        System.out.println("请输入你想存多少钱");
+        double amount = scanner.nextDouble();
+        bk.deposit(amount);
+    }
+
+
+    public static void mainMenu() {
+        mainMenuList();
+        int input = scanner.nextInt();
+        if (input == 0) {
+            bk = null;
+            return;
+        } else if (input == 1) {
+
+        } else if (input == 2) {
+
+        } else {
+            System.out.println("你输入的不正确");
+            mainMenuList();
+        }
+    }
+
+
+    public static void mainMenuList() {
         System.out.println("1. 取款");
         System.out.println("2. 存款");
         System.out.println("0. 退出");
@@ -42,11 +67,15 @@ public class Test1 {
 
     public void preMenu() {
         int temp = switchesAccount();
-        if (temp == 0) return;
-        else if (temp != 1 && temp != 2) {
+        if (temp == 0) {
+            return;
+        } else if (temp < 0 && temp > list.getCount()) {
             System.out.println("你输入的不正确");
             preMenu();
-        } else mainMenu();
+        } else {
+            bk = list.getAccount()[temp];
+            mainMenu();
+        }
     }
 
     public int switchesAccount() {
