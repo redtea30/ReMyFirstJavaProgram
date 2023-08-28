@@ -22,12 +22,12 @@ class Sub extends Super {
     static Super s1 = new Super(1);
     Super s2 = new Super(3);
 
-    public static void main(String[] args) {
-        Super c1 = new Sub(2);
-    }
-
     Sub(int i) {
         super(i);
         System.out.println("Sub" + i + ",");
+    }
+
+    public static void main(String[] args) {
+        Super c1 = new Sub(2);
     }
 }
