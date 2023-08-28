@@ -19,6 +19,13 @@ class List {
         return count;
     }
 
+    /**
+     * 这里把BankAccount[] 传入List类的数组中
+     * 但是之前把System.arraycopy();写错了
+     * scrArr 是 源文件， destArr是目标数组
+     *
+     * @param account
+     */
     List(BankAccount[] account) {
         this.account = Arrays.copyOf(this.account, this.account.length + account.length);
         System.arraycopy(account, 0, this.account, count, account.length);
