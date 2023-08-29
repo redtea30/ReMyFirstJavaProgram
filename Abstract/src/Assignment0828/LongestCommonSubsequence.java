@@ -3,7 +3,7 @@ package Assignment0828;
 /**
  * ClassName:MaxLengthSubString
  * Package: Assignment0828
- * Description:
+ * Description:  这个做法有问题是找最长不重复序列的
  *
  * @Author Neko
  * @Create 28/8/20237:45 pm
@@ -11,8 +11,8 @@ package Assignment0828;
  */
 public class LongestCommonSubsequence {
     public static void main(String[] args) {
-        String str1 = "abcde";
-        String str2 = "ace";
+        String str1 = "asdfsdaf";
+        String str2 = "acsdzgfsbxdgnzdgndgnzdgndgndgnzdgncvbndzhzere";
         getLCS(str1, str2);
     }
 
