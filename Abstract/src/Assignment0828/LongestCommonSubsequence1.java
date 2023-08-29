@@ -3,7 +3,7 @@ package Assignment0828;
 /**
  * ClassName:MaxLengthSubString
  * Package: Assignment0828
- * Description:  这个做法有问题是找最长不重复序列的
+ * Description:  现在就没问题了，大概
  *
  * @Author Neko
  * @Create 28/8/20237:45 pm
@@ -23,11 +23,10 @@ public class LongestCommonSubsequence1 {
         int x = str2.length();
         int y = str1.length();
         int[][] arr = new int[y + 1][x + 1];
-        for (int i = 0; i < y + 1; i++) {
-            for (int j = 0; i < x + 1; i++) {
-                if (str1.charAt(i) == str2.charAt(j)) {
-                    arr[i][j] = Math.max(arr[i - 1][j], arr[i][j - 1]) + 1;
-                }
+        for (int i = 1; i < y + 1; i++) {
+            for (int j = 1; i < x + 1; i++) {
+                if (str1.charAt(i - 1) == str2.charAt(j - 1)) arr[i][j] = arr[i - 1][j - 1] + 1;
+                else if (str1.charAt(i - 1) != str2.charAt(j - 1)) arr[i][j] = Math.max(arr[i - 1][j], arr[i][j - 1]);
             }
         }
         System.out.println(arr[arr.length][arr[1].length]);
