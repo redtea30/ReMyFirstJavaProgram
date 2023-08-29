@@ -59,7 +59,7 @@ public class StackMain extends Stack {
 
     @Override
     public boolean equals(Object obj) {
-        return this.toString().equals(obj.toString());
+        return this.hashCode() == obj.hashCode();
     }
 
     @Override

@@ -47,15 +47,23 @@ public class Test {
         sm.push(book6);
         sm.push(book5);
         System.out.println(sm.peek().toString());
+
+        System.out.println("equals------------------------");
         System.out.println(sm.pop().equals(sm.peek()));
         System.out.println(sm.peek().toString());
         System.out.println(sm.size());
+
+
+
 
         sm.pop();
         sm.pop();
         sm.pop();
         sm.pop();
         sm.pop();
+
+
+
         System.out.println(sm.size());
         System.out.println(sm.isEmpty());
         System.out.println(sm.peek());
