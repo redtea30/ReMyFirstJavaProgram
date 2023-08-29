@@ -1,7 +1,7 @@
 package student;
 
 /**
- * ClassName:AverageScoreWIthoutHIghtAndLowestScore
+ * ClassName:AverageScoreWithoutHighestAndLowestScore
  * Package: student
  * Description:
  *
@@ -9,5 +9,5 @@ package student;
  * @Create 29/8/20234:34 pm
  * @Version 1.0
  */
-public interface AverageScoreWithoutHightAndLowestScore {
+public interface AverageScoreWithoutHighestAndLowestScore {
 }

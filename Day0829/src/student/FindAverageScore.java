@@ -10,4 +10,5 @@ package student;
  * @Version 1.0
  */
 public interface FindAverageScore {
+    int getAverageScore(String str);
 }
