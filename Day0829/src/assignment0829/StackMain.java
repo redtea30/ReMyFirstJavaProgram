@@ -15,6 +15,10 @@ public class StackMain extends Stack {
     Object[] stack;
     int count = 0;
 
+    public StackMain() {
+    }
+
+
     @Override
     void push(Object element) {
         isFull();
@@ -23,12 +27,19 @@ public class StackMain extends Stack {
 
     @Override
     Object pop() {
-        return stack[count--];//先这么写，测试功能是否运行
+        Object temp = stack[count - 1];
+//      if (count == 0) return null;
+//        return stack[--count];//先这么写，测试功能是否运行
+        System.arraycopy(stack, 0, stack, 0, count - 1);
+        System.arraycopy(stack, count, stack, count - 1, stack.length - count);
+        count--;
+        return temp;
     }
 
     @Override
     Object peek() {
-        return stack[count];
+        if (count == 0) return null;
+        return stack[count - 1];
     }
 
     @Override
@@ -48,19 +59,23 @@ public class StackMain extends Stack {
 
     @Override
     public boolean equals(Object obj) {
-        return this == obj;
+        return this.toString().equals(obj.toString());
     }
 
     @Override
     public String toString() {
-        return super.toString();
+        return "StackMain{" +
+                "stack=" + Arrays.toString(stack) +
+                ", count=" + count +
+                '}';
     }
 
     public void isFull() {
-        if (count > stack.length - 1) expandArr();
+        if (this.stack == null || count > this.stack.length - 1) expandArr();
     }
 
     public void expandArr() {
-        stack = Arrays.copyOf(stack, (int) ((count * 1.5) + 10));
+        if (stack == null) stack = new Object[10];
+        else stack = Arrays.copyOf(stack, count * 2);
     }
 }
