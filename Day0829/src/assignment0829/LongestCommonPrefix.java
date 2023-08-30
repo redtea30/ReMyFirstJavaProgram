@@ -57,7 +57,6 @@ public class LongestCommonPrefix {
                     break outer;
                 }
             }
-            //finalArr = finalArr.concat(Character.toString(temp));
             finalArr += temp;
         }
         return finalArr;
