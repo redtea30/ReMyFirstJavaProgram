@@ -30,10 +30,11 @@ public class WordBreak {
                 //这里获取了待插入字符串的长度
                 int index = buffer.indexOf(wordDict[i]);
 
-                if (canSeparate(buffer, index, length)) {
+/*                if (canSeparate(buffer, ,index,)) {
                     i++;
                     continue;
-                }
+                }*/
+                //检查点先不搞了，没时间了
                 buffer.insert(index++, space);
                 //这里必须加一，前面已经塞了一个空格了buffer的index的位置加一
                 buffer.insert(index + length, space);
