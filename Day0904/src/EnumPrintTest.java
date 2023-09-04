@@ -1,3 +1,5 @@
+import java.time.LocalTime;
+
 /**
  * ClassName:EnumPrint
  * Package: PACKAGE_NAME
@@ -23,7 +25,30 @@ public class EnumPrintTest {
         //该下标为enum中实例的顺序位置
         System.out.println(monday.ordinal());//获取monday对象在enum中的位置
 
+        //valueOf(String s)
+
+        System.out.println(EnumTest.valueOf("tuesday"));
+        System.out.println(EnumTest.valueOf("monday"));
+
+        LocalTime now1 = LocalTime.now();
+        Greeting.greeting(now1);
+
     }
+
+/*    public static void greeting(LocalTime localtime) {
+        Greeting afternoon = Greeting.afternoon;
+        Greeting noon = Greeting.noon;
+        Greeting evening = Greeting.evening;
+        Greeting Morning = Greeting.Morning;
+        int hour = localtime.getHour();
+        if (hour >= 4 && hour <= 12) System.out.println("早上好");
+        else if (hour > 12 && hour <= 15) System.out.println("中午好");
+        else if (hour > 15 && hour <= 20) System.out.println("下午好");
+        else if (hour > 20 && hour <= 24 || hour >= 0 && hour < 4) System.out.println("晚上好");
+        else System.out.println("输入错误");
+    }*/
 
 
 }
+
+
