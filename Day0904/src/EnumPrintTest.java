@@ -33,6 +33,8 @@ public class EnumPrintTest {
         LocalTime now1 = LocalTime.now();
         Greeting.greeting(now1);
 
+        System.out.println(Greeting.greetingSimple());
+
     }
 
 /*    public static void greeting(LocalTime localtime) {

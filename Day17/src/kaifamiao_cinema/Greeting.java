@@ -1,32 +1,39 @@
 package kaifamiao_cinema;
 
+import java.time.LocalTime;
+
 /**
  * ClassName:Greeting
  * Package: kaifamiao_cinema
- * Description:
+ * Description:用于判断当前时间以及返回问候语
  *
  * @Author Neko
  * @Create 4/9/20232:06 pm
  * @Version 1.0
  */
 public enum Greeting {
-    Morning("早上好"), noon("中午好"), afternoon("下午好"), evening("晚上好");
+    GREETING;
     private String name;
+    private int hour;
+
     Greeting() {
-    }
-    Greeting(String name) {
-        this.name = name;
-    }
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+        LocalTime lc = LocalTime.now();
+        hour = lc.getHour();
     }
 
 
-
-
+    /**
+     * 简化写法，只调用一个对象进行判断
+     *
+     * @return
+     */
+    public static String greeting() {
+        Greeting greeting = Greeting.GREETING;
+        int hour = greeting.hour;
+        if (hour >= 4 && hour <= 12) return "早上好";
+        else if (hour > 12 && hour <= 15) return "中午好";
+        else if (hour > 15 && hour <= 20) return "下午好";
+        else return "晚上好";
+    }
 
 }

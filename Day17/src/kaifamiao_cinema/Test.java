@@ -1,5 +1,6 @@
 package kaifamiao_cinema;
 
+import java.time.LocalTime;
 import java.util.Scanner;
 
 /**
@@ -27,9 +28,10 @@ public class Test {
      * 主菜单
      */
     public static void mainMenu() {
+        LocalTime localTime = LocalTime.now();
         while (true) {
-            System.out.println("===========开发喵影院===========");
-            System.out.println("          电影信息系统          ");
+            System.out.println("===========" + Greeting.greeting() + ",欢迎使用开发喵影院系统===========");
+            System.out.println("   电影信息系统          ");
             System.out.println("1. 查询电影信息");
             System.out.println("2. 显示所有电影信息(按上映日期降序)");
             System.out.println("3. 管理员登录");
@@ -48,7 +50,7 @@ public class Test {
                     mt.searchListMovie();
                     //mt.searchMovie();//原
                 }
-                case 2 -> {  
+                case 2 -> {
                     //mt.showAllMovie();//原
                     mt.showAllListMovie();//这个是list类的方法，测试成功，打印两次
                 }
