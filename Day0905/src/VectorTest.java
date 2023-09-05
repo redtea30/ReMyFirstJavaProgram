@@ -1,4 +1,8 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Iterator;
 import java.util.Vector;
+import java.util.function.Consumer;
 
 /**
  * ClassName:VectorTest
@@ -44,10 +48,80 @@ public class VectorTest {
 
         //copyInfo
         String[] str = {"11", "12", "13"};
-        new2.copyInto(str);
-        System.out.println(new2.toString());
+        //new2.copyInto(str);
+        //System.out.println(new2.toString());
         //下午看下copyInfo怎么回事
 
+        String[] str2 = new String[20];
+        //直接toString
+        System.out.println(newVec.toString());
+
+        //copyInto
+        //不移除第五个就没法用
+        newVec.remove(5);
+        newVec.copyInto(str2);
+        System.out.println("str2 toString " + Arrays.toString(str2));
+
+        //Iterator输出
+        System.out.println("iterator Interface");
+        Iterator ite = newVec.iterator();
+        while (ite.hasNext()) {
+            System.out.println((String) ite.next());
+        }
+        //for i
+        System.out.println("for循环");
+        for (int i = 0; i < newVec.toArray().length; i++) {
+            System.out.println(newVec.get(i));
+        }
+        //for each
+        System.out.println("for循环");
+        for (Object obj : newVec) {
+            System.out.println(obj);
+        }
+        //for each(consumer) method
+        System.out.println("for each (consumer)Interface");
+        newVec.forEach(new Consumer() {
+            @Override
+            public void accept(Object o) {
+                System.out.println(o);
+            }
+        });
+
+        //for each Lambda 表达式
+        System.out.println("for each lambda");
+        newVec.forEach((o) -> System.out.println(o));
+
+
+        //comparator
+
+        Vector newVec1 = new Vector();
+        newVec1.add("1");
+        newVec1.add("2");
+        newVec1.add("3");
+        newVec1.add("4");
+        newVec1.add("5");
+        newVec1.add("6");
+        System.out.println(newVec1.toString());//[1, 2, 3, 4, 5, 6]
+        Object vec = newVec1.get(1);
+        if (vec instanceof String) vec = "10";//这里使用str1接受会导致作用范围不够
+        newVec1.set(1, vec);
+        System.out.println(newVec1.toString());//[1, 10, 3, 4, 5, 6]
+
+        newVec1.sort(new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                if (o1 instanceof String s1 && o2 instanceof String s2)
+                    return Integer.parseInt(s1) - Integer.parseInt(s2);
+                return 0;
+            }
+        });
+        System.out.println(newVec1.toString());//[1, 3, 4, 5, 6, 10]
+
+        newVec1.sort((o1, o2) -> {
+            if (o1 instanceof String s1 && o2 instanceof String s2)
+                return Integer.parseInt(s1) - Integer.parseInt(s2);
+            return 0;
+        });
 
 
     }
