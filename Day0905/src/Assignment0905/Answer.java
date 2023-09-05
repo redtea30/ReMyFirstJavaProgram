@@ -50,6 +50,39 @@ public class Answer {
 
         getAvgPrice(vc1);
 
+        //Q3
+        Vector vc2 = new Vector();
+        vc2.add(1);
+        vc2.add(1);
+        vc2.add(1);
+        vc2.add(1);
+        vc2.add(1);
+        vc2.add(1);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(2);
+        vc2.add(3);
+        vc2.add(3);
+        vc2.add(3);
+        vc2.add(3);
+        vc2.add(3);
+        vc2.add(3);
+        vc2.add(3);
+        vc2.add(3);
+        calculateAppearTimes(vc2);
+
+
+    }
+
+    private static void calculateAppearTimes(Vector vc) {
+
+
+
 
     }
 
@@ -65,6 +98,7 @@ public class Answer {
 
     /**
      * 计算平均价格，初次使用final数组解决lambda表达式不可赋值问题
+     * 妈的，我就是要用lambda表达式赋值
      *
      * @param vc
      * @return
