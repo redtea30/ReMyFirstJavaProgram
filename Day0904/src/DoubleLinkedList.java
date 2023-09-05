@@ -86,21 +86,23 @@ public class DoubleLinkedList {
     }
 
 
-    public static boolean remove(Object node) {
-        if (size == 0 || first == null || node == null) return false;
+    public static Node1 remove(Object node) {
+        Node1 temp1 = new Node1();
+        if (size == 0 || first == null || node == null) return null;
         else if (Objects.equals(node, first.data)) {
+            temp1.data = node;
             first = first.next;
             first.prev = last;
             last.next = first;
         } else {
-            Node1 temp = first.next;
-            while (!Objects.equals(node, temp.data)) {
-                temp = temp.next;
-                if (temp == first) return false;
+            temp1 = first.next;
+            while (!Objects.equals(node, temp1.data)) {
+                temp1 = temp1.next;
+                if (temp1 == first) return null;
             }
         }
         size--;
-        return true;
+        return temp1;
     }
 
     public static boolean isEmpty() {
@@ -127,6 +129,6 @@ class Node1 {
 
     @Override
     public String toString() {
-        return this.toString();
+        return "Node1{" + this.data.toString() + '}';
     }
 }

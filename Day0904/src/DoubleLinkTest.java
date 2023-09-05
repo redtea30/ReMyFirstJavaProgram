@@ -28,6 +28,16 @@ public class DoubleLinkTest {
         System.out.println("before remove indexOf 1  " + dll.indexOf(0));
         System.out.println("remove test1 the first one " + dll.remove("test1"));
         System.out.println("after remove indexOf 1  " + dll.indexOf(0));
+        System.out.println("remove " + dll.remove("test1"));
+        System.out.println("remove " + dll.remove("test2"));
+        System.out.println("remove " + dll.remove("test3"));
+        System.out.println("remove " + dll.remove("test4"));
+        System.out.println("remove " + dll.remove("test5"));
+        System.out.println("remove " + dll.remove("test6"));
+        System.out.println("remove " + dll.remove("test7"));
+        System.out.println("remove " + dll.remove("test8"));
+        System.out.println("remove " + dll.remove("test9"));
+        System.out.println("isEmpty " + dll.isEmpty());
 
 
     }

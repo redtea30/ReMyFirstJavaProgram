@@ -8,7 +8,13 @@
  * @Version 1.0
  */
 public enum EnumTest {
-    monday("this is monday"), tuesday("this is Tuesday"), wednesday("this is Wednesday"), thursday("this is thursday"), friday("this is friday"), saturday("this is saturday"), sunday("this is sunday");
+    monday("this is monday"),
+    tuesday("this is Tuesday"),
+    wednesday("this is Wednesday"),
+    thursday("this is thursday"),
+    friday("this is friday"),
+    saturday("this is saturday"),
+    sunday("this is sunday");
     private String name;
 
     EnumTest() {
@@ -18,7 +24,7 @@ public enum EnumTest {
         this.name = name;
     }
 
-   public String getName() {
+    public String getName() {
         return this.name;
     }
 
