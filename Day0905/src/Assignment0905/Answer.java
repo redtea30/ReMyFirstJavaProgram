@@ -1,5 +1,6 @@
 package Assignment0905;
 
+import java.util.Iterator;
 import java.util.Vector;
 import java.util.function.Consumer;
 
@@ -48,7 +49,7 @@ public class Answer {
         vc1.add(cm4);
         vc1.add(cm5);
 
-        getAvgPrice(vc1);
+        getAvgPrice(vc1);//商品的平均价格为38
 
         //Q3
         Vector vc2 = new Vector();
@@ -74,16 +75,23 @@ public class Answer {
         vc2.add(3);
         vc2.add(3);
         vc2.add(3);
-        calculateAppearTimes(vc2);
+        calculateAppearTimes(vc2, 2);//数字2出现了8次
+
+        //Q4
 
 
     }
 
-    private static void calculateAppearTimes(Vector vc) {
-
-
-
-
+    private static void calculateAppearTimes(Vector vc, int intValue) {
+        Iterator ite = vc.iterator();
+        int appearTimes = 0;
+        while (ite.hasNext()) {
+            Integer int1 = (int) ite.next();
+            if (intValue == int1) {
+                appearTimes++;
+            }
+        }
+        System.out.println("数字" + intValue + "出现了" + appearTimes + "次");
     }
 
     static void getAvgPrice(Vector vc) {
