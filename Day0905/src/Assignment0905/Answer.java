@@ -78,6 +78,36 @@ public class Answer {
         calculateAppearTimes(vc2, 2);//数字2出现了8次
 
         //Q4
+        Vector vc3 = new Vector();
+        Student1 st = new Student1("阿大", 70);
+        Student1 st1 = new Student1("阿二", 50);
+        Student1 st2 = new Student1("阿三", 30);
+        Student1 st3 = new Student1("阿四", 90);
+        Student1 st4 = new Student1("阿五", 60);
+        Student1 st5 = new Student1("阿六", 80);
+        vc3.add(st);
+        vc3.add(st1);
+        vc3.add(st2);
+        vc3.add(st3);
+        vc3.add(st4);
+        vc3.add(st5);
+        scoreRangeStudents(50, 80, vc3);//区间50-80的学生成绩出现了4次
+
+    }
+
+    private static void scoreRangeStudents(int low, int high, Vector vc) {
+        Iterator ite = vc.iterator();
+        int count = 0;
+        while (ite.hasNext()) {
+            Object temp = ite.next();
+            if (temp instanceof Student1 stu) {
+                double score = stu.getScore();
+                if (score >= low && score <= high) {
+                    count++;
+                }
+            }
+        }
+        System.out.printf("区间%d-%d的学生成绩出现了%d次", low, high, count);
 
 
     }
