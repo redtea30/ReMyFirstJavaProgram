@@ -10,4 +10,8 @@ package genshinImpactStart;
  * @Version 1.0
  */
 public class RoleManage {
+    static Role rol = new Role();
+
+
+
 }
