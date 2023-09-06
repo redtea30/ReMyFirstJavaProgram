@@ -13,13 +13,13 @@ public class Role {
     private String name;
     private char property;
     private int rarity;
-    private byte star;
+    private int star;
     private int level;
 
     public Role() {
     }
 
-    public Role(String name, char property, int rarity, byte star, int level) {
+    public Role(String name, char property, int rarity, int star, int level) {
         this.name = name;
         this.property = property;
         this.rarity = rarity;
@@ -51,11 +51,11 @@ public class Role {
         this.rarity = rarity;
     }
 
-    public byte getStar() {
+    public int getStar() {
         return star;
     }
 
-    public void setStar(byte star) {
+    public void setStar(int star) {
         this.star = star;
     }
 
@@ -65,5 +65,16 @@ public class Role {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "name='" + name + '\'' +
+                ", property=" + property +
+                ", rarity=" + rarity +
+                ", star=" + star +
+                ", level=" + level +
+                '}';
     }
 }
