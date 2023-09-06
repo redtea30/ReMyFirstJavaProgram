@@ -1,5 +1,6 @@
 package Assignment0905;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Vector;
 import java.util.function.Consumer;
@@ -93,7 +94,12 @@ public class Answer {
         vc3.add(st5);
         scoreRangeStudents(50, 80, vc3);//区间50-80的学生成绩出现了4次
 
+
+        //Q5 自己加的comparator练习
+
+
     }
+
 
     private static void scoreRangeStudents(int low, int high, Vector vc) {
         Iterator ite = vc.iterator();
@@ -190,5 +196,15 @@ public class Answer {
         System.out.println();
     }
 
+
 }
 
+class MyComparator implements Comparator {
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        double d1 = (double) o1;
+        double d2 = (double) o2;
+        return (int)(d1 - d2);
+    }
+}
