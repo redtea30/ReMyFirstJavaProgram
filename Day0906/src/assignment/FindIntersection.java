@@ -40,6 +40,10 @@ public class FindIntersection {
     }
 
     static void findIntersection(ArrayList ll, ArrayList ls) {
+
+        ArrayList ls1 = (ArrayList) ls.clone();
+        ArrayList ll1 = (ArrayList) ll.clone();
+
         ArrayList temp = null;
         if (ll.size() > ls.size()) {
             temp = ll;
@@ -53,6 +57,19 @@ public class FindIntersection {
             if (ls.contains(temp1)) temp.add(temp1);
         }
         System.out.println("交集元素" + temp.size() + "个" + temp.toString());
+
+        //retainAll
+        ArrayList temp1 = null;
+
+        if (ll1.size() > ls1.size()) {
+            temp1 = ll1;
+            ll1 = ls1;
+            ls1 = (ArrayList) temp1.clone();
+        }
+
+        System.out.println("ll.retainAll(ls) "+ll1.retainAll(ls1));
+        System.out.println("交集元素" + ll1.size() + "个" + ll1.toString());
+
 
     }
 

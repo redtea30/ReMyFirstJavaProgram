@@ -1,6 +1,7 @@
 package genshinImpactStart;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -55,7 +56,7 @@ public class RoleManage {
 
     }
 
-    static boolean addCharacter() {
+    static boolean addCharacter(ArrayList roList) {
         boolean loop = true;
         boolean errorType = false;
         do {
@@ -113,10 +114,14 @@ public class RoleManage {
                 startGenshinManager();
             }
             case 2 -> {
-                return;
+
+                addCharacter(roList);
+
             }
             case 3 -> {
                 sortByLevel(roList);
+                showAllCharacter();
+                startGenshinManager();
             }
             case 4 -> {
                 return;
@@ -128,6 +133,8 @@ public class RoleManage {
             }
             case 6 -> {
                 sortByName(roList);
+                showAllCharacter();
+                startGenshinManager();
             }
             default -> {
                 System.out.println("输入错误");
@@ -139,10 +146,14 @@ public class RoleManage {
     }
 
     private static void sortByName(ArrayList ls) {
-
-
-
-
+        ls.sort(new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                Role rol1 = (Role) o1;
+                Role rol2 = (Role) o2;
+                return rol1.getName().compareTo(rol2.getName());
+            }
+        });
     }
 
     private static void deleteTheCharacterNotAtLevel90(ArrayList ls) {
