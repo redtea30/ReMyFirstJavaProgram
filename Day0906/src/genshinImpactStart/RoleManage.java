@@ -1,6 +1,7 @@
 package genshinImpactStart;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -39,8 +40,7 @@ public class RoleManage {
     }
 
     public static void main(String[] args) {
-        System.out.println("展示所有脚色");
-        showAllCharacter();
+        startGenshinManager();
 
 
     }
@@ -97,6 +97,7 @@ public class RoleManage {
                         3. 按照等级排序
                         4. 按照命座排序
                         5. 删除不满90级的所有角色
+                        6. 按照角色名排序
                         0. 退出系统
                                             """
         );
@@ -108,7 +109,8 @@ public class RoleManage {
         switch (input) {
             case 0 -> System.exit(1);
             case 1 -> {
-                return;
+                showAllCharacter();
+                startGenshinManager();
             }
             case 2 -> {
                 return;
@@ -120,7 +122,12 @@ public class RoleManage {
                 return;
             }
             case 5 -> {
-                return;
+                deleteTheCharacterNotAtLevel90(roList);
+                showAllCharacter();
+                startGenshinManager();
+            }
+            case 6 -> {
+                sortByName(roList);
             }
             default -> {
                 System.out.println("输入错误");
@@ -131,9 +138,34 @@ public class RoleManage {
         }
     }
 
+    private static void sortByName(ArrayList ls) {
+
+
+
+
+    }
+
+    private static void deleteTheCharacterNotAtLevel90(ArrayList ls) {
+        Iterator ite = ls.iterator();
+        while (ite.hasNext()) {
+            Role rol = (Role) ite.next();
+            if (rol.getLevel() < 90) ite.remove();
+        }
+    }
+
     static void sortByLevel(ArrayList list) {
-
-
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = 0; j < list.size() - 1 - i; j++) {
+                Role rol = (Role) list.get(j);
+                Role rol1 = (Role) list.get(j + 1);
+                if (rol.getLevel() < rol1.getLevel()) {
+                    list.set(j, rol1);
+                    list.set(j + 1, rol);
+                }
+            }
+        }
+        showAllCharacter();
+        startGenshinManager();
     }
 
 
