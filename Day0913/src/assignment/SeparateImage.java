@@ -12,6 +12,15 @@ public class SeparateImage {
 
     }
 
+    /**
+     * 重写了下逻辑，还是能执行。
+     * 问题好像是方法不熟练，用不利索，甚至想不起来哪个方法是干啥的？
+     * 年纪大了记性差？
+     *
+     * @param file
+     * @param out
+     * @throws IOException
+     */
     private static void separator(File file, File out) throws IOException {
         if (!(out.exists())) {
             out.mkdirs();
