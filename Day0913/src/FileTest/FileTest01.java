@@ -84,11 +84,17 @@ public class FileTest01 {
 
         //删除指定目录的所有文件和文件夹
         File file5 = new File("D:\\小米gallery");
-        System.out.println(deleteAllFile(file5) ? "删除成功" : "删除失败");
+        //System.out.println(deleteAllFile(file5) ? "删除成功" : "删除失败");
 
     }
 
-    private static boolean deleteAllFile(File file) {
+    /**
+     * 删除目录中的所有文件
+     *
+     * @param file
+     * @return
+     */
+    /*private static boolean deleteAllFile(File file) {
         File[] files = file.listFiles();
         for (int i = 0; i < files.length; i++) {
             if (files[i].isDirectory()) {
@@ -98,8 +104,15 @@ public class FileTest01 {
         }
         if (file.listFiles().length == 0) return true;
         return false;
-    }
+    }*/
 
+    /**
+     * 显示特定类型图片，jpg gif png
+     * 可以使用集合进行检测
+     *
+     * @param file
+     * @return
+     */
     private static List<File> showAllPicture(File file) {
         List<File> list = new ArrayList<File>();
         File[] fileList = file.listFiles();
@@ -138,6 +151,10 @@ public class FileTest01 {
         }
         return count;
     }
+
+    //private static void Long reCountAllFileSize(File file)
+
+
 
     /**
      * 找到文件目录下的所有文件和文件名
