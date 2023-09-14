@@ -5,7 +5,7 @@ import java.io.*;
 public class SeparateImage {
     public static void main(String[] args) throws IOException {
 
-        File file = new File("D:/image/2023-08-16 14-40-44.mkv");
+        File file = new File("D:/image/阳光电影dy.ygdy8.com.大力士：乔治·福尔曼.2023.BD.1080P.中英双字.mkv");
         File out = new File("D:/image/copy1");
         //separateFile(file, out);
         separator(file, out);
@@ -28,7 +28,7 @@ public class SeparateImage {
 
         FileInputStream in = new FileInputStream(file);//获取file的输入流对象
         Long total = file.length();//获取file的文件大小，单位 n/byte
-        int partSize = (int) Math.pow(1024, 2);
+        int partSize = (int) Math.pow(1024, 1);
         int count = (int) (total / partSize + 1);//获取循环单位,向上提升数值一
         byte[] bytes = new byte[partSize];//期望获得的文件大小
 
