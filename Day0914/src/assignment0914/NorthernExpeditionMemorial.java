@@ -43,6 +43,7 @@ public class NorthernExpeditionMemorial {
         list.sort(new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
+                //用substring
                 int int1 = Integer.parseInt(String.valueOf(o1.charAt(0)));
                 int int2 = Integer.parseInt(String.valueOf(o2.charAt(0)));
                 return int1 - int2;

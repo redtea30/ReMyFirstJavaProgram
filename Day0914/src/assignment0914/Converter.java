@@ -17,6 +17,12 @@ public class Converter {
 
     }
 
+    /**
+     * 这个不是纯粹的字符缓冲流，原理是通过string的getbytes()来进行转换
+     *
+     * @param utf8out
+     * @param gbKin
+     */
     private static void byteStream(File utf8out, File gbKin) {
 
         //拿到
