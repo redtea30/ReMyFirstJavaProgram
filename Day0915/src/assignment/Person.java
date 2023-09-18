@@ -8,6 +8,8 @@ package assignment;
 import lombok.*;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
@@ -15,7 +17,7 @@ import lombok.experimental.Accessors;
 @Accessors
 @ToString
 @EqualsAndHashCode
-public class Person implements Cloneable {
+public class Person implements Cloneable, Serializable {
 
     private String name;
     private String no;
