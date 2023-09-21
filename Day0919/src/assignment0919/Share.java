@@ -20,13 +20,13 @@ public class Share {
                 throw new RuntimeException(e);
             }
         }
-
         Random rand = new Random();
         int temp = rand.nextInt(100);
-        System.out.println("NumThread "+temp);
+        System.out.println("NumThread " + temp);
+        flag = true;
         letterCondition.signal();
-        flag = false;
         lock.unlock();
+
     }
 
     public void makeLetter() {
@@ -42,9 +42,9 @@ public class Share {
         Random rand = new Random();
 
         char char1 = (char) (rand.nextInt(26) + 97);
-        System.out.println("LetterThread "+char1);
+        System.out.println("LetterThread " + char1);
+        flag = false;
         numberCondition.signal();
-        flag = true;
         lock.unlock();
 
     }
