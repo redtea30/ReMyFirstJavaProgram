@@ -8,24 +8,24 @@ public class Sum {
 
     public static void main(String[] args) {
         Sum obj = new Sum();
-        int sum = 0;
+/*        int sum = 0;
         for (int i = 0; i < obj.arr.length; i++) {
             sum += obj.arr[i];
         }
-        System.out.println(sum);//248288,main线程测试结果
+        System.out.println(sum);//248288,main线程测试结果*/
 
-        ThreadPoolExecutor tpe = new ThreadPoolExecutor(3, 5, 1, TimeUnit.SECONDS, new ArrayBlockingQueue<>(100));
+        ThreadPoolExecutor tpe = new ThreadPoolExecutor(8, 16, 10, TimeUnit.MILLISECONDS, new ArrayBlockingQueue<>(1000));
         int finalSum = 0;
         Integer[] temp = obj.arr;
-        Integer[] subArr1 = Arrays.copyOfRange(obj.arr, 0, temp.length / 3);
-        Integer[] subArr2 = Arrays.copyOfRange(obj.arr, temp.length / 3, temp.length / 3 * 2);
-        Integer[] subArr3 = Arrays.copyOfRange(obj.arr, temp.length / 3 * 2, temp.length);
-        Future<Integer> f1 = tpe.submit(new myCallable(subArr1));
-        Future<Integer> f2 = tpe.submit(new myCallable(subArr2));
-        Future<Integer> f3 = tpe.submit(new myCallable(subArr3));
+//        Integer[] subArr1 = Arrays.copyOfRange(obj.arr, 0, temp.length / 3);
+//        Integer[] subArr2 = Arrays.copyOfRange(obj.arr, temp.length / 3, temp.length / 3 * 2);
+//        Integer[] subArr3 = Arrays.copyOfRange(obj.arr, temp.length / 3 * 2, temp.length);
+//        Future<Integer> f1 = tpe.submit(new myCallable(subArr1));
+//        Future<Integer> f2 = tpe.submit(new myCallable(subArr2));
+//        Future<Integer> f3 = tpe.submit(new myCallable(subArr3));
 
 
-        try {
+/*        try {
             finalSum += f1.get();
             finalSum += f2.get();
             finalSum += f3.get();
@@ -33,8 +33,23 @@ public class Sum {
             throw new RuntimeException(e);
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
-        }
+        }*/
 
+        //这是第二种做法，使用循环建立线程，比上一种直接分割好的更厉害
+        for (int i = 0; i < temp.length; i += 3) {
+            Integer[] arr = Arrays.copyOf(temp, Math.min(3, temp.length - i));
+            myCallable my = new myCallable(arr);
+            Future<Integer> fu = new FutureTask(my);
+            tpe.submit(my);
+
+            try {
+                finalSum += fu.get();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } catch (ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
 
         System.out.println(finalSum);
