@@ -3,8 +3,8 @@ import java.sql.*;
 
 public class Start {
     public static void main(String[] args) {
-
-        metaData1();
+        query();
+        // metaData1();
     }
 
 
@@ -70,7 +70,7 @@ public class Start {
                 System.out.println(rd.getColumnName(1) + "\t" + rd.getColumnName(2) + "\t" + rd.getColumnName(3));
                 //这里还差个获取列名
                 while (resultSet.next()) {
-                    String column1 = resultSet.getString(1);
+                    String column1 = resultSet.getString("column1");
                     String column2 = resultSet.getString(2);
                     String column3 = resultSet.getString(3);
                     System.out.println(column1 + "\t" + column2 + "\t" + column3);
@@ -110,6 +110,7 @@ public class Start {
             throw new RuntimeException(e);
         }
     }
+
 
 
 }
