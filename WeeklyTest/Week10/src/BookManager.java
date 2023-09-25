@@ -4,19 +4,19 @@
 
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class BookManager {
     Scanner scanner = new Scanner(System.in);
+    JDBCUtils jdbcUtils = new JDBCUtils();
+
 
     public BookManager() {
         init();
+        addLog("用户登录成功");
     }
 
     public void init() {
@@ -34,6 +34,7 @@ public class BookManager {
                 Statement statement = conn.createStatement();
                 statement.execute("CREATE DATABASE IF NOT EXISTS manger ");
                 System.out.println("数据库创建成功");
+                addLog("数据库创建成功");
             } catch (SQLException ex) {
             }
         }
@@ -77,7 +78,7 @@ public class BookManager {
      * @param statement
      * @param br
      */
-    private static void checkAndCreate(Statement statement, BufferedReader br) {
+    private void checkAndCreate(Statement statement, BufferedReader br) {
         System.out.println("检测对应数据表格是否存在中...");
         try {
             statement.execute("SELECT * FROM books");
@@ -85,6 +86,7 @@ public class BookManager {
         } catch (SQLException e) {
             //检测不存在 调用createDB（）
             System.out.println("缺少对应的数据库表格");
+            addLog("缺少对应数据库，创建数据库");
             try {
                 createDB(statement, br);
             } catch (IOException ex) {
@@ -133,7 +135,7 @@ public class BookManager {
      * 增加图书的模块
      * 有没有模块能生成啊，太多了，写着真的累
      */
-    public void addBookInfo(BookManager bm) {
+    public void addBookInfo() {
         System.out.println("-----创建图书-----");
         //BookName
         System.out.println("请输入书名");
@@ -146,7 +148,7 @@ public class BookManager {
             }
             Scanner sc = new Scanner(System.in);
             name = sc.next();
-            if (name.equals(0)) start(bm);
+            if (name.equals(0)) start();
         } while (name == null || name.equals(""));
 
 
@@ -168,7 +170,7 @@ public class BookManager {
                 System.out.println("你输入了个不是数字的东西");
                 year = null;
             }
-            if (year == 0) start(bm);
+            if (year == 0) start();
         } while (year == null || year < 0 || year > LocalDate.now().getYear());
 
 
@@ -191,7 +193,7 @@ public class BookManager {
                 month = null;
             }
             //退出
-            if (month != null && month == 0) start(bm);
+            if (month != null && month == 0) start();
         } while (month == null || month < 0 || month > 12);
 
         //day
@@ -213,7 +215,7 @@ public class BookManager {
                 day = null;
             }
             //退出
-            if (day != null && day == 0) start(bm);
+            if (day != null && day == 0) start();
         } while (day == null || day < 0 || day > 31);
 
 
@@ -228,7 +230,7 @@ public class BookManager {
             }
             Scanner sc = new Scanner(System.in);
             author = sc.next();
-            if (author.equals(0)) start(bm);
+            if (author.equals(0)) start();
         } while (author == null || author.equals(""));
 
 
@@ -251,7 +253,7 @@ public class BookManager {
                 price = null;
             }
             //退出
-            if (price != null && price == 0) start(bm);
+            if (price != null && price == 0) start();
         } while (price == null || price < 0);
 
 
@@ -274,7 +276,7 @@ public class BookManager {
                 unit = null;
             }
             //退出
-            if (unit != null && unit == 0) start(bm);
+            if (unit != null && unit == 0) start();
         } while (unit == null || unit < 0);
 
 
@@ -288,12 +290,94 @@ public class BookManager {
             Statement statement = conn.createStatement();
             statement.executeUpdate(sql);
             System.out.println("创建成功,返回主菜单");
+            String desc = String.format("%s: 图书创建成功", name);
+            addLog(desc);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             System.out.println("创建失败");
+            addLog(String.format("%s: 创建失败", name));
         }
 
 
+    }
+
+    private String deleteWho() {
+        String temp = scanner.next();
+        if (temp.equals("")) {
+            System.out.println("输入错误,请重新输入");
+            delete();
+        }
+        return temp;
+    }
+
+    private void delete() {
+        showAll();
+        System.out.println("你想删除哪本书？");
+        String name = deleteWho();
+        String sql = "DELETE FROM books WHERE book_title = '" + name + "'";
+        //这个很容易拼错的，少个单引号都不行
+        int i = jdbcUtils.updateBook(sql);
+        if (i > 0) {
+            System.out.println("修改成功");
+            addLog("删除" + name + "成功");
+        } else {
+            System.out.println("修改失败");
+            addLog("删除 " + name + " 失败");
+        }
+        start();
+    }
+
+    /**
+     * 查询所有图书方法
+     */
+    private void showAll() {
+        String sql = "SELECT * FROM books";
+
+        //重铸代码，使用JDBCUtils(自建)
+        try {
+            ResultSet resultSet = jdbcUtils.queryBook(sql);
+            ResultSetMetaData metaData = resultSet.getMetaData();
+            int columnCount = metaData.getColumnCount();
+            while (resultSet.next()) {
+                for (int i = 0; i < columnCount; i++) {
+                    System.out.printf(" %s: %s", metaData.getColumnName(i + 1), resultSet.getString(i + 1));
+                }
+                System.out.println();//换行
+            }
+            addLog("数据展示成功");
+        } catch (SQLException e) {
+            addLog("数据展示失败,错误： " + e.getMessage());
+            throw new RuntimeException(e);
+        } finally {
+            jdbcUtils.close();
+        }
+
+
+    }
+
+    /**
+     * 用老师的方法做了一点点改进，我觉得写得越少越好
+     * 本数据库中的time属性是auto-increment 不可自行添加，妈的，就说怎么卡了好久在这里
+     *
+     * @param description
+     */
+    private void addLog(String description) {
+        //todo 总体的log添加方法，使用泛型无差别添加，其实根本没搞懂
+
+        Connection conn = jdbcUtils.getConn();
+        try {
+            //使用PreparedStatement类的setObject()方法，进行赋值
+            String temp = "insert into operation_log (description) values (?)";
+            PreparedStatement ps = conn.prepareStatement(temp);
+            ps.setString(1, description);
+//            ps.setTimestamp(2, new Timestamp(System.currentTimeMillis()));
+            int i = ps.executeUpdate();
+            if (i > 0) System.out.println("日志添加成功");
+            else System.out.println("日志添加失败");
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -302,7 +386,7 @@ public class BookManager {
     private static void menu() {
         System.out.println("=================");
         System.out.println("KFM图书管理系统");
-        System.out.println("1. 增加图书");
+        System.out.println("1. 增");
         System.out.println("2. 删");
         System.out.println("3. 改");
         System.out.println("4. 展示所有内容");
@@ -311,19 +395,20 @@ public class BookManager {
         System.out.println("输入你想要进行的操作");
     }
 
-    private void start(BookManager bm) {
+    private void start() {
         while (true) {
             menu();
             switch (scanner.nextInt()) {
                 case 0 -> {
                     System.out.println("退出系统");
+                    addLog("用户退出登录");
                     System.exit(1);
                 }
                 case 1 -> {
-                    bm.addBookInfo(bm);
+                    addBookInfo();
                 }
                 case 2 -> {
-                    System.out.println("退出系统");
+                    delete();
                     System.exit(1);
                 }
                 case 3 -> {
@@ -340,15 +425,10 @@ public class BookManager {
 
     }
 
-    private static void showAll() {
-
-    }
-
+    //todo 不是很重要的，彩色文字，对我是选做
     public static void main(String[] args) {
-
         BookManager bm = new BookManager();
-        bm.start(bm);
-
+        bm.start();
     }
 
 
