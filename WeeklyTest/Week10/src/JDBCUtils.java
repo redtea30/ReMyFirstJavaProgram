@@ -132,6 +132,22 @@ public class JDBCUtils {
     }
 
     public static void main(String[] args) {
+        try {
+            Connection connection1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/manger", "root", "qwertyuiop");
+            Statement statement = connection1.createStatement();
+            ResultSet resultSet = statement.executeQuery("select *from books");
+            while (resultSet.next()) {
+                System.out.println(resultSet.getObject(1));
+                System.out.println(resultSet.getObject(2));
+                System.out.println(resultSet.getObject(3));
+                System.out.println(resultSet.getObject(4));
+                System.out.println(resultSet.getObject(5));
+                System.out.println(resultSet.getObject(6));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 }
