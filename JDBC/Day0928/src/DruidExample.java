@@ -1,16 +1,27 @@
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 
 import javax.sql.DataSource;
+import java.io.FileInputStream;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
 
-
+/**
+ * Druid线程线程池创建方式
+ */
 public class DruidExample {
 
     public static void main(String[] args) throws Exception {
+
+        test();
+        anotherWay();
+    }
+
+    public static void test() throws Exception {
+        System.out.println("test01 ---");
         Properties properties = new Properties();
         properties.load(DruidExample.class.getClassLoader().getResourceAsStream("druid.properties"));
         DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);
@@ -27,9 +38,27 @@ public class DruidExample {
         rs.close();
         statement.close();
         connection.close();
-
     }
 
+
+    /**
+     * 演示
+     *
+     * @throws Exception
+     */
+    public static void anotherWay() throws Exception {
+        System.out.println("test02 ---");
+        Properties prop = new Properties();
+        prop.load(new FileInputStream("JDBC/Day0928/src/druid.properties"));
+        DataSource dataSource = DruidDataSourceFactory.createDataSource(prop);
+        Connection connection = dataSource.getConnection();
+        System.out.println(connection);
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from books");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            System.out.println(resultSet.getObject(2));
+        }
+    }
 
 
 }
