@@ -60,5 +60,25 @@ public class DruidExample {
         }
     }
 
+    /**
+     * 连接代码
+     *
+     * @throws Exception
+     */
+    public static void test3() throws Exception {
+        System.out.println("test3");
+        Properties properties = new Properties();
+        properties.load(new FileInputStream("JDBC/Day0928/src/druid.properties"));
+        DataSource dataSource = DruidDataSourceFactory.createDataSource(properties);
+        Connection connection = dataSource.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from books");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            System.out.println(resultSet.getObject(1));
+            System.out.println(resultSet.getObject(2));
+            System.out.println(resultSet.getObject(3));
+        }
+    }
+
 
 }
