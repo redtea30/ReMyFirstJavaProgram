@@ -75,8 +75,6 @@ public class MyDBUtiles {
         if (dataSource != null) {
             dataSource.close();
         }
-
-
     }
 
 
