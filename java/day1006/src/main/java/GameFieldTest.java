@@ -1,4 +1,6 @@
 import java.lang.reflect.Field;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 
 public class GameFieldTest {
     public static void main(String[] args) throws NoSuchFieldException, IllegalAccessException {
@@ -47,9 +49,35 @@ public class GameFieldTest {
         //查看当前字段的修饰符
         System.out.println(name.getModifiers());//2  --->   private
         System.out.println(country.getModifiers());//1 ---> Public
+        Field code = game.getDeclaredField("code");
+        System.out.println(code.getModifiers());//4 --> Protected
+        Field people = game.getDeclaredField("people");
+        System.out.println(people.getModifiers());//0  ---> package access
 
+        Field heroes = game.getDeclaredField("heroes");
+        //获取泛型类型
+        //System.out.println(heroes.getGenericType());//java.util.List<java.lang.String>
 
+        // ParameterizedType 有泛型的类型  泛型接口 泛型类
+        ParameterizedType genericType = (ParameterizedType) heroes.getGenericType();
+        //getActualTypeArguments()获取对象数组
+        System.out.println(genericType.getActualTypeArguments()[0]);//class java.lang.String
 
+        Field map = game.getDeclaredField("map");
+        ParameterizedType gType1 = (ParameterizedType) map.getGenericType();
+        System.out.println("Key ---> " + gType1.getActualTypeArguments()[0]);//class java.lang.String
+        System.out.println("value ---> " + gType1.getActualTypeArguments()[1]);//class java.lang.String
+
+        //获取形参的实际类型
+        Field generated = game.getDeclaredField("genericClass");
+        ParameterizedType genericType1 = (ParameterizedType) generated.getGenericType();
+        Type[] actualTypeArguments = genericType1.getActualTypeArguments();
+        for (Type actualTypeArgument : actualTypeArguments) {
+            System.out.println(actualTypeArgument);
+        }
+        //class Student
+        //class Game
+        //class java.lang.String
 
 
     }
