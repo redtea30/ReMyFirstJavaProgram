@@ -22,23 +22,63 @@ public class MyDBUtiles {
     private PreparedStatement prepared;
     private DruidDataSource dataSource;
 
-    public void Select(String sql, Object... params) throws Exception {
+    public int update(String sql, Object... params) throws Exception {
         getPrepared(sql);
-        //可以写成方法
+        setPrepared(params);
+        return prepared.executeUpdate();
+    }
+
+    /**
+     * 获取第一个
+     *
+     * @param sql
+     * @param handler
+     * @param params
+     * @param <E>
+     * @return
+     * @throws Exception
+     */
+    public <E> E selectOne(String sql, Handler<E> handler, Object... params) throws Exception {
+        List<E> list = select(sql, handler, params);
+        if (list != null) {
+            return list.get(0);
+        }
+        return null;
+    }
+
+
+    /**
+     * 设置泛型方法提供给更多类型
+     * 通过list存储数据
+     *
+     * @param sql
+     * @param handler
+     * @param params
+     * @param <E>
+     * @return
+     * @throws Exception
+     */
+    public <E> List<E> select(String sql, Handler<E> handler, Object... params) throws Exception {
+        getPrepared(sql);
+        setPrepared(params);
+
+        ResultSet resultSet = prepared.executeQuery();
+        //可以使用泛型，修改成泛型方法
+        List<E> list = new ArrayList<>();
+        while (resultSet.next()) {
+            E temp = handler.handle(resultSet);
+            list.add(temp);
+        }
+        return list;
+    }
+
+    private void setPrepared(Object... params) throws SQLException {
         for (int i = 0; i < params.length; i++) {
             //这里就是给preparedStatement里面塞东西，但是序列不一样
             prepared.setObject(i, params[i - 1]);
         }
-        ResultSet resultSet = prepared.executeQuery();
-        //可以使用泛型，修改成泛型方法
-        List list = new ArrayList();
-        while (resultSet.next()) {
-        // todo 接下来的任务，handler Interface
-
-
-        }
-
     }
+
 
     private void getPrepared(String sql) throws Exception {
         getConnection();
