@@ -14,7 +14,7 @@ import java.util.Properties;
 
 /*ref:https://www.tutorialspoint.com/dbutils/dbutils_first_application.htm
  * */
-public class MyDBUtiles {
+public class MyDBUtils {
 
     //单例模式
     private Connection connection;

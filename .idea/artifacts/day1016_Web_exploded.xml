@@ -1,0 +1,20 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day1016:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/day1016_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="day1016/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day1016" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="lombok" />
+          <element id="library" level="project" name="c3p0-0.9.5.5" />
+          <element id="library" level="project" name="druid-1.2.16" />
+          <element id="library" level="project" name="commons-dbutils-1.7" />
+          <element id="library" level="project" name="mysql-connector-j-8.0.31" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

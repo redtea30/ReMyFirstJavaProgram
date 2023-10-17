@@ -1,0 +1,22 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="day1017:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/day1017_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="day1017/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="day1017" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="commons-dbutils-1.7" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar" />
+          <element id="library" level="project" name="druid-1.2.16" />
+          <element id="library" level="project" name="c3p0-0.9.5.5" />
+          <element id="library" level="project" name="mysql-connector-j-8.0.31" />
+          <element id="library" level="project" name="lombok" />
+          <element id="library" level="project" name="servlet-api" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
