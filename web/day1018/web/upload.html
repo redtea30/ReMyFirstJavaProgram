@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="box1">
+    <h1>文件上传</h1>
+    <!--  增加新的上传类  -->
+    <form method="post" action="upload" enctype="multipart/form-data">
+        <p>这是单个文件上传的方法</p>
+        <input type="file" name="uploadFile">
+        <input type="submit" value="submit">
+    </form>
+    <form method="post" action="multipleUpload" enctype="multipart/form-data">
+        <p>这是多个文件上传的方法</p>
+        <input type="file" name="uploadFile" multiple>
+        <input type="submit" value="submit">
+    </form>
+</div>
+</body>
+<style>
+    #box1 {
+
+        width: 350px;
+        height: 250px;
+        margin: 0 auto;
+        margin-top: 200px;
+        background-color: skyblue;
+    }
+</style>
+</html>

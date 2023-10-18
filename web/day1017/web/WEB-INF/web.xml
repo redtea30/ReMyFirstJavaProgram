@@ -4,7 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <!-- 将index.html设置为主页 -->
-<!--    <welcome-file-list>-->
-<!--        <welcome-file>index.html</welcome-file>-->
-<!--    </welcome-file-list>-->
+    <!--    <welcome-file-list>-->
+    <!--        <welcome-file>index.html</welcome-file>-->
+    <!--    </welcome-file-list>-->
+
+    <!-- 图形验证码servlet -->
+    <servlet>
+        <servlet-name>CaptchaServlet</servlet-name>
+        <servlet-class>com.wf.captcha.servlet.CaptchaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CaptchaServlet</servlet-name>
+        <url-pattern>/captcha</url-pattern>
+    </servlet-mapping>
 </web-app>

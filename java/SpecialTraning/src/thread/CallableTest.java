@@ -5,18 +5,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 public class CallableTest {
-
-
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
     }
-
-
 }
-
-
 class myCallable implements Callable<String> {
-
     /**
      * 直接继承Callable接口
      *
@@ -30,20 +23,17 @@ class myCallable implements Callable<String> {
         Thread thread = new Thread(stringFutureTask);
         thread.start();
         System.out.println(stringFutureTask.get());
-
     }
 
     @Override
     public String call() throws Exception {
         return Thread.currentThread().toString();
     }
-
 }
 
 
 class PrintOddEven {
     public static void main(String[] args) {
-
         test2();
     }
 
