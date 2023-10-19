@@ -9,12 +9,8 @@
         </element>
         <element id="directory" name="lib">
           <element id="file-copy" path="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.28/lombok-1.18.28.jar" />
-          <element id="library" level="project" name="c3p0-0.9.5.5" />
         </element>
       </element>
-      <element id="library" level="project" name="lombok" />
-      <element id="library" level="project" name="servlet-api" />
-      <element id="library" level="project" name="commons-dbutils-1.7" />
     </root>
   </artifact>
 </component>

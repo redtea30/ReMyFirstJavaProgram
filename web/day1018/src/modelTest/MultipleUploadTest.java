@@ -3,6 +3,7 @@ package modelTest;
 import utils.Constant;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +20,10 @@ import java.util.Collection;
  * 18/10/2023-10-2023 22-13
  * Describe：这是一个多个文件上传的测试
  */
+
+//上传多个时html和servlet里都需要配置
 @WebServlet("/multipleUpload")
+@MultipartConfig
 public class MultipleUploadTest extends HttpServlet {
 
     @Override
@@ -29,8 +33,12 @@ public class MultipleUploadTest extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
 
+        //创建下载和结果语句
+        String downloadLink = "";
+        String message = "";
+
         //创建文件路径,不催在直接创建
-        File file1 = new File(Constant.UPLOAD_PATH4);
+        File file1 = new File(Constant.UPLOAD_PATH3);
         if (!file1.exists()) {
             file1.mkdirs();
         }
@@ -40,12 +48,25 @@ public class MultipleUploadTest extends HttpServlet {
         for (Part part : parts) {
             String type = part.getContentType();//获取文件类型
             String name = part.getSubmittedFileName();//获取上传时文件类型
+            //这里对文件类型进行判断，不合适的文件类型直接恰似
             if (Constant.ALLOW_TYPE.contains(type)) {
-                String absPath = Constant.UPLOAD_PATH4 + File.separator + name;
-                File file = new File(absPath);//这个大概是为读取到的每个文件创建目录
+                String absPath = Constant.UPLOAD_PATH3 + File.separator + name;
+                //这里的part.write是接口的对象
+                part.write(absPath);
 
+                downloadLink += "<a href=\'downloadTest?file=" + name + "'> 下载" + name.substring(0, name.lastIndexOf(".")) + "<a><br>";
+                message += "<p>" + name + "上传成功</p>";
 
+            } else {
+                message += "<p>" + name + "上传失败，不支持的文件类型</p>";
             }
+            String html = "<html><body>";
+            html += message;
+            html += "<p>文件下载路径</p>";
+            html += downloadLink;
+            html += "</body></html>";
+
+            resp.getWriter().write(html);
 
         }
 

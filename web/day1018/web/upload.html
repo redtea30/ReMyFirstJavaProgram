@@ -19,6 +19,11 @@
         <input type="file" name="uploadFile" multiple>
         <input type="submit" value="submit">
     </form>
+    <form method="post" action="uploadJDBC" enctype="multipart/form-data">
+        <p>这是通过jdbc文件上传的方法</p>
+        <input type="file" name="uploadFile" multiple>
+        <input type="submit" value="submit">
+    </form>
 </div>
 </body>
 <style>
@@ -27,7 +32,7 @@
         width: 350px;
         height: 250px;
         margin: 0 auto;
-        margin-top: 200px;
+        margin-top: 400px;
         background-color: skyblue;
     }
 </style>

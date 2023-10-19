@@ -7,13 +7,7 @@
         <element id="directory" name="classes">
           <element id="module-output" name="day1016" />
         </element>
-        <element id="directory" name="lib">
-          <element id="library" level="project" name="lombok" />
-          <element id="library" level="project" name="c3p0-0.9.5.5" />
-          <element id="library" level="project" name="druid-1.2.16" />
-          <element id="library" level="project" name="commons-dbutils-1.7" />
-          <element id="library" level="project" name="mysql-connector-j-8.0.31" />
-        </element>
+        <element id="directory" name="lib" />
       </element>
     </root>
   </artifact>

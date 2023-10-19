@@ -28,3 +28,7 @@ bin/
 ### Mac OS ###
 .DS_Store
 /web/day1018/resources/
+
+
+# properties
+ProjectTest/src/main/java/com/cookie/email.properties

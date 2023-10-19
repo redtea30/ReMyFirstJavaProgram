@@ -10,10 +10,13 @@
         <module name="day1006" />
         <module name="Day1005" />
         <module name="Day1005-1" />
+        <module name="day1019" />
+        <module name="ProjectTest" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Day0927" target="17" />
+      <module name="mavenTest001" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

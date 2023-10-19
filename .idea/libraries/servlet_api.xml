@@ -4,8 +4,6 @@
       <root url="jar://$PROJECT_DIR$/../apache-tomcat-9.0.80/lib/servlet-api.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="file://$PROJECT_DIR$/../apache-tomcat-9.0.81-src/java" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>
