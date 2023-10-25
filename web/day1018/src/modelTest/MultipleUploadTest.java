@@ -47,7 +47,7 @@ public class MultipleUploadTest extends HttpServlet {
         Collection<Part> parts = req.getParts();
         for (Part part : parts) {
             String type = part.getContentType();//获取文件类型
-            String name = part.getSubmittedFileName();//获取上传时文件类型
+            String name = part.getName();//获取上传时文件类型
             //这里对文件类型进行判断，不合适的文件类型直接恰似
             if (Constant.ALLOW_TYPE.contains(type)) {
                 String absPath = Constant.UPLOAD_PATH3 + File.separator + name;

@@ -11,15 +11,16 @@
         <option value="$PROJECT_DIR$/mavenTest001/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1019/pom.xml" />
         <option value="$PROJECT_DIR$/ProjectTest/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1020/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1021/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1023_stage2/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1021_WeekendProject/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1024/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1025/pom.xml" />
       </list>
     </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/mavenTest001/pom.xml" />
-      </set>
-    </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ProjectType">

@@ -1,4 +1,4 @@
-package com.cookie;
+package main.java.com.cookie;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,8 +9,6 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 
 /**
@@ -27,9 +25,11 @@ public class JavaxJavaMailClient {
     public String transportType = "smtp";           //邮件发送的协议
     public String fromUser = "Neko";           //发件人名称
     public String fromEmail = "qxddyx@qq.com";  //发件人邮箱
-    public String authCode = "xxxxxxxxxxxxxxxx";    //发件人邮箱授权码
-    public String toEmail = "xiaofeng504@qq.com";   //收件人邮箱
-    public String subject = "电子专票开具";           //主题信息
+    public String authCode = "fwrebmqeahfqbejh";    //发件人邮箱授权码
+    public String toEmail = "jkspstyu@outlook.com";   //收件人邮箱
+    public String subject = "testEmail";           //主题信息
+    public String toPort = "587";
+    public String SSL = "true";
 
     @Test
     public void ClientTestA() throws UnsupportedEncodingException, javax.mail.MessagingException {
@@ -40,6 +40,10 @@ public class JavaxJavaMailClient {
         props.setProperty("mail.host", emailHost);
         props.setProperty("mail.user", fromUser);
         props.setProperty("mail.from", fromEmail);
+        props.setProperty("mail.smtp.port", toPort);
+        props.setProperty("mail.smtp.auth", "true");
+
+
         //获取Session对象
         Session session = Session.getInstance(props, null);
         //开启后有调试信息
@@ -52,7 +56,7 @@ public class JavaxJavaMailClient {
         //设置发件人第一种方式：直接显示：antladdie <antladdie@163.com>
         //InternetAddress from = new InternetAddress(sender_username);
         //设置发件人第二种方式：发件人信息拼接显示：蚂蚁小哥 <antladdie@163.com>
-        String formName = MimeUtility.encodeWord("蚂蚁小哥") + " <" + fromEmail + ">";
+        String formName = MimeUtility.encodeWord("wujie") + " <" + fromEmail + ">";
         InternetAddress from = new InternetAddress(formName);
         message.setFrom(from);
 
@@ -61,9 +65,9 @@ public class JavaxJavaMailClient {
         message.setRecipient(Message.RecipientType.TO, to);
 
         //设置抄送人(两个)可有可无抄送人：
-        List<InternetAddress> addresses = Arrays.asList(new InternetAddress("1457034247@qq.com"), new InternetAddress("575814158@qq.com"));
-        InternetAddress[] addressesArr = (InternetAddress[]) addresses.toArray();
-        message.setRecipients(Message.RecipientType.CC, addressesArr);
+//        List<InternetAddress> addresses = Arrays.asList(new InternetAddress("1457034247@qq.com"), new InternetAddress("575814158@qq.com"));
+//        InternetAddress[] addressesArr = (InternetAddress[]) addresses.toArray();
+//        message.setRecipients(Message.RecipientType.CC, addressesArr);
 
         //设置密送人 可有可无密送人：
         //InternetAddress toBCC = new InternetAddress(toEmail);
@@ -73,7 +77,7 @@ public class JavaxJavaMailClient {
         message.setSubject(subject);
 
         //设置邮件内容,这里我使用html格式，其实也可以使用纯文本；纯文本"text/plain"
-        message.setContent("<h1>蚂蚁小哥祝大家工作顺利！</h1>", "text/html;charset=UTF-8");
+        message.setContent("<h1>接受！</h1>", "text/html;charset=UTF-8");
 
         //保存上面设置的邮件内容
         message.saveChanges();
@@ -81,8 +85,9 @@ public class JavaxJavaMailClient {
         //获取Transport对象
         Transport transport = session.getTransport();
         //smtp验证，就是你用来发邮件的邮箱用户名密码（若在之前的properties中指定默认值，这里可以不用再次设置）
-        transport.connect(null, null, authCode);
+        transport.connect(emailHost, fromEmail, authCode);
         //发送邮件
+
         ((Transport) transport).sendMessage(message, message.getAllRecipients()); // 发送
     }
 }

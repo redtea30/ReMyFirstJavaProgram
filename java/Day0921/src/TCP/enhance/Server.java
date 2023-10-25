@@ -23,22 +23,6 @@ public class Server {
 
             System.out.println(dis.readUTF());
 
-
-            //旧循环
-/*            Type temp;
-            String json = "";
-            int n;
-            byte[] bytes = new byte[1024];
-            while (true) {
-
-                while ((n = in.read(bytes)) != -1) {
-                    json += new String(bytes, 0, n);
-                }
-                Object obj = gson.fromJson(json, Type.class);
-                System.out.println(obj.toString());
-            }*/
-
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

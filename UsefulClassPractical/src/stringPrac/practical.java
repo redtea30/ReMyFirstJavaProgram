@@ -1,7 +1,9 @@
+package stringPrac;
+
 import java.util.Arrays;
 
 /**
- * ClassName:practical
+ * ClassName:stringPrac.practical
  * Package: PACKAGE_NAME
  * Description:
  *

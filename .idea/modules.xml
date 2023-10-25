@@ -43,6 +43,7 @@
       <module fileurl="file://$PROJECT_DIR$/java/Day31/Day31.iml" filepath="$PROJECT_DIR$/java/Day31/Day31.iml" />
       <module fileurl="file://$PROJECT_DIR$/Extension/Extension.iml" filepath="$PROJECT_DIR$/Extension/Extension.iml" />
       <module fileurl="file://$PROJECT_DIR$/JDBC/JDBC.iml" filepath="$PROJECT_DIR$/JDBC/JDBC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectTest.iml" filepath="$PROJECT_DIR$/ProjectTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/ReMyFirstJavaProgram.iml" filepath="$PROJECT_DIR$/ReMyFirstJavaProgram.iml" />
       <module fileurl="file://$PROJECT_DIR$/Regex/Regex.iml" filepath="$PROJECT_DIR$/Regex/Regex.iml" />
       <module fileurl="file://$PROJECT_DIR$/SixtyPractical/SixtyPractical.iml" filepath="$PROJECT_DIR$/SixtyPractical/SixtyPractical.iml" />

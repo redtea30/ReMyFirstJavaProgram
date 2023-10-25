@@ -7,15 +7,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="untitled" />
         <module name="day1006" />
+        <module name="day1023_stage2" />
+        <module name="day1019" />
+        <module name="day1025" />
+        <module name="day1020" />
+        <module name="day1024_kickUserOut" />
         <module name="Day1005" />
         <module name="Day1005-1" />
-        <module name="day1019" />
-        <module name="ProjectTest" />
+        <module name="day1021_WeekendProject" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Day0927" target="17" />
+      <module name="day1025_JSTL" target="17" />
       <module name="mavenTest001" target="17" />
     </bytecodeTargetLevel>
   </component>

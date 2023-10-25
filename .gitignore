@@ -32,3 +32,4 @@ bin/
 
 # properties
 ProjectTest/src/main/java/com/cookie/email.properties
+web/day1024/src/main/resources/db.properties

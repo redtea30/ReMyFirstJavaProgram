@@ -30,6 +30,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="servlet-api" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-servlet-api:7.0.109" level="project" />
+    <orderEntry type="library" name="javax.servlet-api-4.0.1" level="project" />
   </component>
 </module>

@@ -37,10 +37,11 @@ public class UploadTestServlet extends HttpServlet {
         //设置doGet请求，没搞明白
         doGet(req, resp);
 
+
         //获取part对象
         Part part = req.getPart("uploadFile");
         //getSubmittedFileName（）方法获取上传文件名
-        String submittedFileName = part.getSubmittedFileName();
+        String submittedFileName = part.getName();
 
 
         //展示上传文件的名称
@@ -54,7 +55,7 @@ public class UploadTestServlet extends HttpServlet {
 
 
         //设置文件路径名称
-        String filName = Constant.UPLOAD_PATH3 + File.separator + part.getSubmittedFileName();
+        String filName = Constant.UPLOAD_PATH3 + File.separator + part.getName();
         //写入目录,直接写入
         part.write(filName);
 

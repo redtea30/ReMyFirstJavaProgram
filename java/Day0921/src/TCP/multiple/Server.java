@@ -19,12 +19,6 @@ public class Server {
                 dos.flush();
             }
 
-            //测试
-            //Socket[addr=/10.0.3.210,port=51708,localport=9909]
-            //Client: 狗东西
-            //Client: 妈的
-            //Client: 妈妈生的
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

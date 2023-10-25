@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<form method="post" action="login">
+    <label for="usernameid" required>在这里输入用户名</label>
+    <input type="text" name="username" id="usernameid">
+    <label for="passwordid" required>在这里输入密码</label>
+    <input type="password" name="password" id="passwordid">
+    <img src="/captcha" width="130px" height="48px" for="verCode"/>
+    <label for="verCode" required>在这里输入验证码</label>
+    <input type="text" name="captchaCode" id="verCode">
+
+    <input type="submit" value="submit">
+</form>
+<input type="button" value="我要注册" href="/register.html">
+
+</body>
+</html>
