@@ -15,6 +15,9 @@ public class UserService {
     private UserDao userDao = new UserDao();
 
     public boolean register(String username, String password, String nickname, String email) {
-        return userDao.insertNewUser(username, password, nickname, email);
+        //return userDao.insertNewUser(username, password, nickname, email);
+
+        // fixme 临时设置
+        return false;
     }
 }

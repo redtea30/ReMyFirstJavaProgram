@@ -1,7 +1,5 @@
 package servlet;
 
-import dao.UserDao;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,20 +15,25 @@ import java.io.IOException;
  * Describe：
  */
 
-@WebServlet("/remove")
+@WebServlet("/operation")
 public class RemoveServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String username = req.getParameter("username");
 
-        UserDao dao = new UserDao();
-        try {
-            Boolean deleteBoolean = dao.deleteUser(username);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
 
-        resp.sendRedirect("/all");
+        String operation = req.getParameter("type");
+
+
+//todo 搞完逻辑
+
+//        UserDao dao = new UserDao();
+//        try {
+//            Boolean deleteBoolean = dao.deleteUser(username);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//
+//        resp.sendRedirect("/all");
     }
 
 

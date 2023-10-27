@@ -13,9 +13,8 @@ import java.sql.DriverManager;
 
 public class DatabaseConnection {
     private static final String DB_URL = "jdbc:mysql://localhost:3306/day1023";
-    private static final String DB_USER = "root";
-    private static final String DB_PASSWORD = "qwertyuiop";
-
+    private static final String DB_USER = "kfm-cloud";
+    private static final String DB_PASSWORD = "1234";
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

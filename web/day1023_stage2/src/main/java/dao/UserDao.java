@@ -5,18 +5,37 @@ package dao;
  * Project-name:ReMyFirstJavaProgram
  * Author: Neko
  * 23-10-2023  03:21
- * Describe：
+ * Describe：废弃
  */
 
-import util.DatabaseConnection;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import entity.User;
+import util.Constant;
 
 public class UserDao {
-    public boolean insertNewUser(String username, String password, String nickname, String email) {
-        String sql = "INSERT INTO sys_user(user_name, nick_name, password, email) VALUES (?, ?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
+
+
+    String insertStatement = "INSERT INTO sys_user(user_name, nick_name, password, email) VALUES (?, ?, ?, ?)";
+
+
+    public void type(String type, User user) {
+        if (Constant.INSERT_OPERATION.equals(type)) {
+            insertNewUser(user);
+        } else if (Constant.MODIFY_OPERATION.equals(type)) {
+            updateUserInfo(user);
+        }
+    }
+
+    public boolean insertNewUser(User user) {
+
+        return false;
+
+
+
+
+
+
+
+/*        try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, username);
             stmt.setString(2, nickname);
@@ -27,6 +46,13 @@ public class UserDao {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        }
+        }*/
     }
+
+    public void updateUserInfo(User user) {
+
+
+    }
+
+
 }

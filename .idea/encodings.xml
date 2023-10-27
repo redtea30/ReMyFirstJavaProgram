@@ -11,18 +11,16 @@
     <file url="file://$PROJECT_DIR$/java/Day1005-1/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java/day1006/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java/day1006/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1020/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1020/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1021_WeekendProject/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1021_WeekendProject/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/day1023_stage2/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/day1023_stage2/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1024/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1024/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1025/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1025/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1025/src/main/resources/db.properties" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/web/day1025/src/main/webapp/all.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/web/day1024_KickUserOut/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1024_KickUserOut/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1025_JSTLIntro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1025_JSTLIntro/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1026/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1026/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1026_springboot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1026_springboot/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
