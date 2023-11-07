@@ -1,6 +1,6 @@
 package kaifamiao_cinema;
 
-import util.List;
+import util.ListList;
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -24,8 +24,8 @@ public class MovieTheater {
     private static int countMovies = 10;
     private static int countUsers = 10;
     private static Scanner sc = new Scanner(System.in);//这样的静态方法就只能本类里使用
-    List listMovie = new List();
-    List listUser = new List();
+    ListList listListMovie = new ListList();
+    ListList listListUser = new ListList();
 
     /**
      * 通过电影名称进行搜索，并返回该电影的所有数据
@@ -39,7 +39,7 @@ public class MovieTheater {
     public void searchListMovie() {
         System.out.println("请输入你要查找的电影的序号");
         int search = sc.nextInt();
-        Movie movie = (Movie) listMovie.searchEle(search - 1);
+        Movie movie = (Movie) listListMovie.searchEle(search - 1);
         System.out.println(movie.toString());
 
 
@@ -326,7 +326,7 @@ public class MovieTheater {
      * 用来替换原先ShowAllMovie的list类方法
      */
     public void showAllListMovie() {
-        System.out.println(listMovie.toString());
+        System.out.println(listListMovie.toString());
     }
 
     /**
@@ -379,8 +379,8 @@ public class MovieTheater {
         users[9] = new User("王十二", 13810101111L, "123456", 2);
 
         for (int i = 0; i < countMovies; i++) {
-            listMovie.add(movies[i]);
-            listUser.add(users[i]);
+            listListMovie.add(movies[i]);
+            listListUser.add(users[i]);
         }
 
 

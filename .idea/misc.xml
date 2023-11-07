@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
@@ -21,7 +22,24 @@
         <option value="$PROJECT_DIR$/web/day1025_JSTLIntro/pom.xml" />
         <option value="$PROJECT_DIR$/web/demo/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1026_springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1027/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1030/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1101/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1101/again1/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1102Mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1102test1/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1103test/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1106/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1107/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1107-1/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/web/day1102test1/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1106/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1107/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="17" project-jdk-type="JavaSDK">

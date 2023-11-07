@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--mapper namespace 命名空间 -->
+<mapper namespace="com.mybatis.dao.UpdateUser">
+
+
+    <!--查询 select 标签-->
+    <!--id 起一个名字-->
+    <!--resultType 要映射的实体类对象-->
+    <!--标签内部的内容是 sql 语句-->
+
+    <delete id="deleteOneUser">
+        delete
+        from sys_user
+        where user_name = #{username}
+    </delete>
+    <select id="selectOneUser" resultType="com.mybatis.model.UserInfoModel">
+        select *
+        from sys_user
+        where user_name = #{arg0}
+          and password = #{arg1}
+    </select>
+    <select id="selectOneUser1" resultType="UserInfoModel">
+        select *
+        from sys_user
+        where user_name = #{username}
+          and password = #{password}
+    </select>
+
+    <select id="selectTest"
+            resultType="com.mybatis.model.UserInfoModel"
+            resultMap="UserMap">
+        select id, user_name, password
+        from sys_user
+    </select>
+
+    <insert id="insertOneuser"
+            useGeneratedKeys="true"
+            keyProperty="id">
+        insert into sys_user(user_name, password, email)
+        values (#{arg0}, #{arg1}, #{arg2})
+    </insert>
+
+
+    <resultMap id="UserMap" type="com.mybatis.model.UserInfoModel">
+        <!--        <id property="id" column="id"/>-->
+        <result property="username" column="user_name"/>
+        <result property="password" column="password"/>
+    </resultMap>
+</mapper>

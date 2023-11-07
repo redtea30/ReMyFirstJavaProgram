@@ -3,7 +3,7 @@ package util;
 import java.util.Arrays;
 
 /**
- * ClassName:List
+ * ClassName:ListList
  * Package: util
  * Description:
  *
@@ -11,15 +11,15 @@ import java.util.Arrays;
  * @Create 22/8/202311:59 am
  * @Version 1.0
  */
-public class List {
+public class ListList {
     private Object[] arr = new Object[2];
     private int count = 0;
     private int capacity;
 
-    public List() {
+    public ListList() {
     }
 
-    public List(int capacity) {
+    public ListList(int capacity) {
         this.capacity = capacity;
         arr = new Object[capacity];
     }
@@ -85,7 +85,7 @@ public class List {
      * @return 直接返回打印好的字符串
      */
     public String toString() {
-        String str = "共有" + count + "个元素，List[ ";
+        String str = "共有" + count + "个元素，ListList[ ";
         for (int i = 0; i < count; i++) {
             str += "\n" + (i + 1) + ".";
             if (i == count - 1) {

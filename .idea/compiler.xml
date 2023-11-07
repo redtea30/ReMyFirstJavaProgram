@@ -8,28 +8,42 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="untitled" />
-        <module name="day1006" />
-        <module name="day1023_stage2" />
-        <module name="day1019" />
+        <module name="day1107-1" />
+        <module name="day1102Mybatis" />
+        <module name="day1101" />
         <module name="day1025_JSTLIntro" />
         <module name="day1026" />
+        <module name="day1103test" />
         <module name="day1020" />
-        <module name="day1024_kickUserOut" />
         <module name="Day1005" />
         <module name="Day1005-1" />
+        <module name="day1030" />
+        <module name="again1" />
+        <module name="day1006" />
+        <module name="day1023_stage2" />
+        <module name="day1027" />
+        <module name="day1019" />
+        <module name="day1024_kickUserOut" />
         <module name="day1021_WeekendProject" />
-        <module name="day1026_springboot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Day0927" target="17" />
-      <module name="day1025_JSTL" target="17" />
-      <module name="mavenTest001" target="17" />
+      <module name="day1102test1" target="17" />
+      <module name="day1106" target="17" />
+      <module name="day1107" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="day1026_springboot" options="-parameters" />
+      <module name="day1027" options="-parameters" />
+      <module name="day1030" options="-parameters" />
+      <module name="day1102Mybatis" options="-parameters" />
+      <module name="day1102test1" options="-parameters" />
+      <module name="day1103test" options="-parameters" />
+      <module name="day1106" options="-parameters" />
+      <module name="day1107" options="-parameters" />
+      <module name="day1107-1" options="-parameters" />
     </option>
   </component>
 </project>

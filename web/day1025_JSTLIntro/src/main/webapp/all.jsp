@@ -32,7 +32,7 @@ hello
 <br>
 
 <%--items 要遍历的对象（容器）--%>
-<%--for (Kfmuser u : list) {}--%>
+<%--for (Kfmuser u : listList) {}--%>
 <table border="1" cellpadding="1">
     <tr>
 

@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
     <!-- 将index.html设置为主页 -->
-    <!--    <welcome-file-list>-->
+    <!--    <welcome-file-listList>-->
     <!--        <welcome-file>index.html</welcome-file>-->
-    <!--    </welcome-file-list>-->
+    <!--    </welcome-file-listList>-->
 
     <!-- 图形验证码servlet -->
     <servlet>

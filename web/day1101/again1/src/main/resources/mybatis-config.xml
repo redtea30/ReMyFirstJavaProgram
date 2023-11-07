@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--配置-->
+<configuration>
+    <properties>
+        <!--属性,读取外部的配置文件-->
+
+    </properties>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+        <!--类型别名，配置好了可以少写几个字-->
+        <typeAlias alias="UserInfoModel" type="com.mybatis.model.UserInfoModel"/>
+        <!--后面写的时候只需要使用UserInfoModel-->
+    </typeAliases>
+    <!--配置mybatis的环境-->
+    <environments default="mysql">
+        <!--配置MySQL的环境-->
+        <environment id="mysql">
+            <!--配置事务的类型-->
+            <transactionManager type="JDBC"/>
+            <!--配置连接数据库的信息：用的是数据源（连接池）-->
+            <!--dataSource 数据库配置信息-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/day1023"/>
+                <property name="username" value="root"/>
+                <property name="password" value="qwertyuiop"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--告知mybatis映射配置的位置-->
+    <!---->
+    <mappers>
+        <mapper resource="com/mybatis/dao/MyUSerInfo.xml"/>
+        <mapper resource="com/mybatis/dao/StudentDao.xml"/>
+        <mapper resource="com/mybatis/dao/UpdateUser.xml"/>
+    </mappers>
+
+</configuration>
+
+
