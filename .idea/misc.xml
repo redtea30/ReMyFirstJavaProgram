@@ -32,13 +32,16 @@
         <option value="$PROJECT_DIR$/web/day1106/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1107/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1107-1/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1113/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1114/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day11141/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1116/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/web/day1102test1/pom.xml" />
-        <option value="$PROJECT_DIR$/web/day1106/pom.xml" />
-        <option value="$PROJECT_DIR$/web/day1107/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
       </set>
     </option>
   </component>

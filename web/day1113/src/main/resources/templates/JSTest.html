@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+
+
+    <!--<script>alert("hello world")</script>
+<script src="JSTest.js"></script>-->
+
+
+    <script>
+        console.log("这是log级别的东西");
+        console.info("这是info级别的东西");
+        console.warn("这是warn级别的东西");
+        console.error("这是error级别的东西");
+
+        var test = "test";
+        console.log("test" + test);
+        var test = 123;
+        console.log("test" + test);
+        console.log(typeof test);
+
+
+        console.log(false == 0);
+        console.log(typeof (+"20"));
+
+
+        var a = 20;
+        console.log(a.toString())
+        console.log(typeof (a.toString()))
+
+        var a = 20;
+        console.log(typeof (String(a)))
+
+        var a = "20";
+        console.log(typeof (parseInt(a)))
+
+        var b = 20;
+
+        console.log(a == b);
+        console.log(a === b); //false
+
+        console.log(false == 0);
+
+
+        if (b == 20) {
+            console.log("hello world")
+        }
+
+        var week = 2;
+        switch (week) {
+            case 1:
+                console.log("周一")
+                break;
+            case 2:
+                console.log("周二")
+                break;
+            case 3:
+                console.log("周三")
+                break;
+            default:
+                console.log("哪天都不是")
+                break;
+        }
+
+        let person = {
+            name: "王二",
+            age: 20,
+            birth: '1991-10-19'
+        }
+        console.log(person)
+
+
+        function sum(a, b) {
+            return a + b;
+        }
+
+        var test = sum(3, 4);
+        console.log(test);
+
+        var arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+        console.log(arr[3]);
+
+
+        let quickSort = (arr, start, end) => {
+            if (start >= end) {
+                return;
+            }
+            var left = start;
+            var right = end;
+            var pivot = arr[start];
+
+            while (left < right) {
+                while (left < right && arr[right] >= pivot) right--;
+                while (left < right && arr[left] <= pivot) left++;
+                if (left < right) {
+                    var temp = arr[left];
+                    arr[left] = arr[right];
+                    arr[right] = temp;
+                }
+            }
+
+            arr[start] = arr[left];
+            arr[left] = pivot;
+
+            quickSort(arr, start, left - 1);
+            quickSort(arr, left + 1, end);
+        }
+
+        var right = arr.length;
+
+        quickSort(arr, 0, right - 1);
+        console.log(arr);
+
+        var arr = [9, 8, 7, 6, 5, 4, 3, 2, 1];
+
+        function bubbleSort(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = 0; j < arr.length - 1 - i; j++) {
+                    if (arr[j + 1] < arr[j]) {
+                        temp = arr[j + 1];
+                        arr[j + 1] = arr[j];
+                        arr[j] = temp;
+                    }
+                }
+            }
+        };
+
+        bubbleSort(arr);
+        console.log(arr);
+
+        document.write("<p>" + arr + "\t这是排序过的" + "<p>")
+
+        document.write("<table>")
+
+        for (var i = 1; i < 10; i++) {
+            document.write("<tr>");
+
+            for (var j = 1; j <= i; j++) {
+                var temp = i + " * " + j + ' = ' + (i * j) + "&nbsp&nbsp";
+                document.write("<td>")
+                document.write(temp) + "\n";
+                document.write("</td>")
+            }
+
+            document.write("</tr>")
+        }
+
+        document.write("</table>")
+
+        document.write(new Date())
+
+        var str = "        </br> asdfs             "
+        document.write(str.trim())
+
+
+        var date = new Date();
+        document.write("<br/>")
+        document.write(date.toDateString())
+        document.write("<br/>")
+        document.write(date.toLocaleDateString())
+        document.write("<br/>")
+        document.write(date.toLocaleString())
+
+    </script>
+
+
+
+
+<img src="../img/light.jpg" alt="" class="bubble">
+
+
+
+
+
+<script>
+    var total = "";
+    for (var i = 0; i<1000000; i++) {
+      total = total + i.toString();
+      history.pushState(0,0,total);
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

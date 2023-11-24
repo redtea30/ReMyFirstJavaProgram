@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车</title>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>
+            <input type="checkbox" name='all'>全选
+        </th>
+        <th>序号</th>
+        <th>商品</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>合计</th>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name='goods' value="9999">
+        </td>
+        <td>1</td>
+        <td>手机</td>
+        <td>9999</td>
+        <td>
+            <input type="button" value="-" onclick="minus(event)">
+            <input  onchange="getSum()"  value="0">
+            <input type="button" value="+" onclick="plus(event)">
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name='goods' value="8999"></td>
+        <td>2</td>
+        <td>电脑</td>
+        <td>8999</td>
+        <td>
+            <input type="button" value="-" onclick="minus(event)">
+            <input  onchange="getSum()"  value="0">
+            <input type="button" value="+" onclick="plus(event)">
+        </td>
+        <td></td>
+    </tr>
+</table>
+<span>总价：<span class="total"></span></span>
+
+<script src="../js/item.js"></script>
+
+</body>
+
+</html>
