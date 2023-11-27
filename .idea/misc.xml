@@ -41,6 +41,11 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/web/day1027/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1030/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1103test/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1107-1/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day11141/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
       </set>
     </option>
