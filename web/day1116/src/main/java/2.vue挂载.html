@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="box">
+    <div>姓名：{{ name }}</div>
+    <div>班级：{{ classRoom }}</div>
+    <button @click="study">打招呼</button>
+    <button @click="updateClass">修改班级</button>
+</div>
+
+<!-- 引入 Vue.js -->
+<script src="./vue.js"></script>
+<script>
+    const app = {
+        data() {
+            return {
+                name: "开发喵",
+                classRoom: "开发喵07"
+            }
+        },
+        methods: {
+            study() {
+                alert(this.name + "正在" + this.classRoom + "好好学习!");
+            },
+            updateClass() {
+                this.classRoom = "云创动力";
+            }
+
+
+        }
+    };
+    Vue.createApp(app).mount('#box');
+</script>
+</body>
+</html>
