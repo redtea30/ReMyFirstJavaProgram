@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<img src="1.jpg">-->
+<div id="box">
+    <img v-bind:src="imgSrc" style="height: 500px; width: auto"/>
+    <p v-if="num % 3 === 0">三的倍数</p>
+    <p v-else>不是三的倍数</p>
+    <button @click="addNum">++</button>
+    <button @click="minusNum">--</button>
+    <p>当前数值：{{ num }}</p>
+</div>
+
+<div id="list">
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+</div>
+
+<!-- 引入 Vue.js -->
+<script src="./vue.js"></script>
+<script>
+    const app = {
+        data() {
+            return {
+                num: parseInt(Math.random() * 10),
+
+            }
+        },
+        computed: {
+
+            imgSrc() {
+                return this.num % 2 === 0 ? "./1.jpg" : "./2.jpg"
+            },
+
+        },
+        methods: { // 修改为 methods
+            addNum() {
+                this.num++; // 使用 this.num 来引用和修改 data 中的 num
+            },
+            minusNum() {
+                this.num--; // 使用 this.num 来引用和修改 data 中的 num
+            }
+        }
+
+    };
+    Vue.createApp(app).mount('#box');
+
+
+    const listALl = {
+        data() {
+            return {
+                goodsList: [
+                    {id: 1, name: '鼠标', price: 23},
+                    {id: 2, name: '键盘', price: 233},
+                    {id: 3, name: '显卡', price: 2333},
+                    {id: 4, name: '内存', price: 223},
+                ],
+            }
+        }
+
+
+    }
+</script>
+</body>
+</html>

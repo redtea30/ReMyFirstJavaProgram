@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+<!-- Vue 应用的根元素 -->
+<div id="app">
+    最终的count为 {{ count }} <!--这里会显示 ${date}.count 的最终值-->
+</div>
+
+<script>
+    // 创建 Vue 应用
+    const app = Vue.createApp({
+        data() {
+            return {count: 4}
+        }
+    });
+
+    // 挂载 Vue 应用
+    const vm = app.mount('#app');
+
+    // 访问并显示数据
+    document.write(vm.$data.count); // 输出: 4
+    document.write("<br>");
+    document.write(vm.count); // 输出: 4
+    document.write("<br>");
+
+
+    // 修改 vm.count 的值也会更新 $data.count
+    vm.count = 5
+    document.write(vm.$data.count) // 5
+    document.write("<br>")
+
+    // 反之亦然
+    vm.$data.count = 6
+    document.write(vm.count) // 6
+</script>
+</body>
+</html>
