@@ -3,6 +3,10 @@
   <component name="CompilerConfiguration">
     <excludeFromCompile>
       <directory url="file://$PROJECT_DIR$/web/day1116/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/ReView/day1206JavaBase/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/web/day1207CodeReview/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/JDBC/day1212Mr.sunAss/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/JDBC/day1213SunAss/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
@@ -11,6 +15,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="untitled" />
+        <module name="day1206JavaBase" />
         <module name="day1102Mybatis" />
         <module name="day1101" />
         <module name="day1025_JSTLIntro" />
@@ -19,20 +24,23 @@
         <module name="day1020" />
         <module name="Day1005" />
         <module name="Day1005-1" />
+        <module name="day1030" />
         <module name="again1" />
         <module name="day1006" />
         <module name="day1116" />
+        <module name="day1213SunAss" />
         <module name="day1023_stage2" />
+        <module name="day1027" />
         <module name="day1019" />
         <module name="day1106" />
         <module name="day1024_kickUserOut" />
+        <module name="Servlet1" />
         <module name="day1021_WeekendProject" />
+        <module name="day1207CodeReview" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Day0927" target="17" />
-      <module name="day1027" target="17" />
-      <module name="day1030" target="17" />
       <module name="day1102test1" target="17" />
       <module name="day1103test" target="17" />
       <module name="day1107" target="17" />
@@ -40,6 +48,12 @@
       <module name="day1114" target="17" />
       <module name="day11141" target="17" />
       <module name="day1124ElementUi" target="1.8" />
+      <module name="day1129" target="1.8" />
+      <module name="day1212getResultFormDB" target="1.8" />
+      <module name="day1212Mr.sunAss" target="17" />
+      <module name="ReView" target="1.8" />
+      <module name="ReView-parent" target="17" />
+      <module name="sunAss" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

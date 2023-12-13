@@ -37,16 +37,23 @@
         <option value="$PROJECT_DIR$/web/day11141/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1116/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
+        <option value="$PROJECT_DIR$/ReView/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1129/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1207CodeReview/pom.xml" />
+        <option value="$PROJECT_DIR$/JDBC/day1212/pom.xml" />
+        <option value="$PROJECT_DIR$/JDBC/day1212getResultFormDB/pom.xml" />
+        <option value="$PROJECT_DIR$/JDBC/day1213SunAss/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
-        <option value="$PROJECT_DIR$/web/day1027/pom.xml" />
-        <option value="$PROJECT_DIR$/web/day1030/pom.xml" />
+        <option value="$PROJECT_DIR$/JDBC/day1212getResultFormDB/pom.xml" />
+        <option value="$PROJECT_DIR$/ReView/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1103test/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1107-1/pom.xml" />
         <option value="$PROJECT_DIR$/web/day11141/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1129/pom.xml" />
       </set>
     </option>
   </component>

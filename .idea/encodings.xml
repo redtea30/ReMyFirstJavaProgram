@@ -3,10 +3,22 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/JDBC/Day1005/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/JDBC/Day1005/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JDBC/day1212Mr.sunAss/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JDBC/day1212Mr.sunAss/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JDBC/day1212getResultFormDB/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JDBC/day1212getResultFormDB/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JDBC/day1213SunAss/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/JDBC/day1213SunAss/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProjectTest/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProjectTest/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProjectTest/untitled/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ProjectTest/untitled/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReView/Servlet1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReView/Servlet1/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReView/day1206JavaBase/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReView/day1206JavaBase/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReView/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ReView/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java/Day1005-1/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java/Day1005-1/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/java/day1006/src/main/java" charset="UTF-8" />
@@ -42,6 +54,10 @@
     <file url="file://$PROJECT_DIR$/web/day1116/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/day1124ElementUi/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/day1124ElementUi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1129/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1129/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1207CodeReview/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/web/day1207CodeReview/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
