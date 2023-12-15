@@ -45,12 +45,18 @@
         <option value="$PROJECT_DIR$/JDBC/day1213SunAss/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1314/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1214/pom.xml" />
+        <option value="$PROJECT_DIR$/java/day1215MavenParent/pom.xml" />
+        <option value="$PROJECT_DIR$/java/day1215MavenParent/parent-001/pom.xml" />
+        <option value="$PROJECT_DIR$/java/day1215MavenParent/child-001/parent-001-001/pom.xml" />
+        <option value="$PROJECT_DIR$/java/day1215MavenParent/anotherPackage/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/JDBC/day1212getResultFormDB/pom.xml" />
         <option value="$PROJECT_DIR$/ReView/pom.xml" />
+        <option value="$PROJECT_DIR$/java/day1215MavenParent/parent-001/child-001/pom.xml" />
+        <option value="$PROJECT_DIR$/java/day1215MavenParent/parent-001/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1103test/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1107-1/pom.xml" />
         <option value="$PROJECT_DIR$/web/day11141/pom.xml" />

@@ -9,6 +9,12 @@
       <directory url="file://$PROJECT_DIR$/JDBC/day1213SunAss/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/web/day1314/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/web/day1214/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/parent-001/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/parent-001/child-001/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/child-001/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/anotherPackage/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/child-002/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
@@ -16,33 +22,38 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="untitled" />
+        <module name="child-002" />
+        <module name="child-001" />
         <module name="day1206JavaBase" />
         <module name="day1102Mybatis" />
         <module name="day1101" />
         <module name="day1025_JSTLIntro" />
         <module name="day1026" />
-        <module name="day1113" />
         <module name="day1020" />
         <module name="Day1005" />
-        <module name="Day1005-1" />
-        <module name="day1030" />
         <module name="again1" />
-        <module name="day1006" />
         <module name="day1116" />
         <module name="day1213SunAss" />
         <module name="day1023_stage2" />
-        <module name="day1027" />
         <module name="day1214" />
         <module name="day1019" />
-        <module name="day1106" />
         <module name="day1024_kickUserOut" />
+        <module name="untitled" />
+        <module name="day1113" />
+        <module name="Day1005-1" />
+        <module name="day1030" />
+        <module name="child-001-001" />
+        <module name="day1006" />
+        <module name="anotherPackage" />
+        <module name="day1027" />
+        <module name="day1106" />
         <module name="Servlet1" />
         <module name="day1021_WeekendProject" />
         <module name="day1207CodeReview" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="child-003" target="17" />
       <module name="Day0927" target="17" />
       <module name="day1102test1" target="17" />
       <module name="day1103test" target="17" />
@@ -55,6 +66,8 @@
       <module name="day1212getResultFormDB" target="1.8" />
       <module name="day1212Mr.sunAss" target="17" />
       <module name="day1314" target="1.5" />
+      <module name="parent-001" target="1.5" />
+      <module name="parent-001-001" target="17" />
       <module name="ReView" target="1.8" />
       <module name="ReView-parent" target="17" />
       <module name="sunAss" target="17" />

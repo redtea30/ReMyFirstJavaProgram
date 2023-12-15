@@ -2,5 +2,12 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/JDBC/day1212getResultFormDB" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ReView" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/day1027" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/day1030" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/day1103test" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/day1107-1" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/day11141" vcs="Git" />
   </component>
 </project>
