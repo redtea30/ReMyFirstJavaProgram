@@ -43,6 +43,8 @@
         <option value="$PROJECT_DIR$/JDBC/day1212/pom.xml" />
         <option value="$PROJECT_DIR$/JDBC/day1212getResultFormDB/pom.xml" />
         <option value="$PROJECT_DIR$/JDBC/day1213SunAss/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1314/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1214/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -54,6 +56,7 @@
         <option value="$PROJECT_DIR$/web/day11141/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1129/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1314/pom.xml" />
       </set>
     </option>
   </component>
