@@ -1,0 +1,11 @@
+2023-11-01 11:47:50,332 DEBUG [main] org.apache.ibatis.logging.LogFactory: Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2023-11-01 11:47:50,342 DEBUG [main] org.apache.ibatis.datasource.pooled.PooledDataSource: PooledDataSource forcefully closed/removed all connections.
+2023-11-01 11:47:50,342 DEBUG [main] org.apache.ibatis.datasource.pooled.PooledDataSource: PooledDataSource forcefully closed/removed all connections.
+2023-11-01 11:47:50,342 DEBUG [main] org.apache.ibatis.datasource.pooled.PooledDataSource: PooledDataSource forcefully closed/removed all connections.
+2023-11-01 11:47:50,342 DEBUG [main] org.apache.ibatis.datasource.pooled.PooledDataSource: PooledDataSource forcefully closed/removed all connections.
+2023-11-01 11:47:50,390 DEBUG [main] org.apache.ibatis.transaction.jdbc.JdbcTransaction: Opening JDBC Connection
+2023-11-01 11:47:50,710 DEBUG [main] org.apache.ibatis.datasource.pooled.PooledDataSource: Created connection 1189084611.
+2023-11-01 11:47:50,710 DEBUG [main] org.apache.ibatis.transaction.jdbc.JdbcTransaction: Setting autocommit to false on JDBC Connection [com.mysql.cj.jdbc.ConnectionImpl@46dffdc3]
+2023-11-01 11:47:50,713 DEBUG [main] com.kfm.mybatis.UserInfoDao.selectAll: ==>  Preparing: select * from userinfo
+2023-11-01 11:47:50,738 DEBUG [main] com.kfm.mybatis.UserInfoDao.selectAll: ==> Parameters: 
+2023-11-01 11:47:50,764 DEBUG [main] com.kfm.mybatis.UserInfoDao.selectAll: <==      Total: 3

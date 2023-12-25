@@ -1,0 +1,4 @@
+com\mybatis\controller\SelectTestController.class
+com\mybatis\dao\UserMapper.class
+com\mybatis\model\UserModel.class
+com\mybatis\Day1102MybatisApplication.class

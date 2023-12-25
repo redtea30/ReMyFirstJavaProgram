@@ -47,9 +47,11 @@
         <module name="anotherPackage" />
         <module name="day1027" />
         <module name="day1106" />
+        <module name="boot01" />
         <module name="Servlet1" />
         <module name="day1021_WeekendProject" />
         <module name="day1207CodeReview" />
+        <module name="boot02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

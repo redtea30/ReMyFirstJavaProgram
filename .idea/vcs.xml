@@ -4,6 +4,8 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/JDBC/day1212getResultFormDB" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/ReView" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/boot01" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/web/boot02" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/web/day1027" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/web/day1030" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/web/day1103test" vcs="Git" />
