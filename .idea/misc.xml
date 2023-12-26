@@ -54,6 +54,8 @@
         <option value="$PROJECT_DIR$/java/day1215MavenParent/anotherPackage/pom.xml" />
         <option value="$PROJECT_DIR$/web/boot01/pom.xml" />
         <option value="$PROJECT_DIR$/web/boot02/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1126LoginPage/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1226LoginPage/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
@@ -67,6 +69,7 @@
         <option value="$PROJECT_DIR$/web/day11141/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1124ElementUi/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1129/pom.xml" />
+        <option value="$PROJECT_DIR$/web/day1226LoginPage/pom.xml" />
         <option value="$PROJECT_DIR$/web/day1314/pom.xml" />
       </set>
     </option>
