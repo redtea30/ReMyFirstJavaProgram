@@ -11,7 +11,7 @@
     </router-link>
     
   </nav>
-  <router-view></router-view>
+  <router-view>这里是信息输出</router-view>
 </template> 
 <script>
 // 这里是直接读取json中的数据然后向前台导出
@@ -24,5 +24,7 @@ export default {
     }
   }
 } 
+
+
 </script>  
 
