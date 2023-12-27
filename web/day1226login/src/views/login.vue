@@ -1,6 +1,7 @@
-<style>
+<style scoped>
 #bigBox {
   background-color: #f3e9cb;
+
 }
 
 #headline {
@@ -11,35 +12,47 @@
   background-color: #333;
   color: #fff;
   font-size: 20px;
-  margin-bottom: 20px;
+  margin: 10px 10px 20px 10px;
+}
+
+#container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#bigForm {
+  margin: 10px;
 }
 
 </style>
 <template>
-  <div id="bigBox">
-    <div id="headline">
-      <!--图片后期需要替换-->
-      <img alt="Vue Logo" src="@/assets/vue.svg" width="50px">
-      <h1>kfm用户登陆界面</h1>
+  <div id="container">
+    <div id="bigBox">
+      <div id="headline">
+        <!--图片后期需要替换-->
+        <img alt="Vue Logo" src="@/assets/vue.svg" width="50px">
+        <h1>kfm用户登陆界面</h1>
+      </div>
+
+      <a-form id="bigForm" ref="formRef" :rules="rules" :model="form" :style="{width:'600px'}" @submit="handleSubmit">
+        <a-form-item field="name" label="用户名">
+          <a-input v-model="form.name" placeholder="请输入用户名"/>
+        </a-form-item>
+        <a-form-item field="password" label="密码" validate-trigger="change">
+          <a-input-password v-model="form.password" placeholder="请输入用户密码" allow-clear/>
+        </a-form-item>
+        <a-form-item>
+          <a-space>
+            <a-button html-type="submit">提交</a-button>
+            <a-button @click="$refs.formRef.resetFields()">重置</a-button>
+          </a-space>
+        </a-form-item>
+      </a-form>
+      输入结果，暂时保留{{ form }}
     </div>
-
-    <a-form ref="formRef" :rules="rules" :model="form" :style="{width:'600px'}" @submit="handleSubmit">
-      <a-form-item field="name" label="用户名">
-        <a-input v-model="form.name" placeholder="请输入用户名"/>
-      </a-form-item>
-      <a-form-item field="password" label="密码" validate-trigger="change">
-        <a-input-password v-model="form.password" placeholder="请输入用户密码" allow-clear/>
-      </a-form-item>
-      <a-form-item>
-        <a-space>
-          <a-button html-type="submit">提交</a-button>
-          <a-button @click="$refs.formRef.resetFields()">重置</a-button>
-        </a-space>
-      </a-form-item>
-    </a-form>
-    {{ form }}
   </div>
-
 </template>
 
 <script>
@@ -54,7 +67,6 @@ export default {
     const form = reactive({
       name: '',
       password: '',
-      match: ''
     });
     const regexValidation = (_, value) => {
       const pattern = /[^a-zA-Z0-9]/; // 正则表达式匹配非字母和数字字符

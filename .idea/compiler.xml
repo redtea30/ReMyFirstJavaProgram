@@ -41,22 +41,22 @@
         <module name="untitled" />
         <module name="day1113" />
         <module name="Day1005-1" />
-        <module name="day1030" />
         <module name="child-001-001" />
         <module name="day1006" />
         <module name="anotherPackage" />
-        <module name="day1027" />
         <module name="day1106" />
-        <module name="boot01" />
         <module name="Servlet1" />
         <module name="day1021_WeekendProject" />
         <module name="day1207CodeReview" />
-        <module name="boot02" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="boot01" target="1.8" />
+      <module name="boot02" target="1.8" />
       <module name="child-003" target="17" />
       <module name="Day0927" target="17" />
+      <module name="day1027" target="17" />
+      <module name="day1030" target="17" />
       <module name="day1102test1" target="17" />
       <module name="day1103test" target="17" />
       <module name="day1107" target="17" />
