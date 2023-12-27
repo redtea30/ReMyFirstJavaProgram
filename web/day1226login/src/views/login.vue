@@ -19,10 +19,9 @@
   <div id="bigBox">
     <div id="headline">
       <!--图片后期需要替换-->
-      <img src="../src/assets/vue.svg" width="50px">
+      <img alt="Vue Logo" src="@/assets/vue.svg" width="50px">
       <h1>kfm用户登陆界面</h1>
     </div>
-
 
     <a-form ref="formRef" :rules="rules" :model="form" :style="{width:'600px'}" @submit="handleSubmit">
       <a-form-item field="name" label="用户名">
