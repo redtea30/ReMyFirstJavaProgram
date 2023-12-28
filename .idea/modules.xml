@@ -62,6 +62,7 @@
       <module fileurl="file://$PROJECT_DIR$/web/day1213.iml" filepath="$PROJECT_DIR$/web/day1213.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/day1226login.iml" filepath="$PROJECT_DIR$/web/day1226login.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/day1226page.iml" filepath="$PROJECT_DIR$/web/day1226page.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/day1226login/day1226testmodel.iml" filepath="$PROJECT_DIR$/web/day1226login/day1226testmodel.iml" />
       <module fileurl="file://$PROJECT_DIR$/java/java.iml" filepath="$PROJECT_DIR$/java/java.iml" />
       <module fileurl="file://$PROJECT_DIR$/web/web.iml" filepath="$PROJECT_DIR$/web/web.iml" />
       <module fileurl="file://$PROJECT_DIR$/WeeklyTest/week12/week12.iml" filepath="$PROJECT_DIR$/WeeklyTest/week12/week12.iml" />
