@@ -15,6 +15,7 @@
       <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/child-001/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/anotherPackage/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/java/day1215MavenParent/child-002/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/web/day1228JavaScirptPractical/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
@@ -45,6 +46,7 @@
         <module name="day1006" />
         <module name="anotherPackage" />
         <module name="day1106" />
+        <module name="day1228JavaScirptPractical" />
         <module name="Servlet1" />
         <module name="day1021_WeekendProject" />
         <module name="day1207CodeReview" />

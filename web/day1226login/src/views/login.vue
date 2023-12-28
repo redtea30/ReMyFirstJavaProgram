@@ -37,16 +37,19 @@
       </div>
 
       <a-form id="bigForm" ref="formRef" :rules="rules" :model="form" :style="{width:'600px'}" @submit="handleSubmit">
-        <a-form-item field="name" label="用户名">
+        <a-form-item field="name" label="用户名" validate-trigger="change,blur">
           <a-input v-model="form.name" placeholder="请输入用户名"/>
         </a-form-item>
-        <a-form-item field="password" label="密码" validate-trigger="change">
+        <a-form-item field="password" label="密码" validate-trigger="change,blur">
           <a-input-password v-model="form.password" placeholder="请输入用户密码" allow-clear/>
         </a-form-item>
-        <a-form-item>
+        <a-form-item name="remember" :wrapper-col="{ offset:1, span: 16 }">
+          <a-checkbox v-model:checked="form.remember">下次自动登录</a-checkbox>
+        </a-form-item>
+        <a-form-item :wrapper-col="{ offset:8, span: 16 }">
           <a-space>
-            <a-button html-type="submit">提交</a-button>
-            <a-button @click="$refs.formRef.resetFields()">重置</a-button>
+            <a-button :disabled="disabled" type="primary" html-type="submit">提交</a-button>
+            <a-button @click="$refs.formRef.resetFields()" type="primary" danger>重置</a-button>
           </a-space>
         </a-form-item>
       </a-form>
@@ -56,7 +59,8 @@
 </template>
 
 <script>
-import {reactive} from 'vue';
+// 导入reactive 响应式对象
+import {reactive, computed} from 'vue';
 
 export default {
   setup() {
@@ -67,8 +71,9 @@ export default {
     const form = reactive({
       name: '',
       password: '',
+      remember: true,
     });
-    const regexValidation = (_, value) => {
+    const regexValidation = async (_, value) => {
       const pattern = /[^a-zA-Z0-9]/; // 正则表达式匹配非字母和数字字符
       if (pattern.test(value)) {
         return Promise.reject('只能包含字母和数字');
@@ -87,13 +92,8 @@ export default {
         {required: true, message: '密码必须填写',},
         {minLength: 5, message: "用户名最少输入5个字符"},
         {maxLength: 20, message: "用户名最多输入20个字符"},
-
       ],
-
-
     }
-
-
     return {
       form,
       rules,

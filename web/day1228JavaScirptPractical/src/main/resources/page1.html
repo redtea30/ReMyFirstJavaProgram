@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="appp"></div>
+<span></span>
+<div id="test1"></div>
+<div id="personPrint"></div>
+<div id="persons"></div>
+<script>
+    const appp = document.getElementById("appp")
+    appp.textContent = "Hello World"
+    const span = document.querySelector("span")
+    span.textContent = "Hello World"
+    const test1 = document.getElementById("test1")
+    const arr1 = [1, 2, 3, 4, 5, 6, 7]
+    const num1 = 0
+    const arr2 = [num1, ...arr1]
+    console.log(arr2)
+    test1.textContent = arr2.toString()
+
+    const person1 = {
+        name: "张三",
+        age: 18,
+        sex: "男",
+        address: "北京市",
+        hobby: ["打球", "唱歌", "跳舞"]
+    }
+
+    const personPrint = document.getElementById("personPrint")
+    personPrint.textContent = JSON.stringify(person1)
+    console.log(person1)
+    const person2 = {
+        name: "李四",
+        age: 19,
+        sex: "女",
+        address: "上海市",
+        hobby: ["打球", "唱歌", "跳舞"]
+    }
+
+    const persons = document.getElementById("persons")
+    persons.textContent = JSON.stringify([person1, person2, arr2.toString()])
+
+</script>
+</body>
+</html>
