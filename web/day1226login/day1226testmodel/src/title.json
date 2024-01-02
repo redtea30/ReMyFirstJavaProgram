@@ -1,0 +1,31 @@
+[
+  {
+    "title": "id",
+    "dataIndex": "id"
+  },
+  {
+    "title": "book_title",
+    "className": "book_title",
+    "dataIndex": "book_title"
+  },
+  {
+    "title": "publication_date",
+    "className": "publication_date",
+    "dataIndex": "publication_date"
+  },
+  {
+    "title": "author",
+    "className": "author",
+    "dataIndex": "author"
+  },
+  {
+    "title": "price",
+    "className": "price",
+    "dataIndex": "price"
+  },
+  {
+    "title": "quantity",
+    "className": "quantity",
+    "dataIndex": "quantity"
+  }
+]

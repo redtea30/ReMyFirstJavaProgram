@@ -3,15 +3,20 @@
     <a-layout-sider :style="siderStyle">Sider</a-layout-sider>
     <a-layout>
       <a-layout-header :style="headerStyle">Header</a-layout-header>
-      <a-layout-content :style="contentStyle">Content</a-layout-content>
+      <!--Content部分-->
+      <a-layout-content :style="contentStyle">
+        <MyList></MyList>
+      </a-layout-content>
       <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
     </a-layout>
   </a-layout>
 </template>
-<script setup>
-// 获取当前视窗高度
-const height = window.innerHeight - 64 * 2;
 
+<script setup>
+import {ref, reactive, markRaw} from "vue";
+import List from "@/components/MyList.vue";
+// 改成变量了，问的gpt，获取当前视窗高度
+const height = ref(window.innerHeight - 64 * 2);
 const headerStyle = {
   textAlign: 'center',
   color: '#fff',
@@ -22,7 +27,7 @@ const headerStyle = {
 };
 const contentStyle = {
   textAlign: 'center',
-  minHeight: 120,
+  minHeight: '120px',
   lineHeight: '120px',
   color: '#fff',
   // 这里设置的就是视窗的高度
@@ -40,5 +45,10 @@ const footerStyle = {
   color: '#fff',
   backgroundColor: '#7dbcea',
 };
+// 导入MyList对象
+const MyList = markRaw(List)
+
+// 先获取了，有啥用处不知道
+const ListHeight = document.getElementsByName("MyList")
 
 </script>

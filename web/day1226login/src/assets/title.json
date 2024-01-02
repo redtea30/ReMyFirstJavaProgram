@@ -1,0 +1,28 @@
+[
+
+  {
+    "title": "书名",
+    "className": "book_title",
+    "dataIndex": "book_title"
+  },
+  {
+    "title": "出版日期",
+    "className": "publication_date",
+    "dataIndex": "publication_date"
+  },
+  {
+    "title": "作者",
+    "className": "author",
+    "dataIndex": "author"
+  },
+  {
+    "title": "价格",
+    "className": "price",
+    "dataIndex": "price"
+  },
+  {
+    "title": "数量",
+    "className": "quantity",
+    "dataIndex": "quantity"
+  }
+]
