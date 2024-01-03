@@ -8,14 +8,30 @@
              :pagination="pagination"
     >
 
-      <template #bodyCell="{ column, text }">
+      <template #bodyCell="{ column, text, record }">
         <template v-if="column.dataIndex === 'name'">
           <a>{{ text }}</a>
+        </template>
+        <template v-if="column.dataIndex === 'operation'">
+          <!-- 操作列 -->
+          <a-button size="small" @click="onEdit(record)">修改</a-button>
+          <!--    这里是配合上面修改的弹出框      -->
+          <a-popconfirm
+              title="Are you sure delete this task?"
+              ok-text="Yes"
+              cancel-text="No"
+              @confirm="confirm"
+              @cancel="cancel"
+          >
+            <a href="#">Delete</a>
+          </a-popconfirm>
+          <a-button size="small" @click="onDelete(record)">删除</a-button>
         </template>
       </template>
 
     </a-table>
   </div>
+  <!--  信息展示模块，随时可以删除掉-->
   <div>
     <!--    获取列表的列数-->
     <span>默认展示数据：总数{{ contentNumbers }} ，当前页{{ currentPage }}，每页显示{{ pageSize }}</span>
@@ -71,4 +87,5 @@ function handleTableChange(newPage, newPageSize) {
 }
 
 // todo 多选，不会写，有问题
+// todo 操作，不会写，在抄
 </script>

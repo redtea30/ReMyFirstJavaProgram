@@ -24,5 +24,10 @@
     "title": "数量",
     "className": "quantity",
     "dataIndex": "quantity"
+  },
+  {
+    "title": "操作",
+    "className": "operation",
+    "dataIndex": "operation"
   }
 ]

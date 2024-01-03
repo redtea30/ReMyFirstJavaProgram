@@ -1,11 +1,13 @@
 <template>
   <a-layout>
-    <a-layout-sider :style="siderStyle">Sider</a-layout-sider>
+    <a-layout-sider :style="siderStyle">
+      <Menu></Menu>
+    </a-layout-sider>
     <a-layout>
       <a-layout-header :style="headerStyle">Header</a-layout-header>
       <!--Content部分-->
       <a-layout-content :style="contentStyle">
-        <MyList></MyList>
+        <RouterView></RouterView>
       </a-layout-content>
       <a-layout-footer :style="footerStyle">Footer</a-layout-footer>
     </a-layout>
@@ -15,6 +17,8 @@
 <script setup>
 import {ref, reactive, markRaw} from "vue";
 import List from "@/components/MyList.vue";
+import Menu from "@/components/Menu.vue";
+import {RouterView} from "vue-router";
 // 改成变量了，问的gpt，获取当前视窗高度
 const height = ref(window.innerHeight - 64 * 2);
 const headerStyle = {
