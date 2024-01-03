@@ -10,6 +10,9 @@ body {
 }
 </style>
 <script>
+// 这几条是为了设置国际化
+import {ref} from 'vue'
+import zhCN from 'ant-design-vue/es/locale/zh_CN';
 
-
+const locale = ref(zhCN)
 </script>

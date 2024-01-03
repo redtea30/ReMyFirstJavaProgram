@@ -17,15 +17,14 @@
           <a-button size="small" @click="onEdit(record)">修改</a-button>
           <!--    这里是配合上面修改的弹出框      -->
           <a-popconfirm
-              title="Are you sure delete this task?"
+              title="你确定要删除吗?"
               ok-text="Yes"
               cancel-text="No"
               @confirm="confirm"
               @cancel="cancel"
           >
-            <a href="#">Delete</a>
+            <a-button size="small" @click="onDelete(record)">删除</a-button>
           </a-popconfirm>
-          <a-button size="small" @click="onDelete(record)">删除</a-button>
         </template>
       </template>
 
