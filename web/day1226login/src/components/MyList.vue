@@ -14,7 +14,7 @@
         </template>
         <template v-if="column.dataIndex === 'operation'">
           <!-- 操作列 -->
-          <a-button size="small" @click="onEdit(record)">修改</a-button>
+          <a-button @click="onEdit(record)" type="primary">修改</a-button>
           <!--    这里是配合上面修改的弹出框      -->
           <a-popconfirm
               title="你确定要删除吗?"
@@ -23,8 +23,9 @@
               @confirm="confirm"
               @cancel="cancel"
           >
-            <a-button size="small" @click="onDelete(record)">删除</a-button>
+            <a-button @click="onDelete(record)" type="primary" danger>删除</a-button>
           </a-popconfirm>
+
         </template>
       </template>
 
@@ -63,6 +64,7 @@ const indexColumn = {
   dataIndex: 'serial',
   key: 'serial',
   customRender: ({index}) => calculateRowNumber(index),
+  width: '50px'
 };
 // 将序号列添加到列的开始位置
 columnsFromJson.value.unshift(indexColumn);
@@ -87,4 +89,8 @@ function handleTableChange(newPage, newPageSize) {
 
 // todo 多选，不会写，有问题
 // todo 操作，不会写，在抄
+
+// dataSource.forEach(item => {
+//   item.status = 1;
+// });
 </script>

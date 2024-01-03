@@ -1,64 +1,68 @@
 <template>
-  <div>
-    <a-menu
-        v-model:openKeys="state.openKeys"
-        v-model:selectedKeys="state.selectedKeys"
-        style="width: 100%"
-        :mode="state.mode"
-        :items="items"
-        :theme="state.theme"
-        @click="handleMenuClick"
-    ></a-menu>
-  </div>
+  <a-menu
+      v-model:openKeys="state.openKeys"
+      v-model:selectedKeys="state.selectedKeys"
+      style="width: 100%"
+      :items="items"
+      @click="handleClick"
+  />
 </template>
 <script setup>
-import {h, reactive} from 'vue';
-import MyList from "@/components/MyList.vue"
-import Home from "@/components/Home.vue"
-// 这里导入的都是图标
+import {h, reactive, ref} from 'vue';
+import {useRouter} from "vue-router";
 import {
   MailOutlined,
   CalendarOutlined,
   AppstoreOutlined,
   SettingOutlined,
 } from '@ant-design/icons-vue';
-import {useRouter} from "vue-router";
+
 
 const state = reactive({
-  mode: 'inline',
-  theme: 'light',
-  selectedKeys: ['1'],
-  openKeys: ['sub1'],
+  collapsed: false,
+  selectedKeys: [sessionStorage.getItem("selectedKeys") || "Home"],
+  openKeys: [sessionStorage.getItem("openKeys") || ""],
+  preOpenKeys: [],
 });
 
-function getItem(label, key, icon, children, type) {
-  return {
-    key,
-    icon,
-    children,
-    label,
-    type,
-  };
-}
-
-// 这里的key相当于vue router里的名称
 const items = reactive([
-  getItem('首页', 'Home', h(MailOutlined)),
-  getItem('商品管理', 'MyList', h(CalendarOutlined)),
-  getItem('系统管理', 'sub1', h(AppstoreOutlined), [
-    getItem('用户管理', '3'),
-    getItem('角色管理', '4'),
-    getItem('菜单管理', '5'),
-  ]),
+  {
+    key: 'Home',
+    icon: () => h(MailOutlined),
+    label: '首页',
+    title: '首页',
+    path: '/home',
+  },
+  {
+    key: 'MyList',
+    icon: () => h(CalendarOutlined),
+    label: '商品列表',
+    title: '商品列表',
+    path: '/myList',
+  },
+  {
+    key: 'user',
+    icon: () => h(CalendarOutlined),
+    label: '用户管理',
+    title: '用户管理',
+    path: '/user',
+  }
 ]);
-
 const router = useRouter();
-
-// 这个方法处理点击事件，通过设置@click实现
-function handleMenuClick(item) {
-  // 这里 'item' 是点击的菜单项
-  router.push({name: item.key});
-}
-
-
+const handleClick = ({item, key, keyPath}) => {
+  console.log(item, key, keyPath);
+  sessionStorage.setItem("selectedKeys", key);
+  state.selectedKeys = [key];
+  if (keyPath.length > 1) {
+    // 有子菜单
+    state.openKeys = [keyPath[0]];
+    sessionStorage.setItem("openKeys", keyPath[0]);
+  } else {
+    state.openKeys = [];
+    sessionStorage.setItem("openKeys", "/");
+  }
+  console.log(item.path)
+  // 路由跳转
+  router.push(item.path);
+};
 </script>

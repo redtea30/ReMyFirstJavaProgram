@@ -1,5 +1,4 @@
 [
-
   {
     "title": "书名",
     "className": "book_title",
@@ -8,7 +7,8 @@
   {
     "title": "出版日期",
     "className": "publication_date",
-    "dataIndex": "publication_date"
+    "dataIndex": "publication_date",
+    "width": "120px"
   },
   {
     "title": "作者",
@@ -18,12 +18,19 @@
   {
     "title": "价格",
     "className": "price",
-    "dataIndex": "price"
+    "dataIndex": "price",
+    "width": "100px"
   },
   {
     "title": "数量",
     "className": "quantity",
-    "dataIndex": "quantity"
+    "dataIndex": "quantity",
+    "width": "100px"
+  },
+  {
+    "title": "状态",
+    "className": "status",
+    "dataIndex": "status"
   },
   {
     "title": "操作",
